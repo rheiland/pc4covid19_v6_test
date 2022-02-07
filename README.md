@@ -1,8 +1,8 @@
 # pc4covid19 - COVID19 (SARS-CoV-2) tissue simulator nanoHUB app
 
-**Version:** 3.2
+**Version:** 6.0
 
-**Release date:** 20 July 2020 
+**Release date:** 1 March 2022 
 
 ## Overview
 This repository contains code and data for the nanoHUB app https://nanohub.org/tools/pc4covid19.
