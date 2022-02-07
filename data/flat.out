@@ -1,0 +1,193 @@
+--- Phase 1: create a new .xml containing 6 copies of 'default' cell_definition, with desired names.
+--- Remove all but default cell_defs
+removing  lung epithelium
+removing  immune
+removing  CD8 Tcell
+removing  macrophage
+removing  neutrophil
+removing  DC
+removing  CD4 Tcell
+--- Insert duplicate default cell_def for each leaf
+--- Change cell_def name for each leaf
+lung epithelium
+CD8 Tcell
+macrophage
+neutrophil
+DC
+CD4 Tcell
+
+Done. Please check the output file: new_flat_config1.xml
+
+--- Phase 2: edit the new .xml so each immune cell type has its parent's params (<cell_definition name='immune' parent_type='default' ...>)
+
+Done.
+
+Done. Please check the output file: new_flat_config2.xml
+
+--- Phase 3: edit the new .xml so each immune cell type has its specific params (from the ORIGINAL .xml).
+
+---------------- processing  CD8 Tcell
+------- calling recurse_node2 on child= <Element 'phenotype' at 0x108f24ea8>
+//phenotype//death//model//death_rate  =  2.8e-4
+-- update  CD8 Tcell , xmlpath= //phenotype//death//model//death_rate  =  2.8e-4
+//phenotype//motility//migration_bias  =  0.70
+-- update  CD8 Tcell , xmlpath= //phenotype//motility//migration_bias  =  0.70
+//phenotype//motility//options//enabled  =  true
+-- update  CD8 Tcell , xmlpath= //phenotype//motility//options//enabled  =  true
+//phenotype//motility//options//use_2D  =  true
+-- update  CD8 Tcell , xmlpath= //phenotype//motility//options//use_2D  =  true
+//phenotype//motility//options//chemotaxis//enabled  =  true
+-- update  CD8 Tcell , xmlpath= //phenotype//motility//options//chemotaxis//enabled  =  true
+//phenotype//motility//options//chemotaxis//substrate  =  chemokine
+-- update  CD8 Tcell , xmlpath= //phenotype//motility//options//chemotaxis//substrate  =  chemokine
+//phenotype//motility//options//chemotaxis//direction  =  1
+-- update  CD8 Tcell , xmlpath= //phenotype//motility//options//chemotaxis//direction  =  1
+//phenotype//volume//total  =  478
+-- update  CD8 Tcell , xmlpath= //phenotype//volume//total  =  478
+//phenotype//volume//nuclear  =  47.8
+-- update  CD8 Tcell , xmlpath= //phenotype//volume//nuclear  =  47.8
+//phenotype//secretion//substrate//uptake_rate  =  0
+-- update  CD8 Tcell , xmlpath= //phenotype//secretion//substrate//uptake_rate  =  0
+------- calling recurse_node2 on child= <Element 'custom_data' at 0x108f264f8>
+//custom_data//cell_attachment_rate  =  0.2
+-- update  CD8 Tcell , xmlpath= //custom_data//cell_attachment_rate  =  0.2
+//custom_data//cell_attachment_lifetime  =  8.5
+-- update  CD8 Tcell , xmlpath= //custom_data//cell_attachment_lifetime  =  8.5
+
+---------------- processing  macrophage
+------- calling recurse_node2 on child= <Element 'phenotype' at 0x108f26638>
+//phenotype//death//model//death_rate  =  2.1e-4
+-- update  macrophage , xmlpath= //phenotype//death//model//death_rate  =  2.1e-4
+//phenotype//motility//migration_bias  =  0.7
+-- update  macrophage , xmlpath= //phenotype//motility//migration_bias  =  0.7
+//phenotype//motility//persistence_time  =  5
+-- update  macrophage , xmlpath= //phenotype//motility//persistence_time  =  5
+//phenotype//motility//options//enabled  =  true
+-- update  macrophage , xmlpath= //phenotype//motility//options//enabled  =  true
+//phenotype//motility//options//use_2D  =  true
+-- update  macrophage , xmlpath= //phenotype//motility//options//use_2D  =  true
+//phenotype//motility//options//chemotaxis//enabled  =  true
+-- update  macrophage , xmlpath= //phenotype//motility//options//chemotaxis//enabled  =  true
+//phenotype//motility//options//chemotaxis//substrate  =  debris
+-- update  macrophage , xmlpath= //phenotype//motility//options//chemotaxis//substrate  =  debris
+//phenotype//motility//options//chemotaxis//direction  =  1
+-- update  macrophage , xmlpath= //phenotype//motility//options//chemotaxis//direction  =  1
+//phenotype//volume//total  =  4849
+-- update  macrophage , xmlpath= //phenotype//volume//total  =  4849
+//phenotype//volume//nuclear  =  485
+-- update  macrophage , xmlpath= //phenotype//volume//nuclear  =  485
+//phenotype//volume//cytoplasmic_biomass_change_rate  =  0.01
+-- update  macrophage , xmlpath= //phenotype//volume//cytoplasmic_biomass_change_rate  =  0.01
+------- calling recurse_node2 on child= <Element 'custom_data' at 0x108f26bd8>
+//custom_data//phagocytosis_rate  =  0.167
+-- update  macrophage , xmlpath= //custom_data//phagocytosis_rate  =  0.167
+//custom_data//sensitivity_to_debris_chemotaxis  =  1.0
+-- update  macrophage , xmlpath= //custom_data//sensitivity_to_debris_chemotaxis  =  1.0
+//custom_data//sensitivity_to_chemokine_chemotaxis  =  10.0
+-- update  macrophage , xmlpath= //custom_data//sensitivity_to_chemokine_chemotaxis  =  10.0
+//custom_data//activated_speed  =  0.4
+-- update  macrophage , xmlpath= //custom_data//activated_speed  =  0.4
+//custom_data//activated_cytokine_secretion_rate  =  1
+-- update  macrophage , xmlpath= //custom_data//activated_cytokine_secretion_rate  =  1
+
+---------------- processing  neutrophil
+------- calling recurse_node2 on child= <Element 'phenotype' at 0x108f26e08>
+//phenotype//death//model//death_rate  =  8.9e-4
+-- update  neutrophil , xmlpath= //phenotype//death//model//death_rate  =  8.9e-4
+//phenotype//motility//speed  =  19
+-- update  neutrophil , xmlpath= //phenotype//motility//speed  =  19
+//phenotype//motility//migration_bias  =  0.91
+-- update  neutrophil , xmlpath= //phenotype//motility//migration_bias  =  0.91
+//phenotype//motility//persistence_time  =  5
+-- update  neutrophil , xmlpath= //phenotype//motility//persistence_time  =  5
+//phenotype//motility//options//enabled  =  true
+-- update  neutrophil , xmlpath= //phenotype//motility//options//enabled  =  true
+//phenotype//motility//options//use_2D  =  true
+-- update  neutrophil , xmlpath= //phenotype//motility//options//use_2D  =  true
+//phenotype//motility//options//chemotaxis//enabled  =  true
+-- update  neutrophil , xmlpath= //phenotype//motility//options//chemotaxis//enabled  =  true
+//phenotype//motility//options//chemotaxis//substrate  =  debris
+-- update  neutrophil , xmlpath= //phenotype//motility//options//chemotaxis//substrate  =  debris
+//phenotype//motility//options//chemotaxis//direction  =  1
+-- update  neutrophil , xmlpath= //phenotype//motility//options//chemotaxis//direction  =  1
+//phenotype//secretion//substrate//uptake_rate  =  0.1
+-- update  neutrophil , xmlpath= //phenotype//secretion//substrate//uptake_rate  =  0.1
+//phenotype//volume//total  =  1437
+-- update  neutrophil , xmlpath= //phenotype//volume//total  =  1437
+//phenotype//volume//nuclear  =  143.7
+-- update  neutrophil , xmlpath= //phenotype//volume//nuclear  =  143.7
+//phenotype//volume//cytoplasmic_biomass_change_rate  =  0.045
+-- update  neutrophil , xmlpath= //phenotype//volume//cytoplasmic_biomass_change_rate  =  0.045
+------- calling recurse_node2 on child= <Element 'custom_data' at 0x108f29548>
+//custom_data//phagocytosis_rate  =  0.117
+-- update  neutrophil , xmlpath= //custom_data//phagocytosis_rate  =  0.117
+//custom_data//sensitivity_to_debris_chemotaxis  =  1.0
+-- update  neutrophil , xmlpath= //custom_data//sensitivity_to_debris_chemotaxis  =  1.0
+//custom_data//sensitivity_to_chemokine_chemotaxis  =  10.0
+-- update  neutrophil , xmlpath= //custom_data//sensitivity_to_chemokine_chemotaxis  =  10.0
+//custom_data//activated_speed  =  0.4
+-- update  neutrophil , xmlpath= //custom_data//activated_speed  =  0.4
+//custom_data//activated_cytokine_secretion_rate  =  0
+-- update  neutrophil , xmlpath= //custom_data//activated_cytokine_secretion_rate  =  0
+
+---------------- processing  DC
+------- calling recurse_node2 on child= <Element 'phenotype' at 0x108f29778>
+//phenotype//death//model//death_rate  =  8.9e-4
+-- update  DC , xmlpath= //phenotype//death//model//death_rate  =  8.9e-4
+//phenotype//motility//speed  =  2
+-- update  DC , xmlpath= //phenotype//motility//speed  =  2
+//phenotype//motility//migration_bias  =  0.7
+-- update  DC , xmlpath= //phenotype//motility//migration_bias  =  0.7
+//phenotype//motility//persistence_time  =  5
+-- update  DC , xmlpath= //phenotype//motility//persistence_time  =  5
+//phenotype//motility//options//enabled  =  true
+-- update  DC , xmlpath= //phenotype//motility//options//enabled  =  true
+//phenotype//motility//options//use_2D  =  true
+-- update  DC , xmlpath= //phenotype//motility//options//use_2D  =  true
+//phenotype//motility//options//chemotaxis//enabled  =  true
+-- update  DC , xmlpath= //phenotype//motility//options//chemotaxis//enabled  =  true
+//phenotype//motility//options//chemotaxis//substrate  =  chemokine
+-- update  DC , xmlpath= //phenotype//motility//options//chemotaxis//substrate  =  chemokine
+//phenotype//motility//options//chemotaxis//direction  =  1
+-- update  DC , xmlpath= //phenotype//motility//options//chemotaxis//direction  =  1
+//phenotype//secretion//substrate//uptake_rate  =  0.1
+-- update  DC , xmlpath= //phenotype//secretion//substrate//uptake_rate  =  0.1
+//phenotype//volume//total  =  1767
+-- update  DC , xmlpath= //phenotype//volume//total  =  1767
+//phenotype//volume//nuclear  =  176.7
+-- update  DC , xmlpath= //phenotype//volume//nuclear  =  176.7
+//phenotype//volume//cytoplasmic_biomass_change_rate  =  0.045
+-- update  DC , xmlpath= //phenotype//volume//cytoplasmic_biomass_change_rate  =  0.045
+------- calling recurse_node2 on child= <Element 'custom_data' at 0x108f29e58>
+//custom_data  =  0.045
+-- update  DC , xmlpath= //custom_data  =  0.045
+
+---------------- processing  CD4 Tcell
+------- calling recurse_node2 on child= <Element 'phenotype' at 0x108f29f48>
+//phenotype//death//model//death_rate  =  2.8e-4
+-- update  CD4 Tcell , xmlpath= //phenotype//death//model//death_rate  =  2.8e-4
+//phenotype//motility//migration_bias  =  0.70
+-- update  CD4 Tcell , xmlpath= //phenotype//motility//migration_bias  =  0.70
+//phenotype//motility//options//enabled  =  true
+-- update  CD4 Tcell , xmlpath= //phenotype//motility//options//enabled  =  true
+//phenotype//motility//options//use_2D  =  true
+-- update  CD4 Tcell , xmlpath= //phenotype//motility//options//use_2D  =  true
+//phenotype//motility//options//chemotaxis//enabled  =  true
+-- update  CD4 Tcell , xmlpath= //phenotype//motility//options//chemotaxis//enabled  =  true
+//phenotype//motility//options//chemotaxis//substrate  =  chemokine
+-- update  CD4 Tcell , xmlpath= //phenotype//motility//options//chemotaxis//substrate  =  chemokine
+//phenotype//motility//options//chemotaxis//direction  =  1
+-- update  CD4 Tcell , xmlpath= //phenotype//motility//options//chemotaxis//direction  =  1
+//phenotype//volume//total  =  478
+-- update  CD4 Tcell , xmlpath= //phenotype//volume//total  =  478
+//phenotype//volume//nuclear  =  47.8
+-- update  CD4 Tcell , xmlpath= //phenotype//volume//nuclear  =  47.8
+//phenotype//secretion//substrate//uptake_rate  =  0
+-- update  CD4 Tcell , xmlpath= //phenotype//secretion//substrate//uptake_rate  =  0
+------- calling recurse_node2 on child= <Element 'custom_data' at 0x108f2a598>
+//custom_data  =  0
+-- update  CD4 Tcell , xmlpath= //custom_data  =  0
+
+Done.
+---> wrote  new_flat_config3.xml (copy it to PhysiCell_settings.xml if desirable)
+

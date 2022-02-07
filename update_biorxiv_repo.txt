@@ -1,0 +1,31 @@
+cp bin/pc4covid19.py ~/git/org_pc4covid19/bin
+cp bin/microenv_params.py ~/git/org_pc4covid19/bin
+cp bin/cell_types.py ~/git/org_pc4covid19/bin
+cp bin/user_params.py ~/git/org_pc4covid19/bin
+cp bin/substrates.py ~/git/org_pc4covid19/bin
+
+cp doc/about.html ~/git/org_pc4covid19/doc
+
+cp data/PhysiCell_settings.xml ~/git/org_pc4covid19/data
+cp data/initial.xml ~/git/org_pc4covid19/data
+
+~/git/pc4covid19-rheiland-master/src$ cp -R * ~/git/org_pc4covid19/src/   # due to now using 1.9.0
+
+------------------------
+~/Documents/GitHub/pc4covid19/src
+cp bin/pc4covid19.py ~/Documents/GitHub/pc4covid19/bin
+cp bin/microenv_params.py ~/Documents/GitHub/pc4covid19/bin
+cp bin/cell_types.py ~/Documents/GitHub/pc4covid19/bin
+cp bin/user_params.py ~/Documents/GitHub/pc4covid19/bin
+cp bin/substrates.py ~/Documents/GitHub/pc4covid19/bin
+
+cp doc/about.html ~/Documents/GitHub/pc4covid19/doc
+
+cp data/PhysiCell_settings.xml ~/Documents/GitHub/pc4covid19/data
+cp data/initial.xml ~/Documents/GitHub/pc4covid19/data
+
+~/git/pc4covid19-rheiland-master/src$ cp -R * ~/Documents/GitHub/pc4covid19/src/   # due to now using 1.9.0
+
+
+------------------------
+# Then test in the updated app, of course.

@@ -1,0 +1,10 @@
+<file1>
+<secretion>
+  <substrate name="sub1">
+    <uptake_rate>0</uptake_rate>
+  </substrate>
+  <substrate name="sub2">
+    <uptake_rate>0</uptake_rate>
+  </substrate>
+</secretion>
+</file1>

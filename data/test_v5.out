@@ -1,0 +1,231 @@
+num_args= 2
+
+config_file =  test_v5.xml
+colorname1 =  lightgreen
+colorname2 =  tan
+
+
+---------------- subpath0  default  =  .//cell_definition[1]//phenotype
+pheno child= <Element 'cycle' at 0x10d2afb30>
+pheno child= <Element 'death' at 0x10d2afd60>
+pheno child= <Element 'volume' at 0x10d2b2720>
+---------  parsing volume 
+---------   .//cell_definition[1]//phenotype//volume//total  units_str =  micron^3
+---------   .//cell_definition[1]//phenotype//volume//fluid_fraction  units_str =  dimensionless
+---------   .//cell_definition[1]//phenotype//volume//nuclear  units_str =  micron^3
+---------   .//cell_definition[1]//phenotype//volume//fluid_change_rate  units_str =  1/min
+---------   .//cell_definition[1]//phenotype//volume//cytoplasmic_biomass_change_rate  units_str =  1/min
+---------   .//cell_definition[1]//phenotype//volume//nuclear_biomass_change_rate  units_str =  1/min
+---------   .//cell_definition[1]//phenotype//volume//calcified_fraction  units_str =  dimensionless
+---------   .//cell_definition[1]//phenotype//volume//calcification_rate  units_str =  1/min
+---------   .//cell_definition[1]//phenotype//volume//relative_rupture_volume  units_str =  dimensionless
+pheno child= <Element 'mechanics' at 0x10d2b2ae0>
+pheno child= <Element 'motility' at 0x10d2b2ea0>
+pheno child= <Element 'secretion' at 0x10d2b82c0>
+.//cell_definition[1]//phenotype//secretion//substrate[1]
+.//cell_definition[1]//phenotype//secretion//substrate[2]
+.//cell_definition[1]//phenotype//secretion//substrate[3]
+.//cell_definition[1]//phenotype//secretion//substrate[4]
+.//cell_definition[1]//phenotype//secretion//substrate[5]
+.//cell_definition[1]//phenotype//secretion//substrate[6]
+.//cell_definition[1]//phenotype//secretion//substrate[7]
+.//cell_definition[1]//phenotype//secretion//substrate[8]
+pheno child= <Element 'molecular' at 0x10d2b8e00>
+
+  >>>  parse <custom_data> for default
+-- fill_gui_and_xml with: w2= self.float59 , subpath1= .//cell_definition[1]//custom_data//virion
+-- fill_gui_and_xml with: w2= self.float60 , subpath1= .//cell_definition[1]//custom_data//uncoated_virion
+-- fill_gui_and_xml with: w2= self.float61 , subpath1= .//cell_definition[1]//custom_data//viral_RNA
+-- fill_gui_and_xml with: w2= self.float62 , subpath1= .//cell_definition[1]//custom_data//viral_protein
+-- fill_gui_and_xml with: w2= self.float63 , subpath1= .//cell_definition[1]//custom_data//export_virion
+-- fill_gui_and_xml with: w2= self.float64 , subpath1= .//cell_definition[1]//custom_data//assembled_virion
+-- fill_gui_and_xml with: w2= self.float65 , subpath1= .//cell_definition[1]//custom_data//virion_uncoating_rate
+-- fill_gui_and_xml with: w2= self.float66 , subpath1= .//cell_definition[1]//custom_data//uncoated_to_RNA_rate
+-- fill_gui_and_xml with: w2= self.float67 , subpath1= .//cell_definition[1]//custom_data//max_RNA_replication_rate
+-- fill_gui_and_xml with: w2= self.float68 , subpath1= .//cell_definition[1]//custom_data//RNA_replication_half
+-- fill_gui_and_xml with: w2= self.float69 , subpath1= .//cell_definition[1]//custom_data//basal_RNA_degradation_rate
+-- fill_gui_and_xml with: w2= self.float70 , subpath1= .//cell_definition[1]//custom_data//protein_synthesis_rate
+-- fill_gui_and_xml with: w2= self.float71 , subpath1= .//cell_definition[1]//custom_data//virion_assembly_rate
+-- fill_gui_and_xml with: w2= self.float72 , subpath1= .//cell_definition[1]//custom_data//virion_export_rate
+-- fill_gui_and_xml with: w2= self.float73 , subpath1= .//cell_definition[1]//custom_data//unbound_external_ACE2
+-- fill_gui_and_xml with: w2= self.float74 , subpath1= .//cell_definition[1]//custom_data//bound_external_ACE2
+-- fill_gui_and_xml with: w2= self.float75 , subpath1= .//cell_definition[1]//custom_data//unbound_internal_ACE2
+-- fill_gui_and_xml with: w2= self.float76 , subpath1= .//cell_definition[1]//custom_data//bound_internal_ACE2
+-- fill_gui_and_xml with: w2= self.float77 , subpath1= .//cell_definition[1]//custom_data//ACE2_binding_rate
+-- fill_gui_and_xml with: w2= self.float78 , subpath1= .//cell_definition[1]//custom_data//ACE2_endocytosis_rate
+-- fill_gui_and_xml with: w2= self.float79 , subpath1= .//cell_definition[1]//custom_data//ACE2_cargo_release_rate
+-- fill_gui_and_xml with: w2= self.float80 , subpath1= .//cell_definition[1]//custom_data//ACE2_recycling_rate
+-- fill_gui_and_xml with: w2= self.float81 , subpath1= .//cell_definition[1]//custom_data//max_infected_apoptosis_rate
+-- fill_gui_and_xml with: w2= self.float82 , subpath1= .//cell_definition[1]//custom_data//max_apoptosis_half_max
+-- fill_gui_and_xml with: w2= self.float83 , subpath1= .//cell_definition[1]//custom_data//apoptosis_hill_power
+-- fill_gui_and_xml with: w2= self.float84 , subpath1= .//cell_definition[1]//custom_data//virus_fraction_released_at_death
+-- fill_gui_and_xml with: w2= self.float85 , subpath1= .//cell_definition[1]//custom_data//infected_cell_chemokine_secretion_rate
+-- fill_gui_and_xml with: w2= self.float86 , subpath1= .//cell_definition[1]//custom_data//debris_secretion_rate
+-- fill_gui_and_xml with: w2= self.float87 , subpath1= .//cell_definition[1]//custom_data//infected_cell_chemokine_secretion_activated
+-- fill_gui_and_xml with: w2= self.float88 , subpath1= .//cell_definition[1]//custom_data//nuclear_NFkB
+-- fill_gui_and_xml with: w2= self.float89 , subpath1= .//cell_definition[1]//custom_data//inactive_NLRP3
+-- fill_gui_and_xml with: w2= self.float90 , subpath1= .//cell_definition[1]//custom_data//active_NLRP3
+-- fill_gui_and_xml with: w2= self.float91 , subpath1= .//cell_definition[1]//custom_data//bound_NLRP3
+-- fill_gui_and_xml with: w2= self.float92 , subpath1= .//cell_definition[1]//custom_data//bound_ASC
+-- fill_gui_and_xml with: w2= self.float93 , subpath1= .//cell_definition[1]//custom_data//bound_caspase1
+-- fill_gui_and_xml with: w2= self.float94 , subpath1= .//cell_definition[1]//custom_data//cleaved_gasderminD
+-- fill_gui_and_xml with: w2= self.float95 , subpath1= .//cell_definition[1]//custom_data//pro_IL_1b
+-- fill_gui_and_xml with: w2= self.float96 , subpath1= .//cell_definition[1]//custom_data//cytoplasmic_IL_1b
+-- fill_gui_and_xml with: w2= self.float97 , subpath1= .//cell_definition[1]//custom_data//external_IL_1b
+-- fill_gui_and_xml with: w2= self.float98 , subpath1= .//cell_definition[1]//custom_data//cytoplasmic_IL_18
+-- fill_gui_and_xml with: w2= self.float99 , subpath1= .//cell_definition[1]//custom_data//external_IL_18
+-- fill_gui_and_xml with: w2= self.float100 , subpath1= .//cell_definition[1]//custom_data//cytoplasmic_volume
+-- fill_gui_and_xml with: w2= self.float101 , subpath1= .//cell_definition[1]//custom_data//cell_pyroptosis_flag
+-- fill_gui_and_xml with: w2= self.float102 , subpath1= .//cell_definition[1]//custom_data//cell_bystander_pyroptosis_flag
+-- fill_gui_and_xml with: w2= self.float103 , subpath1= .//cell_definition[1]//custom_data//cell_virus_induced_apoptosis_flag
+-- fill_gui_and_xml with: w2= self.float104 , subpath1= .//cell_definition[1]//custom_data//internalised_pro_pyroptosis_cytokine
+-- fill_gui_and_xml with: w2= self.float105 , subpath1= .//cell_definition[1]//custom_data//interferon_secretion_rate_via_infection
+-- fill_gui_and_xml with: w2= self.float106 , subpath1= .//cell_definition[1]//custom_data//max_interferon_secretion_rate_via_paracrine
+-- fill_gui_and_xml with: w2= self.float107 , subpath1= .//cell_definition[1]//custom_data//interferon_max_response_threshold
+-- fill_gui_and_xml with: w2= self.float108 , subpath1= .//cell_definition[1]//custom_data//interferon_activation
+-- fill_gui_and_xml with: w2= self.float109 , subpath1= .//cell_definition[1]//custom_data//interferon_max_virus_inhibition
+-- fill_gui_and_xml with: w2= self.float110 , subpath1= .//cell_definition[1]//custom_data//interferon_viral_RNA_threshold
+-- fill_gui_and_xml with: w2= self.float111 , subpath1= .//cell_definition[1]//custom_data//interferon_viral_RNA_detection
+-- fill_gui_and_xml with: w2= self.float112 , subpath1= .//cell_definition[1]//custom_data//TCell_detection
+-- fill_gui_and_xml with: w2= self.float113 , subpath1= .//cell_definition[1]//custom_data//TCell_contact_time
+-- fill_gui_and_xml with: w2= self.float114 , subpath1= .//cell_definition[1]//custom_data//cell_attachment_rate
+-- fill_gui_and_xml with: w2= self.float115 , subpath1= .//cell_definition[1]//custom_data//cell_attachment_lifetime
+-- fill_gui_and_xml with: w2= self.float116 , subpath1= .//cell_definition[1]//custom_data//TCell_contact_death_threshold
+-- fill_gui_and_xml with: w2= self.float117 , subpath1= .//cell_definition[1]//custom_data//max_attachment_distance
+-- fill_gui_and_xml with: w2= self.float118 , subpath1= .//cell_definition[1]//custom_data//elastic_attachment_coefficient
+-- fill_gui_and_xml with: w2= self.float119 , subpath1= .//cell_definition[1]//custom_data//time_to_next_phagocytosis
+-- fill_gui_and_xml with: w2= self.float120 , subpath1= .//cell_definition[1]//custom_data//material_internalisation_rate
+-- fill_gui_and_xml with: w2= self.float121 , subpath1= .//cell_definition[1]//custom_data//threshold_macrophage_volume
+-- fill_gui_and_xml with: w2= self.float122 , subpath1= .//cell_definition[1]//custom_data//threshold_neutrophil_volume
+-- fill_gui_and_xml with: w2= self.float123 , subpath1= .//cell_definition[1]//custom_data//exhausted_macrophage_death_rate
+-- fill_gui_and_xml with: w2= self.float124 , subpath1= .//cell_definition[1]//custom_data//ability_to_phagocytose_infected_cell
+-- fill_gui_and_xml with: w2= self.float125 , subpath1= .//cell_definition[1]//custom_data//time_of_DC_departure
+-- fill_gui_and_xml with: w2= self.float126 , subpath1= .//cell_definition[1]//custom_data//phagocytosis_rate
+-- fill_gui_and_xml with: w2= self.float127 , subpath1= .//cell_definition[1]//custom_data//phagocytosis_relative_target_cutoff_size
+-- fill_gui_and_xml with: w2= self.float128 , subpath1= .//cell_definition[1]//custom_data//sensitivity_to_debris_chemotaxis
+-- fill_gui_and_xml with: w2= self.float129 , subpath1= .//cell_definition[1]//custom_data//sensitivity_to_chemokine_chemotaxis
+-- fill_gui_and_xml with: w2= self.float130 , subpath1= .//cell_definition[1]//custom_data//activated_speed
+-- fill_gui_and_xml with: w2= self.float131 , subpath1= .//cell_definition[1]//custom_data//activated_cytokine_secretion_rate
+-- fill_gui_and_xml with: w2= self.float132 , subpath1= .//cell_definition[1]//custom_data//activated_immune_cell
+-- fill_gui_and_xml with: w2= self.float133 , subpath1= .//cell_definition[1]//custom_data//antiinflammatory_cytokine_secretion_rate_by_damagedSite
+-- fill_gui_and_xml with: w2= self.float134 , subpath1= .//cell_definition[1]//custom_data//antiinflammatory_cytokine_secretion_rate_by_macrophage
+-- fill_gui_and_xml with: w2= self.float135 , subpath1= .//cell_definition[1]//custom_data//collagen_secretion_rate
+-- fill_gui_and_xml with: w2= self.float136 , subpath1= .//cell_definition[1]//custom_data//generation
+
+---------------- subpath0  fibroblast  =  .//cell_definition[2]//phenotype
+pheno child= <Element 'cycle' at 0x10d2d0400>
+pheno child= <Element 'death' at 0x10d2d05e0>
+pheno child= <Element 'volume' at 0x10d2d0d60>
+---------  parsing volume 
+---------   .//cell_definition[2]//phenotype//volume//total  units_str =  micron^3
+---------   .//cell_definition[2]//phenotype//volume//fluid_fraction  units_str =  dimensionless
+---------   .//cell_definition[2]//phenotype//volume//nuclear  units_str =  micron^3
+---------   .//cell_definition[2]//phenotype//volume//fluid_change_rate  units_str =  1/min
+---------   .//cell_definition[2]//phenotype//volume//cytoplasmic_biomass_change_rate  units_str =  1/min
+---------   .//cell_definition[2]//phenotype//volume//nuclear_biomass_change_rate  units_str =  1/min
+---------   .//cell_definition[2]//phenotype//volume//calcified_fraction  units_str =  dimensionless
+---------   .//cell_definition[2]//phenotype//volume//calcification_rate  units_str =  1/min
+---------   .//cell_definition[2]//phenotype//volume//relative_rupture_volume  units_str =  dimensionless
+pheno child= <Element 'mechanics' at 0x10d2d80e0>
+pheno child= <Element 'motility' at 0x10d2d8310>
+pheno child= <Element 'secretion' at 0x10d2d86d0>
+.//cell_definition[2]//phenotype//secretion//substrate[1]
+.//cell_definition[2]//phenotype//secretion//substrate[2]
+.//cell_definition[2]//phenotype//secretion//substrate[3]
+.//cell_definition[2]//phenotype//secretion//substrate[4]
+.//cell_definition[2]//phenotype//secretion//substrate[5]
+.//cell_definition[2]//phenotype//secretion//substrate[6]
+.//cell_definition[2]//phenotype//secretion//substrate[7]
+.//cell_definition[2]//phenotype//secretion//substrate[8]
+pheno child= <Element 'molecular' at 0x10d2df220>
+
+  >>>  parse <custom_data> for fibroblast
+-- fill_gui_and_xml with: w2= self.float196 , subpath1= .//cell_definition[2]//custom_data//virion
+-- fill_gui_and_xml with: w2= self.float197 , subpath1= .//cell_definition[2]//custom_data//uncoated_virion
+-- fill_gui_and_xml with: w2= self.float198 , subpath1= .//cell_definition[2]//custom_data//viral_RNA
+-- fill_gui_and_xml with: w2= self.float199 , subpath1= .//cell_definition[2]//custom_data//viral_protein
+-- fill_gui_and_xml with: w2= self.float200 , subpath1= .//cell_definition[2]//custom_data//export_virion
+-- fill_gui_and_xml with: w2= self.float201 , subpath1= .//cell_definition[2]//custom_data//assembled_virion
+-- fill_gui_and_xml with: w2= self.float202 , subpath1= .//cell_definition[2]//custom_data//virion_uncoating_rate
+-- fill_gui_and_xml with: w2= self.float203 , subpath1= .//cell_definition[2]//custom_data//uncoated_to_RNA_rate
+-- fill_gui_and_xml with: w2= self.float204 , subpath1= .//cell_definition[2]//custom_data//max_RNA_replication_rate
+-- fill_gui_and_xml with: w2= self.float205 , subpath1= .//cell_definition[2]//custom_data//RNA_replication_half
+-- fill_gui_and_xml with: w2= self.float206 , subpath1= .//cell_definition[2]//custom_data//basal_RNA_degradation_rate
+-- fill_gui_and_xml with: w2= self.float207 , subpath1= .//cell_definition[2]//custom_data//protein_synthesis_rate
+-- fill_gui_and_xml with: w2= self.float208 , subpath1= .//cell_definition[2]//custom_data//virion_assembly_rate
+-- fill_gui_and_xml with: w2= self.float209 , subpath1= .//cell_definition[2]//custom_data//virion_export_rate
+-- fill_gui_and_xml with: w2= self.float210 , subpath1= .//cell_definition[2]//custom_data//unbound_external_ACE2
+-- fill_gui_and_xml with: w2= self.float211 , subpath1= .//cell_definition[2]//custom_data//bound_external_ACE2
+-- fill_gui_and_xml with: w2= self.float212 , subpath1= .//cell_definition[2]//custom_data//unbound_internal_ACE2
+-- fill_gui_and_xml with: w2= self.float213 , subpath1= .//cell_definition[2]//custom_data//bound_internal_ACE2
+-- fill_gui_and_xml with: w2= self.float214 , subpath1= .//cell_definition[2]//custom_data//ACE2_binding_rate
+-- fill_gui_and_xml with: w2= self.float215 , subpath1= .//cell_definition[2]//custom_data//ACE2_endocytosis_rate
+-- fill_gui_and_xml with: w2= self.float216 , subpath1= .//cell_definition[2]//custom_data//ACE2_cargo_release_rate
+-- fill_gui_and_xml with: w2= self.float217 , subpath1= .//cell_definition[2]//custom_data//ACE2_recycling_rate
+-- fill_gui_and_xml with: w2= self.float218 , subpath1= .//cell_definition[2]//custom_data//max_infected_apoptosis_rate
+-- fill_gui_and_xml with: w2= self.float219 , subpath1= .//cell_definition[2]//custom_data//max_apoptosis_half_max
+-- fill_gui_and_xml with: w2= self.float220 , subpath1= .//cell_definition[2]//custom_data//apoptosis_hill_power
+-- fill_gui_and_xml with: w2= self.float221 , subpath1= .//cell_definition[2]//custom_data//virus_fraction_released_at_death
+-- fill_gui_and_xml with: w2= self.float222 , subpath1= .//cell_definition[2]//custom_data//infected_cell_chemokine_secretion_rate
+-- fill_gui_and_xml with: w2= self.float223 , subpath1= .//cell_definition[2]//custom_data//debris_secretion_rate
+-- fill_gui_and_xml with: w2= self.float224 , subpath1= .//cell_definition[2]//custom_data//infected_cell_chemokine_secretion_activated
+-- fill_gui_and_xml with: w2= self.float225 , subpath1= .//cell_definition[2]//custom_data//nuclear_NFkB
+-- fill_gui_and_xml with: w2= self.float226 , subpath1= .//cell_definition[2]//custom_data//inactive_NLRP3
+-- fill_gui_and_xml with: w2= self.float227 , subpath1= .//cell_definition[2]//custom_data//active_NLRP3
+-- fill_gui_and_xml with: w2= self.float228 , subpath1= .//cell_definition[2]//custom_data//bound_NLRP3
+-- fill_gui_and_xml with: w2= self.float229 , subpath1= .//cell_definition[2]//custom_data//bound_ASC
+-- fill_gui_and_xml with: w2= self.float230 , subpath1= .//cell_definition[2]//custom_data//bound_caspase1
+-- fill_gui_and_xml with: w2= self.float231 , subpath1= .//cell_definition[2]//custom_data//cleaved_gasderminD
+-- fill_gui_and_xml with: w2= self.float232 , subpath1= .//cell_definition[2]//custom_data//pro_IL_1b
+-- fill_gui_and_xml with: w2= self.float233 , subpath1= .//cell_definition[2]//custom_data//cytoplasmic_IL_1b
+-- fill_gui_and_xml with: w2= self.float234 , subpath1= .//cell_definition[2]//custom_data//external_IL_1b
+-- fill_gui_and_xml with: w2= self.float235 , subpath1= .//cell_definition[2]//custom_data//cytoplasmic_IL_18
+-- fill_gui_and_xml with: w2= self.float236 , subpath1= .//cell_definition[2]//custom_data//external_IL_18
+-- fill_gui_and_xml with: w2= self.float237 , subpath1= .//cell_definition[2]//custom_data//cytoplasmic_volume
+-- fill_gui_and_xml with: w2= self.float238 , subpath1= .//cell_definition[2]//custom_data//cell_pyroptosis_flag
+-- fill_gui_and_xml with: w2= self.float239 , subpath1= .//cell_definition[2]//custom_data//cell_bystander_pyroptosis_flag
+-- fill_gui_and_xml with: w2= self.float240 , subpath1= .//cell_definition[2]//custom_data//cell_virus_induced_apoptosis_flag
+-- fill_gui_and_xml with: w2= self.float241 , subpath1= .//cell_definition[2]//custom_data//internalised_pro_pyroptosis_cytokine
+-- fill_gui_and_xml with: w2= self.float242 , subpath1= .//cell_definition[2]//custom_data//interferon_secretion_rate_via_infection
+-- fill_gui_and_xml with: w2= self.float243 , subpath1= .//cell_definition[2]//custom_data//max_interferon_secretion_rate_via_paracrine
+-- fill_gui_and_xml with: w2= self.float244 , subpath1= .//cell_definition[2]//custom_data//interferon_max_response_threshold
+-- fill_gui_and_xml with: w2= self.float245 , subpath1= .//cell_definition[2]//custom_data//interferon_activation
+-- fill_gui_and_xml with: w2= self.float246 , subpath1= .//cell_definition[2]//custom_data//interferon_max_virus_inhibition
+-- fill_gui_and_xml with: w2= self.float247 , subpath1= .//cell_definition[2]//custom_data//interferon_viral_RNA_threshold
+-- fill_gui_and_xml with: w2= self.float248 , subpath1= .//cell_definition[2]//custom_data//interferon_viral_RNA_detection
+-- fill_gui_and_xml with: w2= self.float249 , subpath1= .//cell_definition[2]//custom_data//TCell_detection
+-- fill_gui_and_xml with: w2= self.float250 , subpath1= .//cell_definition[2]//custom_data//TCell_contact_time
+-- fill_gui_and_xml with: w2= self.float251 , subpath1= .//cell_definition[2]//custom_data//cell_attachment_rate
+-- fill_gui_and_xml with: w2= self.float252 , subpath1= .//cell_definition[2]//custom_data//cell_attachment_lifetime
+-- fill_gui_and_xml with: w2= self.float253 , subpath1= .//cell_definition[2]//custom_data//TCell_contact_death_threshold
+-- fill_gui_and_xml with: w2= self.float254 , subpath1= .//cell_definition[2]//custom_data//max_attachment_distance
+-- fill_gui_and_xml with: w2= self.float255 , subpath1= .//cell_definition[2]//custom_data//elastic_attachment_coefficient
+-- fill_gui_and_xml with: w2= self.float256 , subpath1= .//cell_definition[2]//custom_data//time_to_next_phagocytosis
+-- fill_gui_and_xml with: w2= self.float257 , subpath1= .//cell_definition[2]//custom_data//material_internalisation_rate
+-- fill_gui_and_xml with: w2= self.float258 , subpath1= .//cell_definition[2]//custom_data//threshold_macrophage_volume
+-- fill_gui_and_xml with: w2= self.float259 , subpath1= .//cell_definition[2]//custom_data//threshold_neutrophil_volume
+-- fill_gui_and_xml with: w2= self.float260 , subpath1= .//cell_definition[2]//custom_data//exhausted_macrophage_death_rate
+-- fill_gui_and_xml with: w2= self.float261 , subpath1= .//cell_definition[2]//custom_data//ability_to_phagocytose_infected_cell
+-- fill_gui_and_xml with: w2= self.float262 , subpath1= .//cell_definition[2]//custom_data//time_of_DC_departure
+-- fill_gui_and_xml with: w2= self.float263 , subpath1= .//cell_definition[2]//custom_data//phagocytosis_rate
+-- fill_gui_and_xml with: w2= self.float264 , subpath1= .//cell_definition[2]//custom_data//phagocytosis_relative_target_cutoff_size
+-- fill_gui_and_xml with: w2= self.float265 , subpath1= .//cell_definition[2]//custom_data//sensitivity_to_debris_chemotaxis
+-- fill_gui_and_xml with: w2= self.float266 , subpath1= .//cell_definition[2]//custom_data//sensitivity_to_chemokine_chemotaxis
+-- fill_gui_and_xml with: w2= self.float267 , subpath1= .//cell_definition[2]//custom_data//activated_speed
+-- fill_gui_and_xml with: w2= self.float268 , subpath1= .//cell_definition[2]//custom_data//activated_cytokine_secretion_rate
+-- fill_gui_and_xml with: w2= self.float269 , subpath1= .//cell_definition[2]//custom_data//activated_immune_cell
+-- fill_gui_and_xml with: w2= self.float270 , subpath1= .//cell_definition[2]//custom_data//antiinflammatory_cytokine_secretion_rate_by_damagedSite
+-- fill_gui_and_xml with: w2= self.float271 , subpath1= .//cell_definition[2]//custom_data//antiinflammatory_cytokine_secretion_rate_by_macrophage
+-- fill_gui_and_xml with: w2= self.float272 , subpath1= .//cell_definition[2]//custom_data//collagen_secretion_rate
+-- fill_gui_and_xml with: w2= self.float273 , subpath1= .//cell_definition[2]//custom_data//generation
+
+ --------------------------------- 
+Generated a new:  cell_types.py
+
+
+Test the minimal GUI via:  jupyter notebook test_gui.ipynb
+run the Jupyter menu item:  Cell -> Run All
+
+(or, if you already have a previous GUI running and want to see new params:
+run the Jupyter menu item:  Kernel -> Restart & Run All)
+

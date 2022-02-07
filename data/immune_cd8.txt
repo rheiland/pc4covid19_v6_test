@@ -1,0 +1,81 @@
+		<!-- generic immune cell type --> 
+		<cell_definition name="immune" parent_type="default" ID="2">
+			<phenotype>
+				<mechanics> 
+					<cell_cell_adhesion_strength units="micron/min">0</cell_cell_adhesion_strength>
+					<cell_cell_repulsion_strength units="micron/min">10</cell_cell_repulsion_strength>
+				</mechanics>
+				<death>
+					<model code="100" name="apoptosis"> 
+						<death_rate units="1/min">5e-4</death_rate> <!-- 5e-4 --> 
+					</model> 
+				</death>
+				<motility>  
+					<speed units="micron/min">4</speed>
+					<persistence_time units="min">5</persistence_time>
+					<migration_bias units="dimensionless">0.70</migration_bias>
+					<options>
+						<enabled>true</enabled>
+						<use_2D>true</use_2D>
+						<chemotaxis>
+							<enabled>true</enabled>
+							<substrate>chemokine</substrate>
+							<direction>1</direction>
+						</chemotaxis>
+					</options>
+				</motility>
+
+				<secretion>
+					<substrate name="pro-inflammatory cytokine">
+						<uptake_rate units="1/min">0.01</uptake_rate>
+					</substrate> 	
+					<substrate name="chemokine">
+						<uptake_rate units="1/min">0.01</uptake_rate>
+					</substrate> 	
+					<substrate name="debris">
+						<uptake_rate units="1/min">0.1</uptake_rate>
+					</substrate> 	
+				</secretion>
+
+			</phenotype>
+			<custom_data>
+			</custom_data>
+		</cell_definition>
+		
+		<cell_definition name="CD8 Tcell" parent_type="immune" ID="3">
+			<phenotype>
+				<death>
+					<model code="100" name="apoptosis"> 
+						<death_rate units="1/min">2.8e-4</death_rate> 
+					</model> 
+				</death>			
+			
+				<motility>
+					<migration_bias units="dimensionless">0.70</migration_bias>
+					<options>
+						<enabled>true</enabled>
+						<use_2D>true</use_2D>
+						<chemotaxis>
+							<enabled>true</enabled>
+							<substrate>chemokine</substrate>
+							<direction>1</direction>
+						</chemotaxis>
+					</options>
+				</motility>
+				<volume>
+					<total units="micron^3">478</total>
+					<nuclear units="micron^3">47.8</nuclear>
+				</volume>
+	
+				<secretion>
+					<substrate name="debris">
+						<uptake_rate units="1/min">0</uptake_rate>
+					</substrate> 	
+				</secretion>
+
+			</phenotype>
+			<custom_data>
+				<cell_attachment_rate units="1/min">0.2</cell_attachment_rate> <!-- 0.2 --> 
+				<cell_attachment_lifetime units="min">8.5</cell_attachment_lifetime> 
+			</custom_data>
+		</cell_definition>
