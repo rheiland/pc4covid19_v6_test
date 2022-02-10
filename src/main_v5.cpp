@@ -84,25 +84,19 @@
 using namespace BioFVM;
 using namespace PhysiCell;
 
-std::string COVID19_version = "0.6.0"; 
+std::string COVID19_version = "0.5.0"; 
 
 double DCAMOUNT = 0;
 double DM = 0; // global ICs
-double DL = 0; // global ICs
-double TC = 0;
-double TH1 = 0;
-double TH2 = 0;
+double TC = 10;
+double TH1 = 1;
+double TH2 = 1;
 double TCt = 0;
 double Tht = 0;
-double Bc = 0;
+double Bc = 20;
 double Ps = 0;
 double Ig = 0;
-double TCN = 1000;
-double THN = 1000;
-double BN = 1000;
 double EPICOUNT = 1;
-double tissueCD4=0;
-double tissueCD8=0;
 
 std::vector<int> history(72000); //144000 - full day delay
 std::vector<int> historyTc(60); //120 - half day delay
@@ -216,7 +210,7 @@ int main( int argc, char* argv[] )
 				{	
 					sprintf( filename , "%s/output%08u" , PhysiCell_settings.folder.c_str(),  PhysiCell_globals.full_output_index ); 
 					
-					dm_tc_file << DM << " " << TC << " " << TH1 << " " << TH2 << " " << TCt << " " << Tht <<" " << Bc <<" " << Ps <<" " << Ig <<" " << TCN <<" " << THN <<" " << BN <<" " << DL <<std::endl; //write globals data
+					dm_tc_file << DM << " " << TC << " " << TH1 << " " << TH2 << " " << TCt << " " << Tht <<" " << Bc <<" " << Ps <<" " << Ig << std::endl; //write globals data
 					
 					save_PhysiCell_to_MultiCellDS_xml_pugi( filename , microenvironment , PhysiCell_globals.current_time ); 
 				}

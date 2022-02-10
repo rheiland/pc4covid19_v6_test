@@ -44,312 +44,304 @@ class UserTab(object):
 
         div_row1 = Button(description='--Immune activation parameters--', disabled=True, layout=divider_button_layout)
 
-        param_name3 = Button(description='immune_dt', disabled=True, layout=name_button_layout)
+        param_name3 = Button(description='immune_z_offset', disabled=True, layout=name_button_layout)
         param_name3.style.button_color = 'lightgreen'
-
-        self.immune_dt = FloatText(
-          value=10,
-          step=1,
-          style=style, layout=widget_layout)
-
-        param_name4 = Button(description='immune_z_offset', disabled=True, layout=name_button_layout)
-        param_name4.style.button_color = 'tan'
 
         self.immune_z_offset = FloatText(
           value=0,
           step=0.01,
           style=style, layout=widget_layout)
 
-        param_name5 = Button(description='macrophage_max_recruitment_rate', disabled=True, layout=name_button_layout)
-        param_name5.style.button_color = 'lightgreen'
+        param_name4 = Button(description='macrophage_max_recruitment_rate', disabled=True, layout=name_button_layout)
+        param_name4.style.button_color = 'tan'
 
         self.macrophage_max_recruitment_rate = FloatText(
           value=6e-9,
           step=1e-09,
           style=style, layout=widget_layout)
 
-        param_name6 = Button(description='macrophage_recruitment_min_signal', disabled=True, layout=name_button_layout)
-        param_name6.style.button_color = 'tan'
+        param_name5 = Button(description='macrophage_recruitment_min_signal', disabled=True, layout=name_button_layout)
+        param_name5.style.button_color = 'lightgreen'
 
         self.macrophage_recruitment_min_signal = FloatText(
           value=0.1,
           step=0.01,
           style=style, layout=widget_layout)
 
-        param_name7 = Button(description='macrophage_recruitment_saturation_signal', disabled=True, layout=name_button_layout)
-        param_name7.style.button_color = 'lightgreen'
+        param_name6 = Button(description='macrophage_recruitment_saturation_signal', disabled=True, layout=name_button_layout)
+        param_name6.style.button_color = 'tan'
 
         self.macrophage_recruitment_saturation_signal = FloatText(
           value=0.3,
           step=0.01,
           style=style, layout=widget_layout)
 
-        param_name8 = Button(description='neutrophil_max_recruitment_rate', disabled=True, layout=name_button_layout)
-        param_name8.style.button_color = 'tan'
+        param_name7 = Button(description='neutrophil_max_recruitment_rate', disabled=True, layout=name_button_layout)
+        param_name7.style.button_color = 'lightgreen'
 
         self.neutrophil_max_recruitment_rate = FloatText(
           value=6e-9,
           step=1e-09,
           style=style, layout=widget_layout)
 
-        param_name9 = Button(description='neutrophil_recruitment_min_signal', disabled=True, layout=name_button_layout)
-        param_name9.style.button_color = 'lightgreen'
+        param_name8 = Button(description='neutrophil_recruitment_min_signal', disabled=True, layout=name_button_layout)
+        param_name8.style.button_color = 'tan'
 
         self.neutrophil_recruitment_min_signal = FloatText(
           value=0.1,
           step=0.01,
           style=style, layout=widget_layout)
 
-        param_name10 = Button(description='neutrophil_recruitment_saturation_signal', disabled=True, layout=name_button_layout)
-        param_name10.style.button_color = 'tan'
+        param_name9 = Button(description='neutrophil_recruitment_saturation_signal', disabled=True, layout=name_button_layout)
+        param_name9.style.button_color = 'lightgreen'
 
         self.neutrophil_recruitment_saturation_signal = FloatText(
           value=0.3,
           step=0.01,
           style=style, layout=widget_layout)
 
-        param_name11 = Button(description='DC_max_recruitment_rate', disabled=True, layout=name_button_layout)
-        param_name11.style.button_color = 'lightgreen'
+        param_name10 = Button(description='DC_max_recruitment_rate', disabled=True, layout=name_button_layout)
+        param_name10.style.button_color = 'tan'
 
         self.DC_max_recruitment_rate = FloatText(
           value=1e-9,
           step=1e-10,
           style=style, layout=widget_layout)
 
-        param_name12 = Button(description='DC_recruitment_min_signal', disabled=True, layout=name_button_layout)
-        param_name12.style.button_color = 'tan'
+        param_name11 = Button(description='DC_recruitment_min_signal', disabled=True, layout=name_button_layout)
+        param_name11.style.button_color = 'lightgreen'
 
         self.DC_recruitment_min_signal = FloatText(
           value=0.1,
           step=0.01,
           style=style, layout=widget_layout)
 
-        param_name13 = Button(description='DC_recruitment_saturation_signal', disabled=True, layout=name_button_layout)
-        param_name13.style.button_color = 'lightgreen'
+        param_name12 = Button(description='DC_recruitment_saturation_signal', disabled=True, layout=name_button_layout)
+        param_name12.style.button_color = 'tan'
 
         self.DC_recruitment_saturation_signal = FloatText(
-          value=0.3,
-          step=0.01,
+          value=0.7,
+          step=0.1,
           style=style, layout=widget_layout)
 
-        param_name14 = Button(description='TC_death_rate', disabled=True, layout=name_button_layout)
-        param_name14.style.button_color = 'tan'
+        param_name13 = Button(description='TC_death_rate', disabled=True, layout=name_button_layout)
+        param_name13.style.button_color = 'lightgreen'
 
         self.TC_death_rate = FloatText(
-          value=0.0000014,
+          value=1.4e-6,
           step=1e-07,
           style=style, layout=widget_layout)
 
-        param_name15 = Button(description='max_activation_TC', disabled=True, layout=name_button_layout)
-        param_name15.style.button_color = 'lightgreen'
+        param_name14 = Button(description='max_activation_TC', disabled=True, layout=name_button_layout)
+        param_name14.style.button_color = 'tan'
 
         self.max_activation_TC = FloatText(
           value=0.01,
           step=0.001,
           style=style, layout=widget_layout)
 
-        param_name16 = Button(description='half_max_activation_TC', disabled=True, layout=name_button_layout)
-        param_name16.style.button_color = 'tan'
+        param_name15 = Button(description='half_max_activation_TC', disabled=True, layout=name_button_layout)
+        param_name15.style.button_color = 'lightgreen'
 
         self.half_max_activation_TC = FloatText(
-          value=2000,
+          value=4000,
           step=100,
           style=style, layout=widget_layout)
 
-        param_name17 = Button(description='max_clearance_TC', disabled=True, layout=name_button_layout)
-        param_name17.style.button_color = 'lightgreen'
+        param_name16 = Button(description='max_clearance_TC', disabled=True, layout=name_button_layout)
+        param_name16.style.button_color = 'tan'
 
         self.max_clearance_TC = FloatText(
           value=0.0007,
           step=0.0001,
           style=style, layout=widget_layout)
 
-        param_name18 = Button(description='half_max_clearance_TC', disabled=True, layout=name_button_layout)
-        param_name18.style.button_color = 'tan'
+        param_name17 = Button(description='half_max_clearance_TC', disabled=True, layout=name_button_layout)
+        param_name17.style.button_color = 'lightgreen'
 
         self.half_max_clearance_TC = FloatText(
-          value=200,
-          step=10,
+          value=1,
+          step=0.1,
           style=style, layout=widget_layout)
 
-        param_name19 = Button(description='TC_population_threshold', disabled=True, layout=name_button_layout)
-        param_name19.style.button_color = 'lightgreen'
+        param_name18 = Button(description='TC_population_threshold', disabled=True, layout=name_button_layout)
+        param_name18.style.button_color = 'tan'
 
         self.TC_population_threshold = FloatText(
-          value=10,
-          step=1,
+          value=1000,
+          step=100,
           style=style, layout=widget_layout)
 
-        param_name20 = Button(description='T_Cell_Recruitment', disabled=True, layout=name_button_layout)
-        param_name20.style.button_color = 'tan'
+        param_name19 = Button(description='T_Cell_Recruitment', disabled=True, layout=name_button_layout)
+        param_name19.style.button_color = 'lightgreen'
 
         self.T_Cell_Recruitment = FloatText(
-          value=0.00011,
-          step=1e-05,
+          value=0.001,
+          step=0.0001,
           style=style, layout=widget_layout)
 
-        param_name21 = Button(description='DM_decay', disabled=True, layout=name_button_layout)
-        param_name21.style.button_color = 'lightgreen'
+        param_name20 = Button(description='DM_decay', disabled=True, layout=name_button_layout)
+        param_name20.style.button_color = 'tan'
 
         self.DM_decay = FloatText(
           value=0.00035,
           step=0.0001,
           style=style, layout=widget_layout)
 
-        param_name22 = Button(description='Th1_max_activation', disabled=True, layout=name_button_layout)
-        param_name22.style.button_color = 'tan'
+        param_name21 = Button(description='Th1_max_activation', disabled=True, layout=name_button_layout)
+        param_name21.style.button_color = 'lightgreen'
 
         self.Th1_max_activation = FloatText(
-          value=0.001,
-          step=0.0001,
+          value=0.0000001,
+          step=1e-08,
           style=style, layout=widget_layout)
 
-        param_name23 = Button(description='Th1_damping', disabled=True, layout=name_button_layout)
-        param_name23.style.button_color = 'lightgreen'
+        param_name22 = Button(description='Th1_damping', disabled=True, layout=name_button_layout)
+        param_name22.style.button_color = 'tan'
 
         self.Th1_damping = FloatText(
           value=0.00002,
           step=1e-06,
           style=style, layout=widget_layout)
 
-        param_name24 = Button(description='Th1_decay', disabled=True, layout=name_button_layout)
-        param_name24.style.button_color = 'tan'
+        param_name23 = Button(description='Th1_decay', disabled=True, layout=name_button_layout)
+        param_name23.style.button_color = 'lightgreen'
 
         self.Th1_decay = FloatText(
           value=7e-8,
           step=1e-08,
           style=style, layout=widget_layout)
 
-        param_name25 = Button(description='Th_base_decay', disabled=True, layout=name_button_layout)
-        param_name25.style.button_color = 'lightgreen'
+        param_name24 = Button(description='Th_base_decay', disabled=True, layout=name_button_layout)
+        param_name24.style.button_color = 'tan'
 
         self.Th_base_decay = FloatText(
           value=0.0000156,
           step=1e-06,
           style=style, layout=widget_layout)
 
-        param_name26 = Button(description='Th2_self_feeback', disabled=True, layout=name_button_layout)
-        param_name26.style.button_color = 'tan'
+        param_name25 = Button(description='Th2_self_feeback', disabled=True, layout=name_button_layout)
+        param_name25.style.button_color = 'lightgreen'
 
         self.Th2_self_feeback = FloatText(
-          value=0.00004,
-          step=1e-05,
+          value=0.00000004,
+          step=1e-08,
           style=style, layout=widget_layout)
 
-        param_name27 = Button(description='Th2_max_conversion', disabled=True, layout=name_button_layout)
-        param_name27.style.button_color = 'lightgreen'
+        param_name26 = Button(description='Th2_max_conversion', disabled=True, layout=name_button_layout)
+        param_name26.style.button_color = 'tan'
 
         self.Th2_max_conversion = FloatText(
-          value=0.000002,
+          value=0.000001,
           step=1e-07,
           style=style, layout=widget_layout)
 
-        param_name28 = Button(description='Th1_Th2_conversion_wieght', disabled=True, layout=name_button_layout)
-        param_name28.style.button_color = 'tan'
+        param_name27 = Button(description='Th1_Th2_conversion_wieght', disabled=True, layout=name_button_layout)
+        param_name27.style.button_color = 'lightgreen'
 
         self.Th1_Th2_conversion_wieght = FloatText(
           value=1,
           step=0.1,
           style=style, layout=widget_layout)
 
-        param_name29 = Button(description='BCell_base_rate', disabled=True, layout=name_button_layout)
-        param_name29.style.button_color = 'lightgreen'
+        param_name28 = Button(description='BCell_base_rate', disabled=True, layout=name_button_layout)
+        param_name28.style.button_color = 'tan'
 
         self.BCell_base_rate = FloatText(
           value=1.74e-6,
           step=1e-07,
           style=style, layout=widget_layout)
 
-        param_name30 = Button(description='BCell_base_value', disabled=True, layout=name_button_layout)
-        param_name30.style.button_color = 'tan'
+        param_name29 = Button(description='BCell_base_value', disabled=True, layout=name_button_layout)
+        param_name29.style.button_color = 'lightgreen'
 
         self.BCell_base_value = FloatText(
           value=3000,
           step=100,
           style=style, layout=widget_layout)
 
-        param_name31 = Button(description='BCell_DC_proliferation', disabled=True, layout=name_button_layout)
-        param_name31.style.button_color = 'lightgreen'
+        param_name30 = Button(description='BCell_DC_proliferation', disabled=True, layout=name_button_layout)
+        param_name30.style.button_color = 'tan'
 
         self.BCell_DC_proliferation = FloatText(
-          value=0.004,
-          step=0.001,
+          value=0.0004,
+          step=0.0001,
           style=style, layout=widget_layout)
 
-        param_name32 = Button(description='BCell_Th2_wieght_function', disabled=True, layout=name_button_layout)
-        param_name32.style.button_color = 'tan'
+        param_name31 = Button(description='BCell_Th2_wieght_function', disabled=True, layout=name_button_layout)
+        param_name31.style.button_color = 'lightgreen'
 
         self.BCell_Th2_wieght_function = FloatText(
           value=6.6,
           step=0.1,
           style=style, layout=widget_layout)
 
-        param_name33 = Button(description='BCell_damping', disabled=True, layout=name_button_layout)
-        param_name33.style.button_color = 'lightgreen'
+        param_name32 = Button(description='BCell_damping', disabled=True, layout=name_button_layout)
+        param_name32.style.button_color = 'tan'
 
         self.BCell_damping = FloatText(
           value=8800,
           step=100,
           style=style, layout=widget_layout)
 
-        param_name34 = Button(description='PCell_recuitment', disabled=True, layout=name_button_layout)
-        param_name34.style.button_color = 'tan'
+        param_name33 = Button(description='PCell_recuitment', disabled=True, layout=name_button_layout)
+        param_name33.style.button_color = 'lightgreen'
 
         self.PCell_recuitment = FloatText(
           value=0.0002,
           step=1e-05,
           style=style, layout=widget_layout)
 
-        param_name35 = Button(description='PCell_degradation', disabled=True, layout=name_button_layout)
-        param_name35.style.button_color = 'lightgreen'
+        param_name34 = Button(description='PCell_degradation', disabled=True, layout=name_button_layout)
+        param_name34.style.button_color = 'tan'
 
         self.PCell_degradation = FloatText(
           value=0.00014,
           step=1e-05,
           style=style, layout=widget_layout)
 
-        param_name36 = Button(description='Ig_recuitment', disabled=True, layout=name_button_layout)
-        param_name36.style.button_color = 'tan'
+        param_name35 = Button(description='Ig_recuitment', disabled=True, layout=name_button_layout)
+        param_name35.style.button_color = 'lightgreen'
 
         self.Ig_recuitment = FloatText(
           value=0.05,
           step=0.01,
           style=style, layout=widget_layout)
 
-        param_name37 = Button(description='Ig_degradation', disabled=True, layout=name_button_layout)
-        param_name37.style.button_color = 'lightgreen'
+        param_name36 = Button(description='Ig_degradation', disabled=True, layout=name_button_layout)
+        param_name36.style.button_color = 'tan'
 
         self.Ig_degradation = FloatText(
           value=0.00139,
           step=0.0001,
           style=style, layout=widget_layout)
 
-        param_name38 = Button(description='DC_leave_prob', disabled=True, layout=name_button_layout)
-        param_name38.style.button_color = 'tan'
+        param_name37 = Button(description='DC_leave_prob', disabled=True, layout=name_button_layout)
+        param_name37.style.button_color = 'lightgreen'
 
         self.DC_leave_prob = FloatText(
           value=0.0000033,
           step=1e-06,
           style=style, layout=widget_layout)
 
-        param_name39 = Button(description='fibroblast_max_recruitment_rate', disabled=True, layout=name_button_layout)
-        param_name39.style.button_color = 'lightgreen'
+        param_name38 = Button(description='fibroblast_max_recruitment_rate', disabled=True, layout=name_button_layout)
+        param_name38.style.button_color = 'tan'
 
         self.fibroblast_max_recruitment_rate = FloatText(
           value=4e-9,
           step=1e-09,
           style=style, layout=widget_layout)
 
-        param_name40 = Button(description='fibroblast_recruitment_min_signal', disabled=True, layout=name_button_layout)
-        param_name40.style.button_color = 'tan'
+        param_name39 = Button(description='fibroblast_recruitment_min_signal', disabled=True, layout=name_button_layout)
+        param_name39.style.button_color = 'lightgreen'
 
         self.fibroblast_recruitment_min_signal = FloatText(
           value=7,
           step=0.1,
           style=style, layout=widget_layout)
 
-        param_name41 = Button(description='fibroblast_recruitment_saturation_signal', disabled=True, layout=name_button_layout)
-        param_name41.style.button_color = 'lightgreen'
+        param_name40 = Button(description='fibroblast_recruitment_saturation_signal', disabled=True, layout=name_button_layout)
+        param_name40.style.button_color = 'tan'
 
         self.fibroblast_recruitment_saturation_signal = FloatText(
           value=22,
@@ -358,19 +350,26 @@ class UserTab(object):
 
         div_row2 = Button(description='---Initialization Options--', disabled=True, layout=divider_button_layout)
 
-        param_name42 = Button(description='multiplicity_of_infection', disabled=True, layout=name_button_layout)
-        param_name42.style.button_color = 'tan'
+        param_name41 = Button(description='multiplicity_of_infection', disabled=True, layout=name_button_layout)
+        param_name41.style.button_color = 'lightgreen'
 
         self.multiplicity_of_infection = FloatText(
           value=0.1,
           step=0.01,
           style=style, layout=widget_layout)
 
-        param_name43 = Button(description='use_single_infected_cell', disabled=True, layout=name_button_layout)
-        param_name43.style.button_color = 'lightgreen'
+        param_name42 = Button(description='use_single_infected_cell', disabled=True, layout=name_button_layout)
+        param_name42.style.button_color = 'tan'
 
         self.use_single_infected_cell = Checkbox(
           value=False,
+          style=style, layout=widget_layout)
+
+        param_name43 = Button(description='use_uniform_dist', disabled=True, layout=name_button_layout)
+        param_name43.style.button_color = 'lightgreen'
+
+        self.use_uniform_dist = Checkbox(
+          value=True,
           style=style, layout=widget_layout)
 
         param_name44 = Button(description='number_of_CD8_Tcells', disabled=True, layout=name_button_layout)
@@ -645,39 +644,39 @@ class UserTab(object):
         units_button2.style.button_color = 'tan'
         units_button3 = Button(description='', disabled=True, layout=units_button_layout) 
         units_button3.style.button_color = 'tan'
-        units_button4 = Button(description='min', disabled=True, layout=units_button_layout) 
+        units_button4 = Button(description='micron', disabled=True, layout=units_button_layout) 
         units_button4.style.button_color = 'lightgreen'
-        units_button5 = Button(description='micron', disabled=True, layout=units_button_layout) 
+        units_button5 = Button(description='cells/min/micron^3', disabled=True, layout=units_button_layout) 
         units_button5.style.button_color = 'tan'
-        units_button6 = Button(description='cells/min/micron^3', disabled=True, layout=units_button_layout) 
+        units_button6 = Button(description='substrate/micron^3', disabled=True, layout=units_button_layout) 
         units_button6.style.button_color = 'lightgreen'
         units_button7 = Button(description='substrate/micron^3', disabled=True, layout=units_button_layout) 
         units_button7.style.button_color = 'tan'
-        units_button8 = Button(description='substrate/micron^3', disabled=True, layout=units_button_layout) 
+        units_button8 = Button(description='cells/min/micron^3', disabled=True, layout=units_button_layout) 
         units_button8.style.button_color = 'lightgreen'
-        units_button9 = Button(description='cells/min/micron^3', disabled=True, layout=units_button_layout) 
+        units_button9 = Button(description='substrate/micron^3', disabled=True, layout=units_button_layout) 
         units_button9.style.button_color = 'tan'
         units_button10 = Button(description='substrate/micron^3', disabled=True, layout=units_button_layout) 
         units_button10.style.button_color = 'lightgreen'
-        units_button11 = Button(description='substrate/micron^3', disabled=True, layout=units_button_layout) 
+        units_button11 = Button(description='cells/min/micron^3', disabled=True, layout=units_button_layout) 
         units_button11.style.button_color = 'tan'
-        units_button12 = Button(description='cells/min/micron^3', disabled=True, layout=units_button_layout) 
+        units_button12 = Button(description='substrate/micron^3', disabled=True, layout=units_button_layout) 
         units_button12.style.button_color = 'lightgreen'
         units_button13 = Button(description='substrate/micron^3', disabled=True, layout=units_button_layout) 
         units_button13.style.button_color = 'tan'
-        units_button14 = Button(description='substrate/micron^3', disabled=True, layout=units_button_layout) 
+        units_button14 = Button(description='cells/min', disabled=True, layout=units_button_layout) 
         units_button14.style.button_color = 'lightgreen'
         units_button15 = Button(description='cells/min', disabled=True, layout=units_button_layout) 
         units_button15.style.button_color = 'tan'
-        units_button16 = Button(description='cells/min', disabled=True, layout=units_button_layout) 
+        units_button16 = Button(description='cells', disabled=True, layout=units_button_layout) 
         units_button16.style.button_color = 'lightgreen'
-        units_button17 = Button(description='cells', disabled=True, layout=units_button_layout) 
+        units_button17 = Button(description='cells/min', disabled=True, layout=units_button_layout) 
         units_button17.style.button_color = 'tan'
-        units_button18 = Button(description='cells/min', disabled=True, layout=units_button_layout) 
+        units_button18 = Button(description='cells', disabled=True, layout=units_button_layout) 
         units_button18.style.button_color = 'lightgreen'
         units_button19 = Button(description='cells', disabled=True, layout=units_button_layout) 
         units_button19.style.button_color = 'tan'
-        units_button20 = Button(description='cells', disabled=True, layout=units_button_layout) 
+        units_button20 = Button(description='cells/min', disabled=True, layout=units_button_layout) 
         units_button20.style.button_color = 'lightgreen'
         units_button21 = Button(description='cells/min', disabled=True, layout=units_button_layout) 
         units_button21.style.button_color = 'tan'
@@ -715,14 +714,14 @@ class UserTab(object):
         units_button37.style.button_color = 'tan'
         units_button38 = Button(description='cells/min', disabled=True, layout=units_button_layout) 
         units_button38.style.button_color = 'lightgreen'
-        units_button39 = Button(description='cells/min', disabled=True, layout=units_button_layout) 
+        units_button39 = Button(description='cells/min/micron^3', disabled=True, layout=units_button_layout) 
         units_button39.style.button_color = 'tan'
-        units_button40 = Button(description='cells/min/micron^3', disabled=True, layout=units_button_layout) 
+        units_button40 = Button(description='substrate/micron^3', disabled=True, layout=units_button_layout) 
         units_button40.style.button_color = 'lightgreen'
         units_button41 = Button(description='substrate/micron^3', disabled=True, layout=units_button_layout) 
         units_button41.style.button_color = 'tan'
-        units_button42 = Button(description='substrate/micron^3', disabled=True, layout=units_button_layout) 
-        units_button42.style.button_color = 'lightgreen'
+        units_button42 = Button(description='', disabled=True, layout=units_button_layout) 
+        units_button42.style.button_color = 'tan'
         units_button43 = Button(description='', disabled=True, layout=units_button_layout) 
         units_button43.style.button_color = 'lightgreen'
         units_button44 = Button(description='', disabled=True, layout=units_button_layout) 
@@ -806,87 +805,87 @@ class UserTab(object):
         desc_button1.style.button_color = 'lightgreen'
         desc_button2 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
         desc_button2.style.button_color = 'tan'
-        desc_button3 = Button(description='how often we check to introduce immune cells' , tooltip='how often we check to introduce immune cells', disabled=True, layout=desc_button_layout) 
+        desc_button3 = Button(description='immune cell position over the epithelium' , tooltip='immune cell position over the epithelium', disabled=True, layout=desc_button_layout) 
         desc_button3.style.button_color = 'lightgreen'
-        desc_button4 = Button(description='immune cell position over the epithelium' , tooltip='immune cell position over the epithelium', disabled=True, layout=desc_button_layout) 
+        desc_button4 = Button(description='max macrophage recruitment rate (for saturated signal)' , tooltip='max macrophage recruitment rate (for saturated signal)', disabled=True, layout=desc_button_layout) 
         desc_button4.style.button_color = 'tan'
-        desc_button5 = Button(description='max macrophage recruitment rate (for saturated signal)' , tooltip='max macrophage recruitment rate (for saturated signal)', disabled=True, layout=desc_button_layout) 
+        desc_button5 = Button(description='min concentration to attract macrophages' , tooltip='min concentration to attract macrophages', disabled=True, layout=desc_button_layout) 
         desc_button5.style.button_color = 'lightgreen'
-        desc_button6 = Button(description='min concentration to attract macrophages' , tooltip='min concentration to attract macrophages', disabled=True, layout=desc_button_layout) 
+        desc_button6 = Button(description='saturating concentration to attract macrophages' , tooltip='saturating concentration to attract macrophages', disabled=True, layout=desc_button_layout) 
         desc_button6.style.button_color = 'tan'
-        desc_button7 = Button(description='saturating concentration to attract macrophages' , tooltip='saturating concentration to attract macrophages', disabled=True, layout=desc_button_layout) 
+        desc_button7 = Button(description='max neutrophil recruitment rate (for saturated signal)' , tooltip='max neutrophil recruitment rate (for saturated signal)', disabled=True, layout=desc_button_layout) 
         desc_button7.style.button_color = 'lightgreen'
-        desc_button8 = Button(description='max neutrophil recruitment rate (for saturated signal)' , tooltip='max neutrophil recruitment rate (for saturated signal)', disabled=True, layout=desc_button_layout) 
+        desc_button8 = Button(description='min concentration to attract neutrophils' , tooltip='min concentration to attract neutrophils', disabled=True, layout=desc_button_layout) 
         desc_button8.style.button_color = 'tan'
-        desc_button9 = Button(description='min concentration to attract neutrophils' , tooltip='min concentration to attract neutrophils', disabled=True, layout=desc_button_layout) 
+        desc_button9 = Button(description='saturating concentration to attract neutrophils' , tooltip='saturating concentration to attract neutrophils', disabled=True, layout=desc_button_layout) 
         desc_button9.style.button_color = 'lightgreen'
-        desc_button10 = Button(description='saturating concentration to attract neutrophils' , tooltip='saturating concentration to attract neutrophils', disabled=True, layout=desc_button_layout) 
+        desc_button10 = Button(description='max DC recruitment rate (for saturated signal)' , tooltip='max DC recruitment rate (for saturated signal)', disabled=True, layout=desc_button_layout) 
         desc_button10.style.button_color = 'tan'
-        desc_button11 = Button(description='max DC recruitment rate (for saturated signal)' , tooltip='max DC recruitment rate (for saturated signal)', disabled=True, layout=desc_button_layout) 
+        desc_button11 = Button(description='min concentration to attract DC' , tooltip='min concentration to attract DC', disabled=True, layout=desc_button_layout) 
         desc_button11.style.button_color = 'lightgreen'
-        desc_button12 = Button(description='min concentration to attract DC' , tooltip='min concentration to attract DC', disabled=True, layout=desc_button_layout) 
+        desc_button12 = Button(description='saturating concentration to attract DC' , tooltip='saturating concentration to attract DC', disabled=True, layout=desc_button_layout) 
         desc_button12.style.button_color = 'tan'
-        desc_button13 = Button(description='saturating concentration to attract DC' , tooltip='saturating concentration to attract DC', disabled=True, layout=desc_button_layout) 
+        desc_button13 = Button(description='TC death rate' , tooltip='TC death rate', disabled=True, layout=desc_button_layout) 
         desc_button13.style.button_color = 'lightgreen'
-        desc_button14 = Button(description='TC death rate' , tooltip='TC death rate', disabled=True, layout=desc_button_layout) 
+        desc_button14 = Button(description='max activation TC' , tooltip='max activation TC', disabled=True, layout=desc_button_layout) 
         desc_button14.style.button_color = 'tan'
-        desc_button15 = Button(description='max activation TC' , tooltip='max activation TC', disabled=True, layout=desc_button_layout) 
+        desc_button15 = Button(description='half max activation TC' , tooltip='half max activation TC', disabled=True, layout=desc_button_layout) 
         desc_button15.style.button_color = 'lightgreen'
-        desc_button16 = Button(description='half max activation TC' , tooltip='half max activation TC', disabled=True, layout=desc_button_layout) 
+        desc_button16 = Button(description='max clearance TC' , tooltip='max clearance TC', disabled=True, layout=desc_button_layout) 
         desc_button16.style.button_color = 'tan'
-        desc_button17 = Button(description='max clearance TC' , tooltip='max clearance TC', disabled=True, layout=desc_button_layout) 
+        desc_button17 = Button(description='half max clearance TC' , tooltip='half max clearance TC', disabled=True, layout=desc_button_layout) 
         desc_button17.style.button_color = 'lightgreen'
-        desc_button18 = Button(description='half max clearance TC' , tooltip='half max clearance TC', disabled=True, layout=desc_button_layout) 
+        desc_button18 = Button(description='TC population threshold' , tooltip='TC population threshold', disabled=True, layout=desc_button_layout) 
         desc_button18.style.button_color = 'tan'
-        desc_button19 = Button(description='TC population threshold' , tooltip='TC population threshold', disabled=True, layout=desc_button_layout) 
+        desc_button19 = Button(description='T cell recruitment factor to tissue' , tooltip='T cell recruitment factor to tissue', disabled=True, layout=desc_button_layout) 
         desc_button19.style.button_color = 'lightgreen'
-        desc_button20 = Button(description='T cell recruitment rate to tissue' , tooltip='T cell recruitment rate to tissue', disabled=True, layout=desc_button_layout) 
+        desc_button20 = Button(description='DM decay rate' , tooltip='DM decay rate', disabled=True, layout=desc_button_layout) 
         desc_button20.style.button_color = 'tan'
-        desc_button21 = Button(description='DM decay rate' , tooltip='DM decay rate', disabled=True, layout=desc_button_layout) 
+        desc_button21 = Button(description='Th1 max activation speed' , tooltip='Th1 max activation speed', disabled=True, layout=desc_button_layout) 
         desc_button21.style.button_color = 'lightgreen'
-        desc_button22 = Button(description='Th1 max activation speed' , tooltip='Th1 max activation speed', disabled=True, layout=desc_button_layout) 
+        desc_button22 = Button(description='Th1 damping factor' , tooltip='Th1 damping factor', disabled=True, layout=desc_button_layout) 
         desc_button22.style.button_color = 'tan'
-        desc_button23 = Button(description='Th1 damping factor' , tooltip='Th1 damping factor', disabled=True, layout=desc_button_layout) 
+        desc_button23 = Button(description='Th1 active decay rate' , tooltip='Th1 active decay rate', disabled=True, layout=desc_button_layout) 
         desc_button23.style.button_color = 'lightgreen'
-        desc_button24 = Button(description='Th1 active decay rate' , tooltip='Th1 active decay rate', disabled=True, layout=desc_button_layout) 
+        desc_button24 = Button(description='Th base dacay rates' , tooltip='Th base dacay rates', disabled=True, layout=desc_button_layout) 
         desc_button24.style.button_color = 'tan'
-        desc_button25 = Button(description='Th base dacay rates' , tooltip='Th base dacay rates', disabled=True, layout=desc_button_layout) 
+        desc_button25 = Button(description='Th2 max self feeback speed' , tooltip='Th2 max self feeback speed', disabled=True, layout=desc_button_layout) 
         desc_button25.style.button_color = 'lightgreen'
-        desc_button26 = Button(description='Th2 max self feeback speed' , tooltip='Th2 max self feeback speed', disabled=True, layout=desc_button_layout) 
+        desc_button26 = Button(description='Th2 max conversion speed' , tooltip='Th2 max conversion speed', disabled=True, layout=desc_button_layout) 
         desc_button26.style.button_color = 'tan'
-        desc_button27 = Button(description='Th2 max conversion speed' , tooltip='Th2 max conversion speed', disabled=True, layout=desc_button_layout) 
+        desc_button27 = Button(description='Th1 to Th2 conversion wieght' , tooltip='Th1 to Th2 conversion wieght', disabled=True, layout=desc_button_layout) 
         desc_button27.style.button_color = 'lightgreen'
-        desc_button28 = Button(description='Th1 to Th2 conversion wieght' , tooltip='Th1 to Th2 conversion wieght', disabled=True, layout=desc_button_layout) 
+        desc_button28 = Button(description='BCell basal rates' , tooltip='BCell basal rates', disabled=True, layout=desc_button_layout) 
         desc_button28.style.button_color = 'tan'
-        desc_button29 = Button(description='BCell basal rates' , tooltip='BCell basal rates', disabled=True, layout=desc_button_layout) 
+        desc_button29 = Button(description='BCell basal value' , tooltip='BCell basal value', disabled=True, layout=desc_button_layout) 
         desc_button29.style.button_color = 'lightgreen'
-        desc_button30 = Button(description='BCell basal value' , tooltip='BCell basal value', disabled=True, layout=desc_button_layout) 
+        desc_button30 = Button(description='BCell DC influenced proliferation' , tooltip='BCell DC influenced proliferation', disabled=True, layout=desc_button_layout) 
         desc_button30.style.button_color = 'tan'
-        desc_button31 = Button(description='BCell DC influenced proliferation' , tooltip='BCell DC influenced proliferation', disabled=True, layout=desc_button_layout) 
+        desc_button31 = Button(description='BCell proliferation Th2 wieght function' , tooltip='BCell proliferation Th2 wieght function', disabled=True, layout=desc_button_layout) 
         desc_button31.style.button_color = 'lightgreen'
-        desc_button32 = Button(description='BCell proliferation Th2 wieght function' , tooltip='BCell proliferation Th2 wieght function', disabled=True, layout=desc_button_layout) 
+        desc_button32 = Button(description='BCell damping value' , tooltip='BCell damping value', disabled=True, layout=desc_button_layout) 
         desc_button32.style.button_color = 'tan'
-        desc_button33 = Button(description='BCell damping value' , tooltip='BCell damping value', disabled=True, layout=desc_button_layout) 
+        desc_button33 = Button(description='PCell recuitment rate' , tooltip='PCell recuitment rate', disabled=True, layout=desc_button_layout) 
         desc_button33.style.button_color = 'lightgreen'
-        desc_button34 = Button(description='PCell recuitment rate' , tooltip='PCell recuitment rate', disabled=True, layout=desc_button_layout) 
+        desc_button34 = Button(description='PCell degradation rate' , tooltip='PCell degradation rate', disabled=True, layout=desc_button_layout) 
         desc_button34.style.button_color = 'tan'
-        desc_button35 = Button(description='PCell degradation rate' , tooltip='PCell degradation rate', disabled=True, layout=desc_button_layout) 
+        desc_button35 = Button(description='Ig recuitment rate' , tooltip='Ig recuitment rate', disabled=True, layout=desc_button_layout) 
         desc_button35.style.button_color = 'lightgreen'
-        desc_button36 = Button(description='Ig recuitment rate' , tooltip='Ig recuitment rate', disabled=True, layout=desc_button_layout) 
+        desc_button36 = Button(description='Ig degradation rate' , tooltip='Ig degradation rate', disabled=True, layout=desc_button_layout) 
         desc_button36.style.button_color = 'tan'
-        desc_button37 = Button(description='Ig degradation rate' , tooltip='Ig degradation rate', disabled=True, layout=desc_button_layout) 
+        desc_button37 = Button(description='probability of DC leaving to lymph node' , tooltip='probability of DC leaving to lymph node', disabled=True, layout=desc_button_layout) 
         desc_button37.style.button_color = 'lightgreen'
-        desc_button38 = Button(description='probability of DC leaving to lymph node' , tooltip='probability of DC leaving to lymph node', disabled=True, layout=desc_button_layout) 
+        desc_button38 = Button(description='max fibroblast cell recruitment rate (for saturated signal)' , tooltip='max fibroblast cell recruitment rate (for saturated signal)', disabled=True, layout=desc_button_layout) 
         desc_button38.style.button_color = 'tan'
-        desc_button39 = Button(description='max fibroblast cell recruitment rate (for saturated signal)' , tooltip='max fibroblast cell recruitment rate (for saturated signal)', disabled=True, layout=desc_button_layout) 
+        desc_button39 = Button(description='min concentration to attract fibroblast cells' , tooltip='min concentration to attract fibroblast cells', disabled=True, layout=desc_button_layout) 
         desc_button39.style.button_color = 'lightgreen'
-        desc_button40 = Button(description='min concentration to attract fibroblast cells' , tooltip='min concentration to attract fibroblast cells', disabled=True, layout=desc_button_layout) 
+        desc_button40 = Button(description='saturating concentration to attract fibroblast cells' , tooltip='saturating concentration to attract fibroblast cells', disabled=True, layout=desc_button_layout) 
         desc_button40.style.button_color = 'tan'
-        desc_button41 = Button(description='saturating concentration to attract fibroblast cells' , tooltip='saturating concentration to attract fibroblast cells', disabled=True, layout=desc_button_layout) 
+        desc_button41 = Button(description='multiplicity of infection: virions/cells at t=0' , tooltip='multiplicity of infection: virions/cells at t=0', disabled=True, layout=desc_button_layout) 
         desc_button41.style.button_color = 'lightgreen'
-        desc_button42 = Button(description='multiplicity of infection: virions/cells at t=0' , tooltip='multiplicity of infection: virions/cells at t=0', disabled=True, layout=desc_button_layout) 
+        desc_button42 = Button(description='Infect center cell with one virion (overrides MOI)' , tooltip='Infect center cell with one virion (overrides MOI)', disabled=True, layout=desc_button_layout) 
         desc_button42.style.button_color = 'tan'
-        desc_button43 = Button(description='Infect center cell with one virion (overrides MOI)' , tooltip='Infect center cell with one virion (overrides MOI)', disabled=True, layout=desc_button_layout) 
+        desc_button43 = Button(description='use a uniform distribution' , tooltip='use a uniform distribution', disabled=True, layout=desc_button_layout) 
         desc_button43.style.button_color = 'lightgreen'
         desc_button44 = Button(description='initial number of CD8 T cells in tissue' , tooltip='initial number of CD8 T cells in tissue', disabled=True, layout=desc_button_layout) 
         desc_button44.style.button_color = 'tan'
@@ -961,47 +960,47 @@ class UserTab(object):
 
         row1 = [param_name1, self.random_seed, units_button1, desc_button1] 
         row2 = [param_name2, self.ignore_smoothing_flag, units_button2, desc_button2] 
-        row3 = [param_name3, self.immune_dt, units_button4, desc_button3] 
-        row4 = [param_name4, self.immune_z_offset, units_button5, desc_button4] 
-        row5 = [param_name5, self.macrophage_max_recruitment_rate, units_button6, desc_button5] 
-        row6 = [param_name6, self.macrophage_recruitment_min_signal, units_button7, desc_button6] 
-        row7 = [param_name7, self.macrophage_recruitment_saturation_signal, units_button8, desc_button7] 
-        row8 = [param_name8, self.neutrophil_max_recruitment_rate, units_button9, desc_button8] 
-        row9 = [param_name9, self.neutrophil_recruitment_min_signal, units_button10, desc_button9] 
-        row10 = [param_name10, self.neutrophil_recruitment_saturation_signal, units_button11, desc_button10] 
-        row11 = [param_name11, self.DC_max_recruitment_rate, units_button12, desc_button11] 
-        row12 = [param_name12, self.DC_recruitment_min_signal, units_button13, desc_button12] 
-        row13 = [param_name13, self.DC_recruitment_saturation_signal, units_button14, desc_button13] 
-        row14 = [param_name14, self.TC_death_rate, units_button15, desc_button14] 
-        row15 = [param_name15, self.max_activation_TC, units_button16, desc_button15] 
-        row16 = [param_name16, self.half_max_activation_TC, units_button17, desc_button16] 
-        row17 = [param_name17, self.max_clearance_TC, units_button18, desc_button17] 
-        row18 = [param_name18, self.half_max_clearance_TC, units_button19, desc_button18] 
-        row19 = [param_name19, self.TC_population_threshold, units_button20, desc_button19] 
-        row20 = [param_name20, self.T_Cell_Recruitment, units_button21, desc_button20] 
-        row21 = [param_name21, self.DM_decay, units_button22, desc_button21] 
-        row22 = [param_name22, self.Th1_max_activation, units_button23, desc_button22] 
-        row23 = [param_name23, self.Th1_damping, units_button24, desc_button23] 
-        row24 = [param_name24, self.Th1_decay, units_button25, desc_button24] 
-        row25 = [param_name25, self.Th_base_decay, units_button26, desc_button25] 
-        row26 = [param_name26, self.Th2_self_feeback, units_button27, desc_button26] 
-        row27 = [param_name27, self.Th2_max_conversion, units_button28, desc_button27] 
-        row28 = [param_name28, self.Th1_Th2_conversion_wieght, units_button29, desc_button28] 
-        row29 = [param_name29, self.BCell_base_rate, units_button30, desc_button29] 
-        row30 = [param_name30, self.BCell_base_value, units_button31, desc_button30] 
-        row31 = [param_name31, self.BCell_DC_proliferation, units_button32, desc_button31] 
-        row32 = [param_name32, self.BCell_Th2_wieght_function, units_button33, desc_button32] 
-        row33 = [param_name33, self.BCell_damping, units_button34, desc_button33] 
-        row34 = [param_name34, self.PCell_recuitment, units_button35, desc_button34] 
-        row35 = [param_name35, self.PCell_degradation, units_button36, desc_button35] 
-        row36 = [param_name36, self.Ig_recuitment, units_button37, desc_button36] 
-        row37 = [param_name37, self.Ig_degradation, units_button38, desc_button37] 
-        row38 = [param_name38, self.DC_leave_prob, units_button39, desc_button38] 
-        row39 = [param_name39, self.fibroblast_max_recruitment_rate, units_button40, desc_button39] 
-        row40 = [param_name40, self.fibroblast_recruitment_min_signal, units_button41, desc_button40] 
-        row41 = [param_name41, self.fibroblast_recruitment_saturation_signal, units_button42, desc_button41] 
-        row42 = [param_name42, self.multiplicity_of_infection, units_button44, desc_button42] 
-        row43 = [param_name43, self.use_single_infected_cell, units_button45, desc_button43] 
+        row3 = [param_name3, self.immune_z_offset, units_button4, desc_button3] 
+        row4 = [param_name4, self.macrophage_max_recruitment_rate, units_button5, desc_button4] 
+        row5 = [param_name5, self.macrophage_recruitment_min_signal, units_button6, desc_button5] 
+        row6 = [param_name6, self.macrophage_recruitment_saturation_signal, units_button7, desc_button6] 
+        row7 = [param_name7, self.neutrophil_max_recruitment_rate, units_button8, desc_button7] 
+        row8 = [param_name8, self.neutrophil_recruitment_min_signal, units_button9, desc_button8] 
+        row9 = [param_name9, self.neutrophil_recruitment_saturation_signal, units_button10, desc_button9] 
+        row10 = [param_name10, self.DC_max_recruitment_rate, units_button11, desc_button10] 
+        row11 = [param_name11, self.DC_recruitment_min_signal, units_button12, desc_button11] 
+        row12 = [param_name12, self.DC_recruitment_saturation_signal, units_button13, desc_button12] 
+        row13 = [param_name13, self.TC_death_rate, units_button14, desc_button13] 
+        row14 = [param_name14, self.max_activation_TC, units_button15, desc_button14] 
+        row15 = [param_name15, self.half_max_activation_TC, units_button16, desc_button15] 
+        row16 = [param_name16, self.max_clearance_TC, units_button17, desc_button16] 
+        row17 = [param_name17, self.half_max_clearance_TC, units_button18, desc_button17] 
+        row18 = [param_name18, self.TC_population_threshold, units_button19, desc_button18] 
+        row19 = [param_name19, self.T_Cell_Recruitment, units_button20, desc_button19] 
+        row20 = [param_name20, self.DM_decay, units_button21, desc_button20] 
+        row21 = [param_name21, self.Th1_max_activation, units_button22, desc_button21] 
+        row22 = [param_name22, self.Th1_damping, units_button23, desc_button22] 
+        row23 = [param_name23, self.Th1_decay, units_button24, desc_button23] 
+        row24 = [param_name24, self.Th_base_decay, units_button25, desc_button24] 
+        row25 = [param_name25, self.Th2_self_feeback, units_button26, desc_button25] 
+        row26 = [param_name26, self.Th2_max_conversion, units_button27, desc_button26] 
+        row27 = [param_name27, self.Th1_Th2_conversion_wieght, units_button28, desc_button27] 
+        row28 = [param_name28, self.BCell_base_rate, units_button29, desc_button28] 
+        row29 = [param_name29, self.BCell_base_value, units_button30, desc_button29] 
+        row30 = [param_name30, self.BCell_DC_proliferation, units_button31, desc_button30] 
+        row31 = [param_name31, self.BCell_Th2_wieght_function, units_button32, desc_button31] 
+        row32 = [param_name32, self.BCell_damping, units_button33, desc_button32] 
+        row33 = [param_name33, self.PCell_recuitment, units_button34, desc_button33] 
+        row34 = [param_name34, self.PCell_degradation, units_button35, desc_button34] 
+        row35 = [param_name35, self.Ig_recuitment, units_button36, desc_button35] 
+        row36 = [param_name36, self.Ig_degradation, units_button37, desc_button36] 
+        row37 = [param_name37, self.DC_leave_prob, units_button38, desc_button37] 
+        row38 = [param_name38, self.fibroblast_max_recruitment_rate, units_button39, desc_button38] 
+        row39 = [param_name39, self.fibroblast_recruitment_min_signal, units_button40, desc_button39] 
+        row40 = [param_name40, self.fibroblast_recruitment_saturation_signal, units_button41, desc_button40] 
+        row41 = [param_name41, self.multiplicity_of_infection, units_button43, desc_button41] 
+        row42 = [param_name42, self.use_single_infected_cell, units_button44, desc_button42] 
+        row43 = [param_name43, self.use_uniform_dist, units_button45, desc_button43] 
         row44 = [param_name44, self.number_of_CD8_Tcells, units_button46, desc_button44] 
         row45 = [param_name45, self.number_of_macrophages, units_button47, desc_button45] 
         row46 = [param_name46, self.number_of_neutrophils, units_button48, desc_button46] 
@@ -1160,8 +1159,8 @@ class UserTab(object):
           box38,
           box39,
           box40,
-          box41,
           div_row2,
+          box41,
           box42,
           box43,
           box44,
@@ -1213,7 +1212,6 @@ class UserTab(object):
         uep = xml_root.find('.//user_parameters')  # find unique entry point
         self.random_seed.value = int(uep.find('.//random_seed').text)
         self.ignore_smoothing_flag.value = int(uep.find('.//ignore_smoothing_flag').text)
-        self.immune_dt.value = float(uep.find('.//immune_dt').text)
         self.immune_z_offset.value = float(uep.find('.//immune_z_offset').text)
         self.macrophage_max_recruitment_rate.value = float(uep.find('.//macrophage_max_recruitment_rate').text)
         self.macrophage_recruitment_min_signal.value = float(uep.find('.//macrophage_recruitment_min_signal').text)
@@ -1254,6 +1252,7 @@ class UserTab(object):
         self.fibroblast_recruitment_saturation_signal.value = float(uep.find('.//fibroblast_recruitment_saturation_signal').text)
         self.multiplicity_of_infection.value = float(uep.find('.//multiplicity_of_infection').text)
         self.use_single_infected_cell.value = ('true' == (uep.find('.//use_single_infected_cell').text.lower()) )
+        self.use_uniform_dist.value = ('true' == (uep.find('.//use_uniform_dist').text.lower()) )
         self.number_of_CD8_Tcells.value = int(uep.find('.//number_of_CD8_Tcells').text)
         self.number_of_macrophages.value = int(uep.find('.//number_of_macrophages').text)
         self.number_of_neutrophils.value = int(uep.find('.//number_of_neutrophils').text)
@@ -1302,7 +1301,6 @@ class UserTab(object):
         uep = xml_root.find('.//user_parameters')  # find unique entry point
         uep.find('.//random_seed').text = str(self.random_seed.value)
         uep.find('.//ignore_smoothing_flag').text = str(self.ignore_smoothing_flag.value)
-        uep.find('.//immune_dt').text = str(self.immune_dt.value)
         uep.find('.//immune_z_offset').text = str(self.immune_z_offset.value)
         uep.find('.//macrophage_max_recruitment_rate').text = str(self.macrophage_max_recruitment_rate.value)
         uep.find('.//macrophage_recruitment_min_signal').text = str(self.macrophage_recruitment_min_signal.value)
@@ -1343,6 +1341,7 @@ class UserTab(object):
         uep.find('.//fibroblast_recruitment_saturation_signal').text = str(self.fibroblast_recruitment_saturation_signal.value)
         uep.find('.//multiplicity_of_infection').text = str(self.multiplicity_of_infection.value)
         uep.find('.//use_single_infected_cell').text = str(self.use_single_infected_cell.value)
+        uep.find('.//use_uniform_dist').text = str(self.use_uniform_dist.value)
         uep.find('.//number_of_CD8_Tcells').text = str(self.number_of_CD8_Tcells.value)
         uep.find('.//number_of_macrophages').text = str(self.number_of_macrophages.value)
         uep.find('.//number_of_neutrophils').text = str(self.number_of_neutrophils.value)

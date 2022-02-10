@@ -67,6 +67,8 @@
 
 #include "./custom.h"
 
+extern bool check_valid_custom_var;
+
 void create_cell_types( void )
 {
 	// set the random seed 
@@ -96,6 +98,10 @@ void create_cell_types( void )
 	*/
 	
 	initialize_cell_definitions_from_pugixml(); 
+
+    cell_defaults.phenotype.motility.migration_bias_direction = { 1.0, 0.0, 0.0 };
+
+    check_valid_custom_var = true;
 
 	/* 
 	   Put any modifications to individual cell definitions here. 
@@ -204,7 +210,7 @@ void setup_tissue( void )
 	
 	double triangle_stagger = sqrt(3.0) * spacing * 0.5; 
 	
-	// find the cell nearest to the center 
+	// find hte cell nearest to the center 
 	double nearest_distance_squared = 9e99; 
 	Cell* pNearestCell = NULL; 
 	
@@ -238,16 +244,11 @@ void setup_tissue( void )
 		}
 	}
 	
-	extern double EPICOUNT;
-	EPICOUNT = (*all_cells).size();
 	int number_of_virions = (int) ( parameters.doubles("multiplicity_of_infection") * 
 		(*all_cells).size() ); 
 	double single_virion_density_change = 1.0 / microenvironment.mesh.dV; 
 	
-	// infect the cell closest to the center 
-
-	std::default_random_engine generator;
-	std::normal_distribution<double> distribution(0,100);
+	// infect the cell closest to the center  
 
 	if( parameters.bools( "use_single_infected_cell" ) == true )
 	{
@@ -256,56 +257,19 @@ void setup_tissue( void )
 	}
 	else
 	{
-		std::cout << "Placing " << number_of_virions << " virions ... " << std::endl;
-		if( parameters.bools( "use_uniform_dist" ) == true )
+		std::cout << "Placing " << number_of_virions << " virions ... " << std::endl; 
+		for( int n=0 ; n < number_of_virions ; n++ )
 		{
-			for( int n=0 ; n < number_of_virions ; n++ )
-			{
 			// pick a random voxel 
 			std::vector<double> position = {0,0,0}; 
 			position[0] = x_min + (x_max-x_min)*UniformRandom(); 
 			position[1] = y_min + (y_max-y_min)*UniformRandom(); 
 			
 			int m = microenvironment.nearest_voxel_index( position ); 
-			microenvironment(m)[nV] += single_virion_density_change;
-			}			
-		}
-		else
-		{
-			for( int n=0 ; n < number_of_virions ; n++ )
-			{
-				// pick a random voxel in a dist
-				std::vector<double> position = {0,0,0};
-				double number = distribution(generator);
-				double number2 = distribution(generator);
-				if ((number>=-400)&&(number<=400)) {
-					//place at position
-					position[0] = number;
-				}
-				else if (number<-400) {
-					//place at edge
-					position[0] = -400;
-				}
-				else {
-					//place at edge
-					position[0] = 400;
-				}
-				if ((number2>=-400)&&(number2<=400)) {
-					//place at position
-					position[1] = number2;
-				}
-				else if (number2<-400) {
-					//place at edge
-					position[1] = -400;
-				}
-				else {
-					//place at edge
-					position[1] = 400;
-				}
-				
-				int m = microenvironment.nearest_voxel_index( position ); 
-				microenvironment(m)[nV] += single_virion_density_change; 
-			}
+			
+			// int n = (int) ( ( microenvironment.number_of_voxels()-1.0 ) * UniformRandom() ); 
+			// microenvironment(i,j)[nV] += single_virion_density_change; 
+			microenvironment(m)[nV] += single_virion_density_change; 
 		}
 	}
 	
@@ -402,7 +366,6 @@ std::vector<std::string> tissue_coloring_function( Cell* pCell )
 	static int DC_type = get_cell_definition( "DC" ).type; 
 	static int CD4_Tcell_type = get_cell_definition( "CD4 Tcell" ).type; 
 	static int fibroblast_type = get_cell_definition( "fibroblast" ).type; 
-	static int res_type = get_cell_definition( "residual" ).type; 
 	
 	// start with white 
 	
@@ -491,14 +454,6 @@ std::vector<std::string> tissue_coloring_function( Cell* pCell )
 	if( pCell->phenotype.death.dead == false && pCell->type == fibroblast_type )
 	{
 		output[0] = parameters.strings("fibroblast_color");  
-		output[2] = output[0];
-		output[3] = output[0];
-		return output; 
-	}
-	
-	if( pCell->phenotype.death.dead == false && pCell->type == res_type )
-	{
-		output[0] = "black";  
 		output[2] = output[0];
 		output[3] = output[0];
 		return output; 
