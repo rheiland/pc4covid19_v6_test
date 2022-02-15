@@ -104,7 +104,7 @@ class UserTab(object):
         param_name10.style.button_color = 'tan'
 
         self.DC_max_recruitment_rate = FloatText(
-          value=1.5e-9,
+          value=1.e-9,
           step=1e-10,
           style=style, layout=widget_layout)
 
