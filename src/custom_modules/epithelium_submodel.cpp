@@ -164,10 +164,13 @@ void epithelium_submodel_setup( void )
 
 void TCell_induced_apoptosis( Cell* pCell, Phenotype& phenotype, double dt )
 {
+	// extern int debug_print_flag;
 	static int apoptosis_index = phenotype.death.find_death_model_index( "Apoptosis" ); 
 	static int debris_index = microenvironment.find_density_index( "debris" ); 
 	static int proinflammatory_cytokine_index = microenvironment.find_density_index("pro-inflammatory cytokine");
 	static int antiinflammatory_cytokine_index = microenvironment.find_density_index("anti-inflammatory cytokine");
+
+	int debug_print_flag = 1;
 	
 	if( pCell->custom_data["TCell_contact_time"] > pCell->custom_data["TCell_contact_death_threshold"] )
 	{
@@ -177,6 +180,7 @@ void TCell_induced_apoptosis( Cell* pCell, Phenotype& phenotype, double dt )
 		
 		#pragma omp critical
 		{
+		if (debug_print_flag)
 		std::cout << "\t\t\t\t" << pCell << " (of type " << pCell->type_name <<  ") died from T cell contact" << std::endl; 
 		}
 		

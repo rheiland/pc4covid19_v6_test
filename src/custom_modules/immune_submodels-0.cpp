@@ -18,6 +18,12 @@ std::vector<Cell*> cells_to_move_from_edge;
 
 std::vector<int> vascularized_voxel_indices;
 
+int cd8_count = 0;
+std::vector<double> cd8_time_v;
+std::vector<int> cd8_count_v;
+
+int	debug_print_flag = 1;
+
 // return true if out of bounds, within a tolerance 
 bool check_for_out_of_bounds( Cell* pC , double tolerance )
 {
@@ -352,6 +358,13 @@ void create_infiltrating_Tcell(void)
 {
 	static Cell_Definition* pCD = find_cell_definition( "CD8 Tcell" );
 	create_infiltrating_immune_cell( pCD ); 
+
+	#pragma omp critical
+	{
+	cd8_count++;
+	cd8_time_v.push_back( PhysiCell_globals.current_time ); 
+	cd8_count_v.push_back( cd8_count ); 
+	}
 	
 	return;
 }
@@ -436,6 +449,14 @@ void CD8_Tcell_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	
 	if( phenotype.death.dead == true )
 	{
+		std::cout << "\t------ cd8 cell is dead " << std::endl; 
+		#pragma omp critical
+		{
+		cd8_count--;
+		cd8_time_v.push_back( PhysiCell_globals.current_time ); 
+		cd8_count_v.push_back( cd8_count ); 
+		}
+
 		pCell->functions.update_phenotype = NULL;
 		pCell->functions.custom_cell_rule = NULL; 
 
@@ -962,9 +983,9 @@ void DC_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 		// (adrianne) DCs become activated if there is an infected cell in their neighbour with greater 1 viral protein or if the local amount of virus is greater than 10
 		static int virus_index = microenvironment.find_density_index("virion");
 		double virus_amount = pCell->nearest_density_vector()[virus_index];
-		double dt_act = virus_amount * microenvironment.mesh.dV/parameters.doubles("virions_needed_for_DC_activation"); //check for activation prob
-		if( dt_act>0 && UniformRandom()<= dt_act) // (Adrianne) see if activated, maxing at 10
-		{		
+		if( virus_amount*microenvironment.mesh.voxels[1].volume > parameters.doubles("virions_needed_for_DC_activation")) // (Adrianne) amount of virus in local voxel with DC is greater than 10
+		{
+			
 			pCell->custom_data["activated_immune_cell"] = 1.0; // (Adrianne) DC becomes activated
 		}
 		else //(Adrianne) check for infected cells nearby
@@ -1045,7 +1066,8 @@ void CD4_Tcell_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	if(generation_value<0)
 	{
 		
-		pCell->phenotype.death.rates[apoptosis_index] = parameters.doubles("Death_rates_of_old_Tcells");// new death rate of T cells when they have exceeded generation
+		pCell->phenotype.death.rates[apoptosis_index] = parameters.doubles("Death_rates_of_old_Tcells");
+		pCell->phenotype.death.rates[apoptosis_index] = 100; // new death rate of T cells when they have exceeded generation
 		
 		pCell->phenotype.cycle.data.transition_rate(cycle_G0G1_index,cycle_S_index) = 0;
 		
@@ -1431,6 +1453,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_macrophage_recruitment_time )
 		{ first_macrophage_recruitment_time = PhysiCell_globals.current_time; }
 
+		if (debug_print_flag)
 		std::cout << "\tRecruiting " << number_of_new_cells_int << " macrophages ... " << std::endl; 
 		
 		for( int n = 0; n < number_of_new_cells_int ; n++ )
@@ -1484,20 +1507,12 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_neutrophil_recruitment_time )
 		{ first_neutrophil_recruitment_time = PhysiCell_globals.current_time; }
 
+		if (debug_print_flag)
 		std::cout << "\tRecruiting " << number_of_new_cells_int << " neutrophils ... " << std::endl; 
 		
 		for( int n = 0; n < number_of_new_cells_int ; n++ )
 		{ create_infiltrating_neutrophil(); }
 	}
-	
-	extern double TC; 
-	extern double TH1; 
-	extern double TH2; 
-	extern double EPICOUNT;
-	extern double tissueCD8; 
-	extern double tissueCD4; 
-	double cd4report = tissueCD4/(EPICOUNT / 500000)/(TH1+TH2);
-	double cd8report = tissueCD8/(EPICOUNT / 500000)/(TC);
 	
 	// CD8 Tcell recruitment (Michael) changed to take floor of ODE value
 	
@@ -1523,11 +1538,13 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_CD8_T_cell_recruitment_time )
 		{ first_CD8_T_cell_recruitment_time = PhysiCell_globals.current_time; }
 		
-		std::cout << "\tRecruiting " << historyTc.back() << " CD8 T cells ... " << cd8report  << std::endl; 
+		if (debug_print_flag)
+		std::cout << "\tRecruiting " << historyTc.back() << " CD8 T cells ... " << std::endl; 
 
 		for( int n = 0; n < historyTc.back() ; n++ )
 		{ create_infiltrating_Tcell(); }
 	}
+	
 	
 	// CD4 recruitment (Michael) changed to take floor of ODE value
 	extern double Tht; 
@@ -1546,22 +1563,11 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_CD4_T_cell_recruitment_time )
 		{ first_CD4_T_cell_recruitment_time = PhysiCell_globals.current_time; }
 		
-		std::cout << "\tRecruiting " << historyTh.back() << " CD4 T cells ... " << cd4report << std::endl; 
+		if (debug_print_flag)
+		std::cout << "\tRecruiting " << historyTh.back() << " CD4 T cells ... " << std::endl; 
 
 		for( int n = 0; n < historyTh.back() ; n++ )
 		{ create_infiltrating_CD4Tcell(); }
-	}
-	
-	tissueCD4=0;
-	tissueCD8=0;
-	//try counting CD8 and CD4
-	for( int n =0 ; n < (*all_cells).size() ; n++ )
-	{
-		Cell* pC = (*all_cells)[n]; 
-		if( pC->type == 3 )
-		{ tissueCD8++; }
-		if( pC->type == 7 )
-		{ tissueCD4++; }
 	}
 	
 	// (Adrianne) DC recruitment - *** This section will be changed to be Tarun's model  so I've left recruitment parameters to be mac cell parameters**
@@ -1611,6 +1617,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_DC_recruitment_time )
 		{ first_DC_recruitment_time = PhysiCell_globals.current_time; }
 		
+		if (debug_print_flag)
 		std::cout << "\tRecruiting " << number_of_new_cells_int << " DCs ... " << std::endl; 
 
 		for( int n = 0; n < number_of_new_cells_int ; n++ )
@@ -1664,6 +1671,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_fibroblast_cell_recruitment_time )
 		{ first_fibroblast_cell_recruitment_time = PhysiCell_globals.current_time; }
 
+		if (debug_print_flag)
 		std::cout << "\tRecruiting " << number_of_new_cells_int << " fibroblast cells ... " << std::endl;
 
 		for( int n = 0; n < number_of_new_cells_int ; n++ )
@@ -1676,6 +1684,8 @@ void immune_cell_recruitment( double dt )
 
 void initial_immune_cell_placement( void )
 {
+	debug_print_flag = parameters.ints("debug_print_flag");
+
 	Cell_Definition* pCD8 = find_cell_definition( "CD8 Tcell" ); 
 	Cell_Definition* pMF = find_cell_definition( "macrophage" ); 
 	Cell_Definition* pN = find_cell_definition( "neutrophil" ); 
