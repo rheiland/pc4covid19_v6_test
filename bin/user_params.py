@@ -72,8 +72,8 @@ class UserTab(object):
         param_name6.style.button_color = 'tan'
 
         self.macrophage_recruitment_saturation_signal = FloatText(
-          value=0.3,
-          step=0.01,
+          value=0.5,
+          step=0.1,
           style=style, layout=widget_layout)
 
         param_name7 = Button(description='neutrophil_max_recruitment_rate', disabled=True, layout=name_button_layout)
@@ -104,7 +104,7 @@ class UserTab(object):
         param_name10.style.button_color = 'tan'
 
         self.DC_max_recruitment_rate = FloatText(
-          value=1.e-9,
+          value=1e-9,
           step=1e-10,
           style=style, layout=widget_layout)
 
@@ -272,7 +272,7 @@ class UserTab(object):
         param_name31.style.button_color = 'lightgreen'
 
         self.BCell_DC_proliferation = FloatText(
-          value=0.0004,
+          value=0.001,
           step=0.0001,
           style=style, layout=widget_layout)
 
@@ -417,7 +417,7 @@ class UserTab(object):
         param_name49.style.button_color = 'lightgreen'
 
         self.use_uniform_dist = Checkbox(
-          value=True,
+          value=False,
           style=style, layout=widget_layout)
 
         param_name50 = Button(description='number_of_CD8_Tcells', disabled=True, layout=name_button_layout)
