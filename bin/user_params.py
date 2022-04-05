@@ -56,7 +56,7 @@ class UserTab(object):
         param_name4.style.button_color = 'tan'
 
         self.macrophage_max_recruitment_rate = FloatText(
-          value=6e-9,
+          value=2e-8,
           step=1e-09,
           style=style, layout=widget_layout)
 
@@ -72,15 +72,15 @@ class UserTab(object):
         param_name6.style.button_color = 'tan'
 
         self.macrophage_recruitment_saturation_signal = FloatText(
-          value=0.3,
-          step=0.01,
+          value=0.5,
+          step=0.1,
           style=style, layout=widget_layout)
 
         param_name7 = Button(description='neutrophil_max_recruitment_rate', disabled=True, layout=name_button_layout)
         param_name7.style.button_color = 'lightgreen'
 
         self.neutrophil_max_recruitment_rate = FloatText(
-          value=6e-9,
+          value=2e-8,
           step=1e-09,
           style=style, layout=widget_layout)
 
@@ -96,15 +96,15 @@ class UserTab(object):
         param_name9.style.button_color = 'lightgreen'
 
         self.neutrophil_recruitment_saturation_signal = FloatText(
-          value=0.3,
-          step=0.01,
+          value=0.5,
+          step=0.1,
           style=style, layout=widget_layout)
 
         param_name10 = Button(description='DC_max_recruitment_rate', disabled=True, layout=name_button_layout)
         param_name10.style.button_color = 'tan'
 
         self.DC_max_recruitment_rate = FloatText(
-          value=1.e-9,
+          value=2e-9,
           step=1e-10,
           style=style, layout=widget_layout)
 
@@ -120,7 +120,7 @@ class UserTab(object):
         param_name12.style.button_color = 'tan'
 
         self.DC_recruitment_saturation_signal = FloatText(
-          value=1,
+          value=0.5,
           step=0.1,
           style=style, layout=widget_layout)
 
@@ -152,7 +152,7 @@ class UserTab(object):
         param_name16.style.button_color = 'tan'
 
         self.max_clearance_TC = FloatText(
-          value=0.00007,
+          value=0.0002,
           step=1e-05,
           style=style, layout=widget_layout)
 
@@ -244,12 +244,12 @@ class UserTab(object):
           step=1e-07,
           style=style, layout=widget_layout)
 
-        param_name28 = Button(description='BCell_base_rate', disabled=True, layout=name_button_layout)
+        param_name28 = Button(description='BCell_removal', disabled=True, layout=name_button_layout)
         param_name28.style.button_color = 'tan'
 
-        self.BCell_base_rate = FloatText(
-          value=1.74e-6,
-          step=1e-07,
+        self.BCell_removal = FloatText(
+          value=6e-4,
+          step=0.0001,
           style=style, layout=widget_layout)
 
         param_name29 = Button(description='BCell_activation', disabled=True, layout=name_button_layout)
@@ -272,7 +272,7 @@ class UserTab(object):
         param_name31.style.button_color = 'lightgreen'
 
         self.BCell_DC_proliferation = FloatText(
-          value=0.0004,
+          value=0.0014,
           step=0.0001,
           style=style, layout=widget_layout)
 
@@ -384,7 +384,7 @@ class UserTab(object):
         param_name45.style.button_color = 'lightgreen'
 
         self.fibroblast_recruitment_min_signal = FloatText(
-          value=7,
+          value=7.1092,
           step=0.1,
           style=style, layout=widget_layout)
 
@@ -392,7 +392,7 @@ class UserTab(object):
         param_name46.style.button_color = 'tan'
 
         self.fibroblast_recruitment_saturation_signal = FloatText(
-          value=22,
+          value=22.928,
           step=1,
           style=style, layout=widget_layout)
 
@@ -417,7 +417,7 @@ class UserTab(object):
         param_name49.style.button_color = 'lightgreen'
 
         self.use_uniform_dist = Checkbox(
-          value=True,
+          value=False,
           style=style, layout=widget_layout)
 
         param_name50 = Button(description='number_of_CD8_Tcells', disabled=True, layout=name_button_layout)
@@ -1069,7 +1069,7 @@ class UserTab(object):
         row25 = [param_name25, self.Th_base_decay, units_button26, desc_button25] 
         row26 = [param_name26, self.Th2_self_feeback, units_button27, desc_button26] 
         row27 = [param_name27, self.Th2_max_conversion, units_button28, desc_button27] 
-        row28 = [param_name28, self.BCell_base_rate, units_button29, desc_button28] 
+        row28 = [param_name28, self.BCell_removal, units_button29, desc_button28] 
         row29 = [param_name29, self.BCell_activation, units_button30, desc_button29] 
         row30 = [param_name30, self.BCell_activation_half, units_button31, desc_button30] 
         row31 = [param_name31, self.BCell_DC_proliferation, units_button32, desc_button31] 
@@ -1342,7 +1342,7 @@ class UserTab(object):
         self.Th_base_decay.value = float(uep.find('.//Th_base_decay').text)
         self.Th2_self_feeback.value = float(uep.find('.//Th2_self_feeback').text)
         self.Th2_max_conversion.value = float(uep.find('.//Th2_max_conversion').text)
-        self.BCell_base_rate.value = float(uep.find('.//BCell_base_rate').text)
+        self.BCell_removal.value = float(uep.find('.//BCell_removal').text)
         self.BCell_activation.value = float(uep.find('.//BCell_activation').text)
         self.BCell_activation_half.value = float(uep.find('.//BCell_activation_half').text)
         self.BCell_DC_proliferation.value = float(uep.find('.//BCell_DC_proliferation').text)
@@ -1438,7 +1438,7 @@ class UserTab(object):
         uep.find('.//Th_base_decay').text = str(self.Th_base_decay.value)
         uep.find('.//Th2_self_feeback').text = str(self.Th2_self_feeback.value)
         uep.find('.//Th2_max_conversion').text = str(self.Th2_max_conversion.value)
-        uep.find('.//BCell_base_rate').text = str(self.BCell_base_rate.value)
+        uep.find('.//BCell_removal').text = str(self.BCell_removal.value)
         uep.find('.//BCell_activation').text = str(self.BCell_activation.value)
         uep.find('.//BCell_activation_half').text = str(self.BCell_activation_half.value)
         uep.find('.//BCell_DC_proliferation').text = str(self.BCell_DC_proliferation.value)
