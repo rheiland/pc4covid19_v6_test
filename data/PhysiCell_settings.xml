@@ -3406,7 +3406,6 @@
 	<user_parameters>
 		<random_seed type="int" units="dimensionless">0</random_seed> 
 		<!-- example parameters from the template --> 
-		<ignore_smoothing_flag type="int" units="dimensionless">1</ignore_smoothing_flag> 
 		
 		<div_immune type="divider" description="--Immune activation parameters--"/>
 			
