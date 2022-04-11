@@ -529,6 +529,7 @@
 			
 			</custom_data>
 		</cell_definition>
+
         <cell_definition name="lung epithelium"  ID="1">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
@@ -888,6 +889,7 @@
 			
 			</custom_data>
 		</cell_definition>
+
         <cell_definition name="CD8 Tcell"  ID="3">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
@@ -1168,9 +1170,9 @@
 				<TCell_contact_time type="double" units="min"
 					description="tracks total contact time with CD8 T cells">0.0</TCell_contact_time>
 				<cell_attachment_rate units="1/min" type="double"
-					description="the rate at which the cell attaches to cells in contact">0</cell_attachment_rate>
+					description="the rate at which the cell attaches to cells in contact">0.2</cell_attachment_rate>
 				<cell_attachment_lifetime units="min" type="double"
-					description="the mean duration of a cell-cell attachment">0</cell_attachment_lifetime>
+					description="the mean duration of a cell-cell attachment">8.5</cell_attachment_lifetime>
 				
 				<TCell_contact_death_threshold units="min" type="double"
 					description="threshold CD8 T cell contact time to trigger apoptosis">25</TCell_contact_death_threshold> <!-- 50 -->
@@ -1247,6 +1249,7 @@
 			
 			</custom_data>
 		</cell_definition>
+
         <cell_definition name="macrophage"  ID="4">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
@@ -1606,6 +1609,7 @@
 			
 			</custom_data>
 		</cell_definition>
+
         <cell_definition name="neutrophil"  ID="5">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
@@ -1965,6 +1969,7 @@
 			
 			</custom_data>
 		</cell_definition>
+
         <cell_definition name="DC"  ID="6">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
@@ -2324,6 +2329,7 @@
 			
 			</custom_data>
 		</cell_definition>
+
         <cell_definition name="CD4 Tcell" ID="7">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
@@ -2683,6 +2689,7 @@
 			
 			</custom_data>
 		</cell_definition>
+
         <cell_definition name="fibroblast"  ID="8">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
@@ -3042,6 +3049,7 @@
 			
 			</custom_data>
 		</cell_definition>
+
 		<cell_definition name="residual" ID="9">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
