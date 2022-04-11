@@ -91,7 +91,7 @@ void receptor_dynamics_model( Cell* pCell, Phenotype& phenotype, double dt )
 	double dR_EU = pCell->custom_data[nR_recycle]*pCell->custom_data[nR_IU];
  */
 	//int ignore_smoothing_flag=1;
-	static int ignore_smoothing_flag = parameters.ints( "ignore_smoothing_flag" ); 
+	// static int ignore_smoothing_flag = parameters.ints( "ignore_smoothing_flag" ); 
 	double x_min = microenvironment.mesh.bounding_box[0]; 
 	double x_max = microenvironment.mesh.bounding_box[3]; 
 	double y_min = microenvironment.mesh.bounding_box[1]; 
