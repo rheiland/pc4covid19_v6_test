@@ -293,10 +293,6 @@ void Cell_Container::add_agent_to_outer_voxel(Cell* agent)
 
 void Cell_Container::remove_agent_from_voxel(Cell* agent, int voxel_index)
 {
-    if (voxel_index < 0)  //rwh: can occur when extreme overcrowding at domain boundary
-    {
-        return;
-    }
 	int delete_index = 0; 
 	while( agent_grid[voxel_index][ delete_index ] != agent )
 	{

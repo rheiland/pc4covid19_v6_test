@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <PhysiCell_settings version="devel-version">
 	<domain>
 		<x_min>-400</x_min>
@@ -14,7 +15,7 @@
 	</domain>
 	
 	<overall>
-		<max_time units="min">17280</max_time>
+		<max_time units="min">17280</max_time> <!-- 8640, 5 days * 24 h * 60 min -->
 		<time_units>min</time_units>
 		<space_units>micron</space_units>
 	
@@ -29,19 +30,18 @@
 
 	<options>
 		<legacy_random_points_on_sphere_in_divide>false</legacy_random_points_on_sphere_in_divide>
-		<virtual_wall_at_domain_edge>true</virtual_wall_at_domain_edge>
 	</options>	
 	
 	<save>
 		<folder>.</folder> <!-- use . for root --> 
 
 		<full_data>
-			<interval units="min">720</interval>
+			<interval units="min">120</interval>
 			<enable>true</enable>
 		</full_data>
 		
 		<SVG>
-			<interval units="min">720</interval>
+			<interval units="min">120</interval>
 			<enable>true</enable>
 		</SVG>
 		
@@ -60,7 +60,16 @@
 			<Dirichlet_boundary_condition units="virion/micron^3" enabled="false">0</Dirichlet_boundary_condition>
 		</variable>
 
-		<variable name="interferon 1" units="mol/micron^3" ID="1">
+		<variable name="assembled virion" units="virion/micron^3" ID="1">
+			<physical_parameter_set>
+				<diffusion_coefficient units="micron^2/min">2.5</diffusion_coefficient> <!-- 10 --> 
+				<decay_rate units="1/min">0</decay_rate>  
+			</physical_parameter_set>
+			<initial_condition units="virion/micron^3">0</initial_condition>
+			<Dirichlet_boundary_condition units="virion/micron^3" enabled="false">0</Dirichlet_boundary_condition>
+		</variable>
+
+		<variable name="interferon 1" units="mol/micron^3" ID="2">
 			<physical_parameter_set>
 				<diffusion_coefficient units="micron^2/min">25</diffusion_coefficient>
 				<decay_rate units="1/min">1.02e-2</decay_rate>  
@@ -69,7 +78,7 @@
 			<Dirichlet_boundary_condition units="mol/micron^3" enabled="false">0</Dirichlet_boundary_condition>
 		</variable>
 
-		<variable name="pro-inflammatory cytokine" units="mol/micron^3" ID="2">
+		<variable name="pro-inflammatory cytokine" units="mol/micron^3" ID="3">
 			<physical_parameter_set>
 				<diffusion_coefficient units="micron^2/min">555.56</diffusion_coefficient>
 				<decay_rate units="1/min">1.02e-2</decay_rate>  
@@ -78,7 +87,7 @@
 			<Dirichlet_boundary_condition units="mol/micron^3" enabled="false">0</Dirichlet_boundary_condition>
 		</variable>
 
-		<variable name="chemokine" units="mol/micron^3" ID="3">
+		<variable name="chemokine" units="mol/micron^3" ID="4">
 			<physical_parameter_set>
 				<diffusion_coefficient units="micron^2/min">555.56</diffusion_coefficient>
 				<decay_rate units="1/min">1.02e-2</decay_rate>  
@@ -87,7 +96,7 @@
 			<Dirichlet_boundary_condition units="mol/micron^3" enabled="false">0</Dirichlet_boundary_condition>
 		</variable>
 		
-		<variable name="debris" units="mol/micron^3" ID="4">
+		<variable name="debris" units="mol/micron^3" ID="5">
 			<physical_parameter_set>
 				<diffusion_coefficient units="micron^2/min">555.56</diffusion_coefficient>
 				<decay_rate units="1/min">1.02e-2</decay_rate>  
@@ -99,7 +108,7 @@
 		<!-- Sara and Fiona -->
         <!-- Pyroptosis related variables (Diffusion) -->
 
-		<variable name="pro-pyroptosis cytokine" units="mol/micron^3" ID="5">
+		<variable name="pro-pyroptosis cytokine" units="mol/micron^3" ID="6">
 			<physical_parameter_set>
 			 <!-- (Sara & Fiona) pro-pyroptotic cytokine. Values copied from "chemokine". Diffusion constant is D_"chemokine"/100 to keep bystander effects local. -->
 				<diffusion_coefficient units="micron^2/min">5.56</diffusion_coefficient>
@@ -110,7 +119,7 @@
 		</variable>
 		
 		<!-- tissue damage model -->
-		<variable name="anti-inflammatory cytokine" units="mol/micron^3" ID="6">
+		<variable name="anti-inflammatory cytokine" units="mol/micron^3" ID="7">
 			<physical_parameter_set>
 				<diffusion_coefficient units="micron^2/min">3000</diffusion_coefficient>
 				<decay_rate units="1/min">1.04e-2</decay_rate>
@@ -119,7 +128,7 @@
 			<Dirichlet_boundary_condition units="mol/micron^3" enabled="false">0</Dirichlet_boundary_condition>
 		</variable>
 
-		<variable name="collagen" units="mol/micron^3" ID="7">
+		<variable name="collagen" units="mol/micron^3" ID="8">
 			<physical_parameter_set>
 				<diffusion_coefficient units="micron^2/min">0</diffusion_coefficient>  <!-- reduce the diffusion -->
 				<decay_rate units="1/min">0</decay_rate>
@@ -128,7 +137,7 @@
 			<Dirichlet_boundary_condition units="mol/micron^3" enabled="false">0</Dirichlet_boundary_condition>
 		</variable>
 		
-		<variable name="Ig" units="mol/micron^3" ID="8">
+		<variable name="Ig" units="mol/micron^3" ID="9">
 			<physical_parameter_set>
 				<diffusion_coefficient units="micron^2/min">6</diffusion_coefficient>  <!-- reduce the diffusion -->
 				<decay_rate units="1/min">0.00139</decay_rate>  
@@ -137,7 +146,7 @@
 			<Dirichlet_boundary_condition units="mol/micron^3" enabled="false">0</Dirichlet_boundary_condition>
 		</variable>
 		
-		<variable name="ROS" units="mol/micron^3" ID="9">
+		<variable name="ROS" units="mol/micron^3" ID="10">
 			<physical_parameter_set> 
 				<diffusion_coefficient units="micron^2/min">1e-6</diffusion_coefficient>  <!-- reduce the diffusion -->
 				<decay_rate units="1/min">60</decay_rate>  
@@ -164,23 +173,17 @@
 		<cell_definition name="default" ID="0">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
-					<!-- using higher than normal significant digits to match divisions in default code -->
 					<phase_transition_rates units="1/min"> 
-						<!-- G0/G1 to S -->
 						<rate start_index="0" end_index="1" fixed_duration="false">0</rate>
-						<!-- 0.00334672 --> 
-						<!-- S to G2 -->
 						<rate start_index="1" end_index="2" fixed_duration="true">0.00208333</rate>
-						<!-- G2 to M -->
 						<rate start_index="2" end_index="3" fixed_duration="true">0.00416667</rate>
-						<!-- M to G0/G1 -->
 						<rate start_index="3" end_index="0" fixed_duration="true">0.0166667</rate>
 					</phase_transition_rates>
 				</cycle>
 				
 				<death>  
 					<model code="100" name="apoptosis"> 
-						<death_rate units="1/min">0</death_rate> <!-- 5.31667e-05 --> 
+						<death_rate units="1/min">0</death_rate> 
 						<phase_transition_rates units="1/min">
 							<rate start_index="0" end_index="1" fixed_duration="true">0.00193798</rate>
 						</phase_transition_rates>
@@ -253,60 +256,52 @@
 					</options>
 				</motility>
 
-                <secretion>
+				<secretion>
 					<substrate name="virion">
-                        <secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="interferon 1">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="pro-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="chemokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="debris">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate>
-                	<substrate name="pro-pyroptosis cytokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
-					</substrate>
-					<substrate name="anti-inflammatory cytokine">
+                    <substrate name="anti-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 
                     <substrate name="collagen">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="ROS">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="Ig">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
+                    <substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+					</substrate>
+						
 				</secretion>
-			</phenotype>
 
+				<molecular />
+			</phenotype>
 			<custom_data>  
 				<!-- for internal viral dynamics --> 
 				<virion units="virions" type="double"
@@ -418,7 +413,7 @@
 				<cell_pyroptosis_time type="int" units="dimensionless"
 					description="bool for pyropotosis time">0</cell_pyroptosis_time>
 					
-				<cell_apo_time type="int" units="dimensionless"
+						<cell_apo_time type="int" units="dimensionless"
 					description="bool for apoptosis time">0</cell_apo_time>
 					
 				<cell_pyroptosis_flag type="int" units="dimensionless"
@@ -433,17 +428,17 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.025</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
 				<interferon_activation type="double" units="dimensionless"
 					description="Current interferon signaling activation state (between 0 and 1)">0</interferon_activation>
 				<interferon_max_virus_inhibition type="double" units="dimensionless"
-					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">1</interferon_max_virus_inhibition>
+					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">0.95</interferon_max_virus_inhibition>
 				<interferon_viral_RNA_threshold type="double" units="dimensionless" 
 					description="infected cell interferon secretion saturates at this viral RNA level">100</interferon_viral_RNA_threshold>
 				<interferon_viral_RNA_detection type="double" units="dimensionless" 
@@ -534,27 +529,21 @@
 			
 			</custom_data>
 		</cell_definition>
-		
-		<cell_definition name="lung epithelium" parent_type="default" ID="1">
+
+        <cell_definition name="lung epithelium"  ID="1">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
-					<!-- using higher than normal significant digits to match divisions in default code -->
 					<phase_transition_rates units="1/min"> 
-						<!-- G0/G1 to S -->
 						<rate start_index="0" end_index="1" fixed_duration="false">0</rate>
-						<!-- 0.00334672 --> 
-						<!-- S to G2 -->
 						<rate start_index="1" end_index="2" fixed_duration="true">0.00208333</rate>
-						<!-- G2 to M -->
 						<rate start_index="2" end_index="3" fixed_duration="true">0.00416667</rate>
-						<!-- M to G0/G1 -->
 						<rate start_index="3" end_index="0" fixed_duration="true">0.0166667</rate>
 					</phase_transition_rates>
 				</cycle>
 				
 				<death>  
 					<model code="100" name="apoptosis"> 
-						<death_rate units="1/min">0</death_rate>
+						<death_rate units="1/min">0</death_rate> 
 						<phase_transition_rates units="1/min">
 							<rate start_index="0" end_index="1" fixed_duration="true">0.00193798</rate>
 						</phase_transition_rates>
@@ -627,60 +616,52 @@
 					</options>
 				</motility>
 
-                <secretion>
+				<secretion>
 					<substrate name="virion">
-                        <secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="interferon 1">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="pro-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="chemokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="debris">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate>
-                	<substrate name="pro-pyroptosis cytokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
-					</substrate>
-					<substrate name="anti-inflammatory cytokine">
+                    <substrate name="anti-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 
                     <substrate name="collagen">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="ROS">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="Ig">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
+                    <substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.01</uptake_rate>
+					</substrate>
+						
 				</secretion>
-			</phenotype>
 
+				<molecular />
+			</phenotype>
 			<custom_data>  
 				<!-- for internal viral dynamics --> 
 				<virion units="virions" type="double"
@@ -792,7 +773,7 @@
 				<cell_pyroptosis_time type="int" units="dimensionless"
 					description="bool for pyropotosis time">0</cell_pyroptosis_time>
 					
-				<cell_apo_time type="int" units="dimensionless"
+						<cell_apo_time type="int" units="dimensionless"
 					description="bool for apoptosis time">0</cell_apo_time>
 					
 				<cell_pyroptosis_flag type="int" units="dimensionless"
@@ -807,17 +788,17 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.025</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
 				<interferon_activation type="double" units="dimensionless"
 					description="Current interferon signaling activation state (between 0 and 1)">0</interferon_activation>
 				<interferon_max_virus_inhibition type="double" units="dimensionless"
-					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">1</interferon_max_virus_inhibition>
+					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">0.95</interferon_max_virus_inhibition>
 				<interferon_viral_RNA_threshold type="double" units="dimensionless" 
 					description="infected cell interferon secretion saturates at this viral RNA level">100</interferon_viral_RNA_threshold>
 				<interferon_viral_RNA_detection type="double" units="dimensionless" 
@@ -864,10 +845,18 @@
 				<!-- (adrianne) time (mins) after DC activation when it will leave tissue, assigned uniform random variable at activation--> 
 				<time_of_DC_departure units="min" type="double"
 					description="Time DC leaves tissue after activation">0</time_of_DC_departure>
+<!--
+				<relative_maximum_volume units="dimensionless" type="double"
+					description="max tolerated volume (relative to normal volume) before triggering apoptosis">1.8</relative_maximum_volume>
+--> <!-- disable in v 3.2 -->
 
 				<!-- more immmune cell parameters  -->
 				<phagocytosis_rate units="1/min" type="double" 
 					desription="rate of phagocytosing a nearby target">0.167</phagocytosis_rate>
+				
+				
+				
+									
 				<phagocytosis_relative_target_cutoff_size unit="dimensionless" type="double"
 					desription="do not phagocytose anything over this size (relative to cell's volume)">1.1</phagocytosis_relative_target_cutoff_size>
 
@@ -901,23 +890,20 @@
 			</custom_data>
 		</cell_definition>
 
-		<cell_definition name="CD8 Tcell" parent_type="default" ID="3">
+        <cell_definition name="CD8 Tcell"  ID="3">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
 					<phase_transition_rates units="1/min"> 
-						<!-- G0/G1 to S -->
 						<rate start_index="0" end_index="1" fixed_duration="false">0</rate>
-						<!-- S to G2 -->
 						<rate start_index="1" end_index="2" fixed_duration="true">0.00208333</rate>
-						<!-- G2 to M -->
 						<rate start_index="2" end_index="3" fixed_duration="true">0.00416667</rate>
-						<!-- M to G0/G1 -->
 						<rate start_index="3" end_index="0" fixed_duration="true">0.0166667</rate>
 					</phase_transition_rates>
 				</cycle>
+				
 				<death>  
 					<model code="100" name="apoptosis"> 
-						<death_rate units="1/min">2.8e-4</death_rate>
+						<death_rate units="1/min">2.8e-4</death_rate> 
 						<phase_transition_rates units="1/min">
 							<rate start_index="0" end_index="1" fixed_duration="true">0.00193798</rate>
 						</phase_transition_rates>
@@ -964,8 +950,8 @@
 				</volume> 				
 				
 				<mechanics> 
-					<cell_cell_adhesion_strength units="micron/min">0</cell_cell_adhesion_strength>
-					<cell_cell_repulsion_strength units="micron/min">10</cell_cell_repulsion_strength>
+					<cell_cell_adhesion_strength units="micron/min">0.0</cell_cell_adhesion_strength>
+					<cell_cell_repulsion_strength units="micron/min">10.0</cell_cell_repulsion_strength>
 					<relative_maximum_adhesion_distance units="dimensionless">1.25</relative_maximum_adhesion_distance>
 					
 					<options>
@@ -978,6 +964,7 @@
 					<speed units="micron/min">4</speed>
 					<persistence_time units="min">5</persistence_time>
 					<migration_bias units="dimensionless">0.7</migration_bias>
+					
 					<options>
 						<enabled>true</enabled>
 						<use_2D>true</use_2D>
@@ -989,60 +976,52 @@
 					</options>
 				</motility>
 
-                <secretion>
+				<secretion>
 					<substrate name="virion">
-                        <secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="interferon 1">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="pro-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="chemokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="debris">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0</uptake_rate>
 					</substrate>
-                	<substrate name="pro-pyroptosis cytokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
-					</substrate>
-					<substrate name="anti-inflammatory cytokine">
+                    <substrate name="anti-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 
                     <substrate name="collagen">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="ROS">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="Ig">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
+                    <substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+					</substrate>
+						
 				</secretion>
-			</phenotype>
 
+				<molecular />
+			</phenotype>
 			<custom_data>  
 				<!-- for internal viral dynamics --> 
 				<virion units="virions" type="double"
@@ -1154,7 +1133,7 @@
 				<cell_pyroptosis_time type="int" units="dimensionless"
 					description="bool for pyropotosis time">0</cell_pyroptosis_time>
 					
-				<cell_apo_time type="int" units="dimensionless"
+						<cell_apo_time type="int" units="dimensionless"
 					description="bool for apoptosis time">0</cell_apo_time>
 					
 				<cell_pyroptosis_flag type="int" units="dimensionless"
@@ -1169,17 +1148,17 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.025</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
 				<interferon_activation type="double" units="dimensionless"
 					description="Current interferon signaling activation state (between 0 and 1)">0</interferon_activation>
 				<interferon_max_virus_inhibition type="double" units="dimensionless"
-					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">1</interferon_max_virus_inhibition>
+					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">0.95</interferon_max_virus_inhibition>
 				<interferon_viral_RNA_threshold type="double" units="dimensionless" 
 					description="infected cell interferon secretion saturates at this viral RNA level">100</interferon_viral_RNA_threshold>
 				<interferon_viral_RNA_detection type="double" units="dimensionless" 
@@ -1234,6 +1213,9 @@
 				<!-- more immmune cell parameters  -->
 				<phagocytosis_rate units="1/min" type="double" 
 					desription="rate of phagocytosing a nearby target">0.167</phagocytosis_rate>
+				
+				
+				
 									
 				<phagocytosis_relative_target_cutoff_size unit="dimensionless" type="double"
 					desription="do not phagocytose anything over this size (relative to cell's volume)">1.1</phagocytosis_relative_target_cutoff_size>
@@ -1267,24 +1249,21 @@
 			
 			</custom_data>
 		</cell_definition>
-		
-		<cell_definition name="macrophage" parent_type="default" ID="4">
+
+        <cell_definition name="macrophage"  ID="4">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
 					<phase_transition_rates units="1/min"> 
-						<!-- G0/G1 to S -->
 						<rate start_index="0" end_index="1" fixed_duration="false">0</rate>
-						<!-- S to G2 -->
 						<rate start_index="1" end_index="2" fixed_duration="true">0.00208333</rate>
-						<!-- G2 to M -->
 						<rate start_index="2" end_index="3" fixed_duration="true">0.00416667</rate>
-						<!-- M to G0/G1 -->
 						<rate start_index="3" end_index="0" fixed_duration="true">0.0166667</rate>
 					</phase_transition_rates>
 				</cycle>
+				
 				<death>  
 					<model code="100" name="apoptosis"> 
-						<death_rate units="1/min">2.1e-4</death_rate>
+						<death_rate units="1/min">2.1e-4</death_rate> 
 						<phase_transition_rates units="1/min">
 							<rate start_index="0" end_index="1" fixed_duration="true">0.00193798</rate>
 						</phase_transition_rates>
@@ -1331,8 +1310,8 @@
 				</volume> 				
 				
 				<mechanics> 
-					<cell_cell_adhesion_strength units="micron/min">0</cell_cell_adhesion_strength>
-					<cell_cell_repulsion_strength units="micron/min">10</cell_cell_repulsion_strength>
+					<cell_cell_adhesion_strength units="micron/min">0.0</cell_cell_adhesion_strength>
+					<cell_cell_repulsion_strength units="micron/min">10.0</cell_cell_repulsion_strength>
 					<relative_maximum_adhesion_distance units="dimensionless">1.25</relative_maximum_adhesion_distance>
 					
 					<options>
@@ -1345,6 +1324,7 @@
 					<speed units="micron/min">4</speed>
 					<persistence_time units="min">5</persistence_time>
 					<migration_bias units="dimensionless">0.7</migration_bias>
+					
 					<options>
 						<enabled>true</enabled>
 						<use_2D>true</use_2D>
@@ -1356,60 +1336,52 @@
 					</options>
 				</motility>
 
-                <secretion>
+				<secretion>
 					<substrate name="virion">
-                        <secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.004</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="interferon 1">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="pro-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="chemokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="debris">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.1</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.1</uptake_rate>
 					</substrate>
-                	<substrate name="pro-pyroptosis cytokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
-					</substrate>
-					<substrate name="anti-inflammatory cytokine">
+                    <substrate name="anti-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 
                     <substrate name="collagen">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="ROS">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="Ig">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
+                    <substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+					</substrate>
+						
 				</secretion>
-			</phenotype>
 
+				<molecular />
+			</phenotype>
 			<custom_data>  
 				<!-- for internal viral dynamics --> 
 				<virion units="virions" type="double"
@@ -1521,7 +1493,7 @@
 				<cell_pyroptosis_time type="int" units="dimensionless"
 					description="bool for pyropotosis time">0</cell_pyroptosis_time>
 					
-				<cell_apo_time type="int" units="dimensionless"
+						<cell_apo_time type="int" units="dimensionless"
 					description="bool for apoptosis time">0</cell_apo_time>
 					
 				<cell_pyroptosis_flag type="int" units="dimensionless"
@@ -1536,17 +1508,17 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.025</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
 				<interferon_activation type="double" units="dimensionless"
 					description="Current interferon signaling activation state (between 0 and 1)">0</interferon_activation>
 				<interferon_max_virus_inhibition type="double" units="dimensionless"
-					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">1</interferon_max_virus_inhibition>
+					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">0.95</interferon_max_virus_inhibition>
 				<interferon_viral_RNA_threshold type="double" units="dimensionless" 
 					description="infected cell interferon secretion saturates at this viral RNA level">100</interferon_viral_RNA_threshold>
 				<interferon_viral_RNA_detection type="double" units="dimensionless" 
@@ -1601,6 +1573,9 @@
 				<!-- more immmune cell parameters  -->
 				<phagocytosis_rate units="1/min" type="double" 
 					desription="rate of phagocytosing a nearby target">0.167</phagocytosis_rate>
+				
+				
+				
 									
 				<phagocytosis_relative_target_cutoff_size unit="dimensionless" type="double"
 					desription="do not phagocytose anything over this size (relative to cell's volume)">1.1</phagocytosis_relative_target_cutoff_size>
@@ -1633,25 +1608,22 @@
 					description="cell proliferation generation">3</generation>
 			
 			</custom_data>
-		</cell_definition>		
+		</cell_definition>
 
-		<cell_definition name="neutrophil" parent_type="default" ID="5">
+        <cell_definition name="neutrophil"  ID="5">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
 					<phase_transition_rates units="1/min"> 
-						<!-- G0/G1 to S -->
 						<rate start_index="0" end_index="1" fixed_duration="false">0</rate>
-						<!-- S to G2 -->
 						<rate start_index="1" end_index="2" fixed_duration="true">0.00208333</rate>
-						<!-- G2 to M -->
 						<rate start_index="2" end_index="3" fixed_duration="true">0.00416667</rate>
-						<!-- M to G0/G1 -->
 						<rate start_index="3" end_index="0" fixed_duration="true">0.0166667</rate>
 					</phase_transition_rates>
 				</cycle>
+				
 				<death>  
 					<model code="100" name="apoptosis"> 
-						<death_rate units="1/min">8.9e-4</death_rate>
+						<death_rate units="1/min">8.9e-4</death_rate> 
 						<phase_transition_rates units="1/min">
 							<rate start_index="0" end_index="1" fixed_duration="true">0.00193798</rate>
 						</phase_transition_rates>
@@ -1698,8 +1670,8 @@
 				</volume> 				
 				
 				<mechanics> 
-					<cell_cell_adhesion_strength units="micron/min">0</cell_cell_adhesion_strength>
-					<cell_cell_repulsion_strength units="micron/min">10</cell_cell_repulsion_strength>
+					<cell_cell_adhesion_strength units="micron/min">0.0</cell_cell_adhesion_strength>
+					<cell_cell_repulsion_strength units="micron/min">10.0</cell_cell_repulsion_strength>
 					<relative_maximum_adhesion_distance units="dimensionless">1.25</relative_maximum_adhesion_distance>
 					
 					<options>
@@ -1712,6 +1684,7 @@
 					<speed units="micron/min">19</speed>
 					<persistence_time units="min">5</persistence_time>
 					<migration_bias units="dimensionless">0.91</migration_bias>
+					
 					<options>
 						<enabled>true</enabled>
 						<use_2D>true</use_2D>
@@ -1723,60 +1696,52 @@
 					</options>
 				</motility>
 
-                <secretion>
+				<secretion>
 					<substrate name="virion">
-                        <secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.004</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="interferon 1">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="pro-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="chemokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="debris">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.1</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.1</uptake_rate>
 					</substrate>
-                	<substrate name="pro-pyroptosis cytokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
-					</substrate>
-					<substrate name="anti-inflammatory cytokine">
+                    <substrate name="anti-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 
                     <substrate name="collagen">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="ROS">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="Ig">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
+                    <substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+					</substrate>
+						
 				</secretion>
-			</phenotype>
 
+				<molecular />
+			</phenotype>
 			<custom_data>  
 				<!-- for internal viral dynamics --> 
 				<virion units="virions" type="double"
@@ -1888,7 +1853,7 @@
 				<cell_pyroptosis_time type="int" units="dimensionless"
 					description="bool for pyropotosis time">0</cell_pyroptosis_time>
 					
-				<cell_apo_time type="int" units="dimensionless"
+						<cell_apo_time type="int" units="dimensionless"
 					description="bool for apoptosis time">0</cell_apo_time>
 					
 				<cell_pyroptosis_flag type="int" units="dimensionless"
@@ -1903,17 +1868,17 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.025</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
 				<interferon_activation type="double" units="dimensionless"
 					description="Current interferon signaling activation state (between 0 and 1)">0</interferon_activation>
 				<interferon_max_virus_inhibition type="double" units="dimensionless"
-					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">1</interferon_max_virus_inhibition>
+					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">0.95</interferon_max_virus_inhibition>
 				<interferon_viral_RNA_threshold type="double" units="dimensionless" 
 					description="infected cell interferon secretion saturates at this viral RNA level">100</interferon_viral_RNA_threshold>
 				<interferon_viral_RNA_detection type="double" units="dimensionless" 
@@ -1968,6 +1933,9 @@
 				<!-- more immmune cell parameters  -->
 				<phagocytosis_rate units="1/min" type="double" 
 					desription="rate of phagocytosing a nearby target">0.117</phagocytosis_rate>
+				
+				
+				
 									
 				<phagocytosis_relative_target_cutoff_size unit="dimensionless" type="double"
 					desription="do not phagocytose anything over this size (relative to cell's volume)">1.1</phagocytosis_relative_target_cutoff_size>
@@ -2002,24 +1970,20 @@
 			</custom_data>
 		</cell_definition>
 
-	    <!-- (Adrianne) adding a new cell type: dendritic cells -->	
-		<cell_definition name="DC" parent_type="default" ID="6">
+        <cell_definition name="DC"  ID="6">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
 					<phase_transition_rates units="1/min"> 
-						<!-- G0/G1 to S -->
 						<rate start_index="0" end_index="1" fixed_duration="false">0</rate>
-						<!-- S to G2 -->
 						<rate start_index="1" end_index="2" fixed_duration="true">0.00208333</rate>
-						<!-- G2 to M -->
 						<rate start_index="2" end_index="3" fixed_duration="true">0.00416667</rate>
-						<!-- M to G0/G1 -->
 						<rate start_index="3" end_index="0" fixed_duration="true">0.0166667</rate>
 					</phase_transition_rates>
 				</cycle>
+				
 				<death>  
 					<model code="100" name="apoptosis"> 
-						<death_rate units="1/min">8.9e-4</death_rate>
+						<death_rate units="1/min">8.9e-4</death_rate> 
 						<phase_transition_rates units="1/min">
 							<rate start_index="0" end_index="1" fixed_duration="true">0.00193798</rate>
 						</phase_transition_rates>
@@ -2066,8 +2030,8 @@
 				</volume> 				
 				
 				<mechanics> 
-					<cell_cell_adhesion_strength units="micron/min">0</cell_cell_adhesion_strength>
-					<cell_cell_repulsion_strength units="micron/min">10</cell_cell_repulsion_strength>
+					<cell_cell_adhesion_strength units="micron/min">0.0</cell_cell_adhesion_strength>
+					<cell_cell_repulsion_strength units="micron/min">10.0</cell_cell_repulsion_strength>
 					<relative_maximum_adhesion_distance units="dimensionless">1.25</relative_maximum_adhesion_distance>
 					
 					<options>
@@ -2080,6 +2044,7 @@
 					<speed units="micron/min">2</speed>
 					<persistence_time units="min">5</persistence_time>
 					<migration_bias units="dimensionless">0.7</migration_bias>
+					
 					<options>
 						<enabled>true</enabled>
 						<use_2D>true</use_2D>
@@ -2091,60 +2056,52 @@
 					</options>
 				</motility>
 
-                <secretion>
+				<secretion>
 					<substrate name="virion">
-                        <secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.004</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+                        <uptake_rate units="1/min">0.1</uptake_rate>
 					</substrate> 	
 					<substrate name="interferon 1">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="pro-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="chemokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="debris">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.1</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.1</uptake_rate>
 					</substrate>
-                	<substrate name="pro-pyroptosis cytokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
-					</substrate>
-					<substrate name="anti-inflammatory cytokine">
+                    <substrate name="anti-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 
                     <substrate name="collagen">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="ROS">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="Ig">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
+                    <substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+					</substrate>
+						
 				</secretion>
-			</phenotype>
 
+				<molecular />
+			</phenotype>
 			<custom_data>  
 				<!-- for internal viral dynamics --> 
 				<virion units="virions" type="double"
@@ -2256,7 +2213,7 @@
 				<cell_pyroptosis_time type="int" units="dimensionless"
 					description="bool for pyropotosis time">0</cell_pyroptosis_time>
 					
-				<cell_apo_time type="int" units="dimensionless"
+						<cell_apo_time type="int" units="dimensionless"
 					description="bool for apoptosis time">0</cell_apo_time>
 					
 				<cell_pyroptosis_flag type="int" units="dimensionless"
@@ -2271,17 +2228,17 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.025</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
 				<interferon_activation type="double" units="dimensionless"
 					description="Current interferon signaling activation state (between 0 and 1)">0</interferon_activation>
 				<interferon_max_virus_inhibition type="double" units="dimensionless"
-					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">1</interferon_max_virus_inhibition>
+					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">0.95</interferon_max_virus_inhibition>
 				<interferon_viral_RNA_threshold type="double" units="dimensionless" 
 					description="infected cell interferon secretion saturates at this viral RNA level">100</interferon_viral_RNA_threshold>
 				<interferon_viral_RNA_detection type="double" units="dimensionless" 
@@ -2372,25 +2329,21 @@
 			
 			</custom_data>
 		</cell_definition>
-		
-	    <!-- (Adrianne) adding a new cell type: CD4 T cells -->	
-		<cell_definition name="CD4 Tcell" parent_type="default" ID="7">
+
+        <cell_definition name="CD4 Tcell" ID="7">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
 					<phase_transition_rates units="1/min"> 
-						<!-- G0/G1 to S -->
 						<rate start_index="0" end_index="1" fixed_duration="false">0</rate>
-						<!-- S to G2 -->
 						<rate start_index="1" end_index="2" fixed_duration="true">0.00208333</rate>
-						<!-- G2 to M -->
 						<rate start_index="2" end_index="3" fixed_duration="true">0.00416667</rate>
-						<!-- M to G0/G1 -->
 						<rate start_index="3" end_index="0" fixed_duration="true">0.0166667</rate>
 					</phase_transition_rates>
 				</cycle>
+				
 				<death>  
 					<model code="100" name="apoptosis"> 
-						<death_rate units="1/min">2.8e-4</death_rate>
+						<death_rate units="1/min">2.8e-4</death_rate> 
 						<phase_transition_rates units="1/min">
 							<rate start_index="0" end_index="1" fixed_duration="true">0.00193798</rate>
 						</phase_transition_rates>
@@ -2437,8 +2390,8 @@
 				</volume> 				
 				
 				<mechanics> 
-					<cell_cell_adhesion_strength units="micron/min">0</cell_cell_adhesion_strength>
-					<cell_cell_repulsion_strength units="micron/min">10</cell_cell_repulsion_strength>
+					<cell_cell_adhesion_strength units="micron/min">0.0</cell_cell_adhesion_strength>
+					<cell_cell_repulsion_strength units="micron/min">10.0</cell_cell_repulsion_strength>
 					<relative_maximum_adhesion_distance units="dimensionless">1.25</relative_maximum_adhesion_distance>
 					
 					<options>
@@ -2451,6 +2404,7 @@
 					<speed units="micron/min">4</speed>
 					<persistence_time units="min">5</persistence_time>
 					<migration_bias units="dimensionless">0.7</migration_bias>
+					
 					<options>
 						<enabled>true</enabled>
 						<use_2D>true</use_2D>
@@ -2462,60 +2416,52 @@
 					</options>
 				</motility>
 
-                <secretion>
+				<secretion>
 					<substrate name="virion">
-                        <secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="interferon 1">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="pro-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="chemokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="debris">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0</uptake_rate>
 					</substrate>
-                	<substrate name="pro-pyroptosis cytokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
-					</substrate>
-					<substrate name="anti-inflammatory cytokine">
+                    <substrate name="anti-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 
                     <substrate name="collagen">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="ROS">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="Ig">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
+                    <substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+					</substrate>
+						
 				</secretion>
-			</phenotype>
 
+				<molecular />
+			</phenotype>
 			<custom_data>  
 				<!-- for internal viral dynamics --> 
 				<virion units="virions" type="double"
@@ -2627,7 +2573,7 @@
 				<cell_pyroptosis_time type="int" units="dimensionless"
 					description="bool for pyropotosis time">0</cell_pyroptosis_time>
 					
-				<cell_apo_time type="int" units="dimensionless"
+						<cell_apo_time type="int" units="dimensionless"
 					description="bool for apoptosis time">0</cell_apo_time>
 					
 				<cell_pyroptosis_flag type="int" units="dimensionless"
@@ -2642,17 +2588,17 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.025</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
 				<interferon_activation type="double" units="dimensionless"
 					description="Current interferon signaling activation state (between 0 and 1)">0</interferon_activation>
 				<interferon_max_virus_inhibition type="double" units="dimensionless"
-					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">1</interferon_max_virus_inhibition>
+					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">0.95</interferon_max_virus_inhibition>
 				<interferon_viral_RNA_threshold type="double" units="dimensionless" 
 					description="infected cell interferon secretion saturates at this viral RNA level">100</interferon_viral_RNA_threshold>
 				<interferon_viral_RNA_detection type="double" units="dimensionless" 
@@ -2744,24 +2690,20 @@
 			</custom_data>
 		</cell_definition>
 
-		<!-- tissue damage --> 
-		<cell_definition name="fibroblast" parent_type="default" ID="8">
+        <cell_definition name="fibroblast"  ID="8">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
 					<phase_transition_rates units="1/min"> 
-						<!-- G0/G1 to S -->
 						<rate start_index="0" end_index="1" fixed_duration="false">0</rate>
-						<!-- S to G2 -->
 						<rate start_index="1" end_index="2" fixed_duration="true">0.00208333</rate>
-						<!-- G2 to M -->
 						<rate start_index="2" end_index="3" fixed_duration="true">0.00416667</rate>
-						<!-- M to G0/G1 -->
 						<rate start_index="3" end_index="0" fixed_duration="true">0.0166667</rate>
 					</phase_transition_rates>
 				</cycle>
+				
 				<death>  
 					<model code="100" name="apoptosis"> 
-						<death_rate units="1/min">8.3e-5</death_rate>
+						<death_rate units="1/min">8.3e-5</death_rate> 
 						<phase_transition_rates units="1/min">
 							<rate start_index="0" end_index="1" fixed_duration="true">0.00193798</rate>
 						</phase_transition_rates>
@@ -2808,8 +2750,8 @@
 				</volume> 				
 				
 				<mechanics> 
-					<cell_cell_adhesion_strength units="micron/min">0</cell_cell_adhesion_strength>
-					<cell_cell_repulsion_strength units="micron/min">10</cell_cell_repulsion_strength>
+					<cell_cell_adhesion_strength units="micron/min">0.0</cell_cell_adhesion_strength>
+					<cell_cell_repulsion_strength units="micron/min">10.0</cell_cell_repulsion_strength>
 					<relative_maximum_adhesion_distance units="dimensionless">1.25</relative_maximum_adhesion_distance>
 					
 					<options>
@@ -2821,7 +2763,8 @@
 				<motility>  
 					<speed units="micron/min">1</speed>
 					<persistence_time units="min">5</persistence_time>
-					<migration_bias units="dimensionless">0.7</migration_bias>
+					<migration_bias units="dimensionless">0.70</migration_bias>
+					
 					<options>
 						<enabled>true</enabled>
 						<use_2D>true</use_2D>
@@ -2833,60 +2776,52 @@
 					</options>
 				</motility>
 
-                <secretion>
+				<secretion>
 					<substrate name="virion">
-                        <secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="interferon 1">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="pro-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="chemokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.01</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.01</uptake_rate>
 					</substrate> 	
 					<substrate name="debris">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.1</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.1</uptake_rate>
 					</substrate>
-                	<substrate name="pro-pyroptosis cytokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
-					</substrate>
-					<substrate name="anti-inflammatory cytokine">
+                    <substrate name="anti-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0</uptake_rate>
 					</substrate> 
                     <substrate name="collagen">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0</uptake_rate>
 					</substrate> 	
 					<substrate name="ROS">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="Ig">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
+                    <substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+					</substrate>
+						
 				</secretion>
-			</phenotype>
 
+				<molecular />
+			</phenotype>
 			<custom_data>  
 				<!-- for internal viral dynamics --> 
 				<virion units="virions" type="double"
@@ -2998,7 +2933,7 @@
 				<cell_pyroptosis_time type="int" units="dimensionless"
 					description="bool for pyropotosis time">0</cell_pyroptosis_time>
 					
-				<cell_apo_time type="int" units="dimensionless"
+						<cell_apo_time type="int" units="dimensionless"
 					description="bool for apoptosis time">0</cell_apo_time>
 					
 				<cell_pyroptosis_flag type="int" units="dimensionless"
@@ -3013,17 +2948,17 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.025</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
 				<interferon_activation type="double" units="dimensionless"
 					description="Current interferon signaling activation state (between 0 and 1)">0</interferon_activation>
 				<interferon_max_virus_inhibition type="double" units="dimensionless"
-					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">1</interferon_max_virus_inhibition>
+					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">0.95</interferon_max_virus_inhibition>
 				<interferon_viral_RNA_threshold type="double" units="dimensionless" 
 					description="infected cell interferon secretion saturates at this viral RNA level">100</interferon_viral_RNA_threshold>
 				<interferon_viral_RNA_detection type="double" units="dimensionless" 
@@ -3115,25 +3050,20 @@
 			</custom_data>
 		</cell_definition>
 
-		<cell_definition name="residual" parent_type="default" ID="9">
+		<cell_definition name="residual" ID="9">
 			<phenotype>
 				<cycle code="6" name="flow_cytometry_separated_cycle_model">  
-					<!-- using higher than normal significant digits to match divisions in default code -->
 					<phase_transition_rates units="1/min"> 
-						<!-- G0/G1 to S -->
 						<rate start_index="0" end_index="1" fixed_duration="false">0</rate>
-						<!-- 0.00334672 --> 
-						<!-- S to G2 -->
 						<rate start_index="1" end_index="2" fixed_duration="true">0.00208333</rate>
-						<!-- G2 to M -->
 						<rate start_index="2" end_index="3" fixed_duration="true">0.00416667</rate>
-						<!-- M to G0/G1 -->
 						<rate start_index="3" end_index="0" fixed_duration="true">0.0166667</rate>
 					</phase_transition_rates>
 				</cycle>
+				
 				<death>  
 					<model code="100" name="apoptosis"> 
-						<death_rate units="1/min">0.001</death_rate> <!-- 5.31667e-05 --> 
+						<death_rate units="1/min">0.001</death_rate> 
 						<phase_transition_rates units="1/min">
 							<rate start_index="0" end_index="1" fixed_duration="true">0.00193798</rate>
 						</phase_transition_rates>
@@ -3146,6 +3076,7 @@
 							<relative_rupture_volume units="dimensionless">2.0</relative_rupture_volume>
 						</parameters>
 					</model> 
+
 					<model code="101" name="necrosis">
 						<death_rate units="1/min">0.0</death_rate>
 						<phase_transition_rates units="1/min">
@@ -3162,6 +3093,7 @@
 						</parameters>
 					</model> 
 				</death>					
+
 				<volume>  
 					<total units="micron^3">2494</total>
 					<fluid_fraction units="dimensionless">0.75</fluid_fraction>
@@ -3176,19 +3108,23 @@
 					
 					<relative_rupture_volume units="dimensionless">2.0</relative_rupture_volume>
 				</volume> 				
+				
 				<mechanics> 
 					<cell_cell_adhesion_strength units="micron/min">0</cell_cell_adhesion_strength>
 					<cell_cell_repulsion_strength units="micron/min">0</cell_cell_repulsion_strength>
 					<relative_maximum_adhesion_distance units="dimensionless">1.25</relative_maximum_adhesion_distance>
+					
 					<options>
 						<set_relative_equilibrium_distance enabled="false" units="dimensionless">1.8</set_relative_equilibrium_distance>
 						<set_absolute_equilibrium_distance enabled="false" units="micron">15.12</set_absolute_equilibrium_distance>
 					</options>
 				</mechanics>
+				
 				<motility>  
 					<speed units="micron/min">0</speed>
 					<persistence_time units="min">5</persistence_time>
 					<migration_bias units="dimensionless">0</migration_bias>
+					
 					<options>
 						<enabled>false</enabled>
 						<use_2D>true</use_2D>
@@ -3199,60 +3135,53 @@
 						</chemotaxis>
 					</options>
 				</motility>
-                <secretion>
+
+				<secretion>
 					<substrate name="virion">
-                        <secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="interferon 1">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="pro-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="chemokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="debris">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate>
-                	<substrate name="pro-pyroptosis cytokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
-					</substrate>
-					<substrate name="anti-inflammatory cytokine">
+                    <substrate name="anti-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 
                     <substrate name="collagen">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="ROS">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 					<substrate name="Ig">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0</uptake_rate>
-						<secretion_rate units="1/min">0</secretion_rate>
+                        <uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
+                    <substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+					</substrate>
+						
 				</secretion>
-			</phenotype>
 
+				<molecular />
+			</phenotype>
 			<custom_data>  
 				<!-- for internal viral dynamics --> 
 				<virion units="virions" type="double"
@@ -3364,7 +3293,7 @@
 				<cell_pyroptosis_time type="int" units="dimensionless"
 					description="bool for pyropotosis time">0</cell_pyroptosis_time>
 					
-				<cell_apo_time type="int" units="dimensionless"
+						<cell_apo_time type="int" units="dimensionless"
 					description="bool for apoptosis time">0</cell_apo_time>
 					
 				<cell_pyroptosis_flag type="int" units="dimensionless"
@@ -3379,17 +3308,17 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.025</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
 				<interferon_activation type="double" units="dimensionless"
 					description="Current interferon signaling activation state (between 0 and 1)">0</interferon_activation>
 				<interferon_max_virus_inhibition type="double" units="dimensionless"
-					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">1</interferon_max_virus_inhibition>
+					description="At max interferon activation, max inhibition of viral replication (between 0 and 1)">0.95</interferon_max_virus_inhibition>
 				<interferon_viral_RNA_threshold type="double" units="dimensionless" 
 					description="infected cell interferon secretion saturates at this viral RNA level">100</interferon_viral_RNA_threshold>
 				<interferon_viral_RNA_detection type="double" units="dimensionless" 
@@ -3479,14 +3408,12 @@
 					description="cell proliferation generation">3</generation>
 			
 			</custom_data>
-		</cell_definition>
-	</cell_definitions>
-	
-	
+		</cell_definition>	
+    </cell_definitions>
+
 	<user_parameters>
 		<random_seed type="int" units="dimensionless">0</random_seed> 
 		<!-- example parameters from the template --> 
-		<ignore_smoothing_flag type="int" units="dimensionless">1</ignore_smoothing_flag> 
 		
 		<div_immune type="divider" description="--Immune activation parameters--"/>
 			
@@ -3494,7 +3421,7 @@
 				description="immune cell position over the epithelium">0</immune_z_offset>
 
 			<macrophage_max_recruitment_rate type="double" units="cells/min/micron^3"
-				description="max macrophage recruitment rate (for saturated signal)">1.5e-8</macrophage_max_recruitment_rate> <!-- 4e-9 debug -->
+				description="max macrophage recruitment rate (for saturated signal)">2e-8</macrophage_max_recruitment_rate> <!-- 4e-9 debug -->
 			<macrophage_recruitment_min_signal type="double" units="substrate/micron^3"
 				description="min concentration to attract macrophages">0.1</macrophage_recruitment_min_signal> <!--0.1 debug -->
 			<macrophage_recruitment_saturation_signal type="double" units="substrate/micron^3"
@@ -3521,9 +3448,9 @@
 			<max_activation_TC type="double" units="cells/min"
 				description="max activation TC">0.0018</max_activation_TC>
 			<half_max_activation_TC type="double" units="cells"
-				description="half max activation TC">5000</half_max_activation_TC>
+				description="half max activation TC">4000</half_max_activation_TC>
 			<max_clearance_TC type="double" units="cells/min"
-				description="max clearance TC">0.00018</max_clearance_TC>
+				description="max clearance TC">0.0002</max_clearance_TC>
 			<half_max_clearance_TC type="double" units="cells"
 				description="half max clearance TC">1</half_max_clearance_TC>
 			<TC_population_threshold type="double" units="cells"
@@ -3574,8 +3501,6 @@
 				description="naive TC activation rate half max">100</TC_activation_half>
 			<Th_half type="double" units="cells/min"
 				description="Th half max for cytokine feedback (inverse)">1e-2</Th_half>
-			<Ig_neutralization_rate type="double" units="1/min"
-				description="rate of virion neutalization by Ig">3</Ig_neutralization_rate>
 			<Death_rates_of_old_Tcells type="double" units="cells/min"
 				description="value to kill T Cells post generation limit">100</Death_rates_of_old_Tcells>
 			<RNA_lower_bound type="double" units="cells/min"

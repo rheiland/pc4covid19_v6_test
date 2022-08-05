@@ -24,7 +24,7 @@
 	</overall>
 	
 	<parallel>
-		<omp_num_threads>4</omp_num_threads>
+		<omp_num_threads>1</omp_num_threads>
 	</parallel> 
 
 	<options>
@@ -33,7 +33,7 @@
 	</options>	
 	
 	<save>
-		<folder>.</folder> <!-- use . for root --> 
+		<folder>v6_flat_test2</folder> <!-- use . for root --> 
 
 		<full_data>
 			<interval units="min">720</interval>
