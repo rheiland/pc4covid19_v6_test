@@ -658,15 +658,17 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 	// (Adrianne) add an additional variable that is the time taken to ingest material 
 	double material_internalisation_rate = pCell->custom_data["material_internalisation_rate"];
 		n = 0; 
-		Cell* pTestCell = neighbors[n]; 
+		Cell* pTestCell = neighbors[n];
 		while( n < neighbors.size() )
 		{
 			pTestCell = neighbors[n]; 
 			int nP  = pTestCell->custom_data.find_variable_index( "viral_protein" ); //(Adrianne) finding the viral protein inside cells
 			int nR  = pTestCell->custom_data.find_variable_index( "viral_RNA" ); //(Adrianne) finding the viral protein inside cells
-			// if it is not me and not a macrophage 
+			static int residual_type = get_cell_definition( "residual" ).type; 
+			// if it is not me and not residual cells
+			
 			if( pTestCell != pCell && pTestCell->phenotype.death.dead == true &&  
-				UniformRandom() < probability_of_phagocytosis) // && // remove in v 3.2 
+				UniformRandom() < probability_of_phagocytosis && pTestCell->type != residual_type ) // && // remove in v 3.2 
 	//			pTestCell->phenotype.volume.total < max_phagocytosis_volume ) / remove in v 3.2 
 			{
 				if (pTestCell->custom_data[nR]>0 && pCell->custom_data["activated_immune_cell"] < 0.5)
@@ -708,23 +710,21 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 				return; 
 			}
 			else if( pTestCell != pCell && pCell->custom_data["ability_to_phagocytose_infected_cell"]== 1 && pTestCell->custom_data[nP]>1 &&
-				UniformRandom() < probability_of_phagocytosis ) // (Adrianne) macrophages that have been activated by T cells can phagocytose infected cells that contain at least 1 viral protein
+				UniformRandom() < probability_of_phagocytosis) // (Adrianne) macrophages that have been activated by T cells can phagocytose infected cells that contain at least 1 viral protein
 			{
-				{
-					// (Adrianne) obtain volume of cell to be ingested
-					double volume_ingested_cell = pTestCell->phenotype.volume.total;
+				// (Adrianne) obtain volume of cell to be ingested
+				double volume_ingested_cell = pTestCell->phenotype.volume.total;
 					
-					pCell->ingest_cell( pTestCell ); 
+				pCell->ingest_cell( pTestCell );
 					
-					// (Adrianne)(assume neutrophils same as macrophages) neutrophils phagocytose material 1micron3/s so macrophage cannot phagocytose again until it has elapsed the time taken to phagocytose the material
-					double time_to_ingest = volume_ingested_cell*material_internalisation_rate;// convert volume to time taken to phagocytose
-					// (Adrianne) update internal time vector in macrophages that tracks time it will spend phagocytosing the material so they can't phagocytose again until this time has elapsed
-					pCell->custom_data.variables[time_to_next_phagocytosis_index].value = PhysiCell_globals.current_time+time_to_ingest;				
-				}
+				// (Adrianne)(assume neutrophils same as macrophages) neutrophils phagocytose material 1micron3/s so macrophage cannot phagocytose again until it has elapsed the time taken to phagocytose the material
+				double time_to_ingest = volume_ingested_cell*material_internalisation_rate;// convert volume to time taken to phagocytose
+				// (Adrianne) update internal time vector in macrophages that tracks time it will spend phagocytosing the material so they can't phagocytose again until this time has elapsed
+				pCell->custom_data.variables[time_to_next_phagocytosis_index].value = PhysiCell_globals.current_time+time_to_ingest;
 				return; 
 			}
 			else if( pTestCell != pCell && pTestCell->phenotype.death.dead == false &&  
-				pTestCell->phenotype.molecular.internalized_total_substrates[antibody_index]>1e-12 ) 
+				pTestCell->phenotype.molecular.internalized_total_substrates[antibody_index]>1e-12) 
 				// (Adrianne V5) macrophages can phaogyctose infected cell if it has some non-trivial bound antibody
 			{
 					double antibody_level = pTestCell->phenotype.molecular.internalized_total_substrates[antibody_index];
@@ -736,12 +736,12 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 						// (Adrianne) obtain volume of cell to be ingested
 						double volume_ingested_cell = pTestCell->phenotype.volume.total;
 					
-						pCell->ingest_cell( pTestCell ); 
-					
+						pCell->ingest_cell( pTestCell );
 						// (Adrianne)(assume neutrophils same as macrophages) neutrophils phagocytose material 1micron3/s so macrophage cannot phagocytose again until it has elapsed the time taken to phagocytose the material
 						double time_to_ingest = volume_ingested_cell*material_internalisation_rate;// convert volume to time taken to phagocytose
 						// (Adrianne) update internal time vector in macrophages that tracks time it will spend phagocytosing the material so they can't phagocytose again until this time has elapsed
-						pCell->custom_data.variables[time_to_next_phagocytosis_index].value = PhysiCell_globals.current_time+time_to_ingest;		
+						pCell->custom_data.variables[time_to_next_phagocytosis_index].value = PhysiCell_globals.current_time+time_to_ingest;	
+						return;						
 					}					
 			}
 			n++; 
@@ -1456,7 +1456,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_macrophage_recruitment_time )
 		{ first_macrophage_recruitment_time = PhysiCell_globals.current_time; }
 
-		std::cout << "\tRecruiting " << number_of_new_cells_int << " macrophages ... " << std::endl; 
+		// std::cout << "\tRecruiting " << number_of_new_cells_int << " macrophages ... " << std::endl; 
 		
 		for( int n = 0; n < number_of_new_cells_int ; n++ )
 		{ create_infiltrating_macrophage(); }
@@ -1509,7 +1509,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_neutrophil_recruitment_time )
 		{ first_neutrophil_recruitment_time = PhysiCell_globals.current_time; }
 
-		std::cout << "\tRecruiting " << number_of_new_cells_int << " neutrophils ... " << std::endl; 
+		// std::cout << "\tRecruiting " << number_of_new_cells_int << " neutrophils ... " << std::endl; 
 		
 		for( int n = 0; n < number_of_new_cells_int ; n++ )
 		{ create_infiltrating_neutrophil(); }
@@ -1544,7 +1544,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_CD8_T_cell_recruitment_time )
 		{ first_CD8_T_cell_recruitment_time = PhysiCell_globals.current_time; }
 		
-		std::cout << "\tRecruiting " << historyTc.back() << " CD8 T cells ... " << cd8report  << std::endl; 
+		// std::cout << "\tRecruiting " << historyTc.back() << " CD8 T cells ... " << cd8report  << std::endl; 
 
 		for( int n = 0; n < historyTc.back() ; n++ )
 		{ create_infiltrating_Tcell(); }
@@ -1567,7 +1567,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_CD4_T_cell_recruitment_time )
 		{ first_CD4_T_cell_recruitment_time = PhysiCell_globals.current_time; }
 		
-		std::cout << "\tRecruiting " << historyTh.back() << " CD4 T cells ... " << cd4report << std::endl; 
+		// std::cout << "\tRecruiting " << historyTh.back() << " CD4 T cells ... " << cd4report << std::endl; 
 
 		for( int n = 0; n < historyTh.back() ; n++ )
 		{ create_infiltrating_CD4Tcell(); }
@@ -1632,7 +1632,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_DC_recruitment_time )
 		{ first_DC_recruitment_time = PhysiCell_globals.current_time; }
 		
-		std::cout << "\tRecruiting " << number_of_new_cells_int << " DCs ... " << std::endl; 
+		// std::cout << "\tRecruiting " << number_of_new_cells_int << " DCs ... " << std::endl; 
 
 		for( int n = 0; n < number_of_new_cells_int ; n++ )
 		{ create_infiltrating_DC(); }
@@ -1684,7 +1684,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_fibroblast_cell_recruitment_time )
 		{ first_fibroblast_cell_recruitment_time = PhysiCell_globals.current_time; }
 
-		std::cout << "\tRecruiting " << number_of_new_cells_int << " fibroblast cells ... " << std::endl;
+		// std::cout << "\tRecruiting " << number_of_new_cells_int << " fibroblast cells ... " << std::endl;
 
 		for( int n = 0; n < number_of_new_cells_int ; n++ )
 		{ create_infiltrating_fibroblast(); }
