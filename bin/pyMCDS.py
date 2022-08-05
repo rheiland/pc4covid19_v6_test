@@ -325,7 +325,7 @@ class pyMCDS:
         xml_file = output_path / xml_file
         tree = ET.parse(xml_file)
 
-        print('Reading {}'.format(xml_file))
+        # print('Reading {}'.format(xml_file))
 
         root = tree.getroot()
         MCDS = {}
@@ -381,7 +381,7 @@ class pyMCDS:
                 "No such file or directory:\n'{}' referenced in '{}'".format(voxel_path, xml_file))
             sys.exit(1)
 
-        print('Reading {}'.format(voxel_path))
+        # print('Reading {}'.format(voxel_path))
 
         # center of voxel specified by first three rows [ x, y, z ]
         # volume specified by fourth row
@@ -411,7 +411,7 @@ class pyMCDS:
                 "No such file or directory:\n'{}' referenced in '{}'".format(me_path, xml_file))
             sys.exit(1)
 
-        print('Reading {}'.format(me_path))
+        # print('Reading {}'.format(me_path))
 
         var_children = variables_node.findall('variable')
 
@@ -425,7 +425,7 @@ class pyMCDS:
             MCDS['continuum_variables'][species_name]['units'] = species.get(
                 'units')
 
-            print('Parsing {:s} data'.format(species_name))
+            # print('Parsing {:s} data'.format(species_name))
 
             # initialize array for concentration data
             MCDS['continuum_variables'][species_name]['data'] = np.zeros(xx.shape)
@@ -472,7 +472,7 @@ class pyMCDS:
                 cell_node = child
                 break
 
-        print( 'working on discrete cell data...\n')
+        # print( 'working on discrete cell data...\n')
 
         MCDS['discrete_cells'] = {}
         data_labels = []
@@ -485,7 +485,7 @@ class pyMCDS:
             nlabels = int(label.get('size'))
             if nlabels > 1: 
                 # tags to differentiate repeated labels (usually space related)
-                print("n=",n)
+                # print("n=",n)
                 spatial_type = False; 
                 if( fixed_label == 'position' ):
                     spatial_type = True; 
@@ -522,7 +522,7 @@ class pyMCDS:
                 "No such file or directory:\n'{}' referenced in '{}'".format(cell_path, xml_file))
             sys.exit(1)
 
-        print('Reading {}'.format(cell_path))
+        # print('Reading {}'.format(cell_path))
 
         for col in range(len(data_labels)):
             MCDS['discrete_cells'][data_labels[col]] = cell_data[col, :]
