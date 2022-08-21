@@ -130,6 +130,50 @@ def read_config_cb(_b):
         # sub.update()  # NOTE: even if we attempt this, it doesn't really refresh the plots
         # pass
         
+def regime_config_cb(_b):
+    # with debug_view:
+    #     print("regime_config_cb", regime_config.value)
+
+    sub.first_time = True
+
+    if nanoHUB_flag:
+        config_file = os.path.join('data', regime_config.value)
+    else:
+        config_file = os.path.join('config', regime_config.value)
+
+    is_dir = False
+    print("regime_config_cb(): --- config_file=",config_file)
+
+    if Path(config_file).is_file():
+        # with debug_view:
+        # print("read_config_cb():  calling fill_gui_params with ",config_file)
+        fill_gui_params(config_file)  #should verify file exists!
+
+        # If cells or substrates toggled off in Config tab, toggle off in Plots tab
+        if config_tab.toggle_svg.value == False:
+            sub.cells_toggle.value = False
+            sub.cells_toggle.disabled = True
+        else:
+            sub.cells_toggle.disabled = False
+
+        if config_tab.toggle_mcds.value == False:
+            sub.substrates_toggle.value = False
+            sub.substrates_toggle.disabled = True
+        else:
+            sub.substrates_toggle.disabled = False
+
+    else:
+        # with debug_view:
+        #     print("regime_config_cb: ",config_file, " does not exist.")
+        return
+    
+    # update visualization tabs
+    if is_dir:
+        # svg.update(regime_config.value)
+        # print("regime_config_cb():  is_dir True, calling update_params")
+        sub.update_params(config_tab, user_tab)
+        sub.update(regime_config.value)
+
 
 # Using the param values in the GUI, write a new .xml config file
 def write_config_file(name):
@@ -208,8 +252,8 @@ def get_config_files():
     # Create a dict of {timestamp:dir} pairs
     cached_file_dict = dict(zip(sorted_dirs_dates, sorted_dirs))
     cf.update(cached_file_dict)
-    # with debug_view:
-    #     print(cf)
+    with debug_view:
+        print(cf)
     return cf
 
 
@@ -413,6 +457,14 @@ if nanoHUB_flag or hublib_flag:
     read_config.style = {'description_width': '%sch' % str(len(read_config.description) + 1)}
     read_config.observe(read_config_cb, names='value') 
 
+    regime_config = widgets.Dropdown(
+        description='Regime',
+        options = {"Baseline":"baseline_v6.xml", "regime 2":"regime2.xml"},
+        tooltip='Select regime',
+    )
+    regime_config.style = {'description_width': '%sch' % str(10)}
+    regime_config.observe(regime_config_cb, names='value') 
+
 tab_height = 'auto'
 #tab_layout = widgets.Layout(width='auto',height=tab_height, overflow_y='scroll',)   # border='2px solid black',
 tab_layout = widgets.Layout(width='auto',height=tab_height)   # border='2px solid black',
@@ -440,7 +492,7 @@ if nanoHUB_flag or hublib_flag:
     # define this, but don't use (yet)
     remote_cb = widgets.Checkbox(indent=False, value=False, description='Submit as Batch Job to Clusters/Grid')
 
-    top_row = widgets.HBox(children=[read_config, tool_title])
+    top_row = widgets.HBox(children=[read_config, regime_config, tool_title])
     gui = widgets.VBox(children=[top_row, tabs, run_button.w])
     fill_gui_params(read_config.options['DEFAULT'])
 else:
