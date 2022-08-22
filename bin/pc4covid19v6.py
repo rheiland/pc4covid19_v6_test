@@ -142,7 +142,7 @@ def regime_config_cb(_b):
         config_file = os.path.join('config', regime_config.value)
 
     is_dir = False
-    print("regime_config_cb(): --- config_file=",config_file)
+    # print("regime_config_cb(): --- config_file=",config_file)
 
     if Path(config_file).is_file():
         # with debug_view:
