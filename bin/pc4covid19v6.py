@@ -459,7 +459,7 @@ if nanoHUB_flag or hublib_flag:
 
     regime_config = widgets.Dropdown(
         description='Regime',
-        options = {"Baseline":"baseline_v6.xml", "immune":"regime_immune.xml"},
+        options = {"baseline":"baseline_v6.xml", "immune":"regime_immune.xml", "harmful":"regime_harmful.xml"},
         tooltip='Select regime',
     )
     regime_config.style = {'description_width': '%sch' % str(10)}

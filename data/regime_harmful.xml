@@ -3482,7 +3482,7 @@
 		</cell_definition>
 	</cell_definitions>
 	
-    <user_parameters>
+	<user_parameters>
 		<random_seed type="int" units="dimensionless">0</random_seed> 
 		<!-- example parameters from the template --> 
 		<ignore_smoothing_flag type="int" units="dimensionless">1</ignore_smoothing_flag> 
@@ -3540,7 +3540,7 @@
 			<Th1_decay type="double" units="cells/min"
 				description="Th1 active decay rate">7e-8</Th1_decay>
 			<Th_base_decay type="double" units="cells/min"
-				description="Th base decay rates">0.000156</Th_base_decay>
+				description="Th base dacay rates">0.000156</Th_base_decay>
 			<Th2_self_feeback type="double" units="cells/min"
 				description="Th2 max self feeback speed">0.00000004</Th2_self_feeback>
 			<Th2_max_conversion type="double" units="cells/min"
@@ -3598,7 +3598,7 @@
 				description="use a uniform distribution">false</use_uniform_dist>
 			
 			<number_of_CD8_Tcells type="int" units="none" 
-				description="initial number of CD8 T cells in tissue">120</number_of_CD8_Tcells>
+				description="initial number of CD8 T cells in tissue">0</number_of_CD8_Tcells>
 			<number_of_macrophages type="int" units="none" 
 				description="initial number of macrophages">50</number_of_macrophages>
 			<number_of_neutrophils type="int" units="none" 
@@ -3610,7 +3610,7 @@
 				description="initial number of Dendritic Cells">28</number_of_DCs> 
 		<!-- (Adrianne) initial number of CD4 T cells in the lung -->
 			<number_of_CD4_Tcells type="int" units="none" 
-				description="initial number of CD4 Tcells in tissue">3</number_of_CD4_Tcells> 
+				description="initial number of CD4 Tcells in tissue">0</number_of_CD4_Tcells> 
 		<!-- (Adrianne) New CD8 proliferation rate (G0G1 TO S PHASE) after interaction with DCS-->	
 			<DC_induced_CD8_proliferation type="double" units="cells/min/micron^3"
 				description="DC induced CD8 proliferation rate">0.00208</DC_induced_CD8_proliferation> <!-- currently an arbitrary choice -->
@@ -3641,9 +3641,9 @@
 			<Bc_init type="double" units="cells" descriptions="Initial value of B Cells in the lymph">630</Bc_init>
 			<Ps_init type="double" units="cells" descriptions="Initial value of Plasma Cells in the lymph">2000</Ps_init>
 			<Ig_init type="double" units="cells" descriptions="Initial value of Antibody in the lymph to transport (should be 0)">0</Ig_init>
-			<TCN_init type="double" units="cells" descriptions="Initial value of Naive Cytotoxic T Cells in the lymph">10</TCN_init>
-			<THN_init type="double" units="cells" descriptions="Initial value of Naive Helper T Cells in the lymph">10</THN_init>
-			<BN_init type="double" units="cells" descriptions="Initial value of Naive B Cells in the lymph">20</BN_init>
+			<TCN_init type="double" units="cells" descriptions="Initial value of Niave Cytotoxic T Cells in the lymph">10</TCN_init>
+			<THN_init type="double" units="cells" descriptions="Initial value of Niave Helper T Cells in the lymph">10</THN_init>
+			<BN_init type="double" units="cells" descriptions="Initial value of Niave B Cells in the lymph">20</BN_init>
 			
 		<div_colors type="divider" description="---Cell Color Options--"/>
 			<color_variable type="string" description="color cells based on this variable">assembled_virion</color_variable>
@@ -3708,8 +3708,6 @@
 		<virus_fraction_released_at_death type="double" units="none" 
 					description="fraction of internal virus released at cell death">0</virus_fraction_released_at_death>
 	</user_parameters>
-
-
 	
 	
 </PhysiCell_settings>
