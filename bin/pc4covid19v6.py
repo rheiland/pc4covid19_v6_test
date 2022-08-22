@@ -136,10 +136,10 @@ def regime_config_cb(_b):
 
     sub.first_time = True
 
-    if nanoHUB_flag:
-        config_file = os.path.join('data', regime_config.value)
-    else:
-        config_file = os.path.join('config', regime_config.value)
+    # if nanoHUB_flag:
+    config_file = os.path.join('data', regime_config.value)
+    # else:
+        # config_file = os.path.join('config', regime_config.value)
 
     is_dir = False
     # print("regime_config_cb(): --- config_file=",config_file)
