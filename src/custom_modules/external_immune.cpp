@@ -88,7 +88,11 @@ void external_immune_model( double dt )
 	
 	extern std::vector<int>history;
 	
-	x[0][0] = (DM+history.back())/lypmh_scale; 
+	static double timedelay = parameters.doubles( "Lymph_node_td" ); 
+	double td_l = round(timedelay*1440/dt);
+	//std::cout<<history[td_l]<<std::endl;
+	
+	x[0][0] = (DM+history[td_l])/lypmh_scale; 
 	x[0][1] = TC; //initial values
 	x[0][2] = TH1; //initial values
 	x[0][3] = TH2; //initial values
@@ -100,7 +104,7 @@ void external_immune_model( double dt )
 	x[0][9] = TCN;
 	x[0][10] = THN;
 	x[0][11] = BN;
-	x[0][12] = (DL+(THN+TH1+TH2)/(THN+TH1+TH2+5000)*history.back())/lypmh_scale;
+	x[0][12] = (DL+(THN+TH1+TH2)/(THN+TH1+TH2+5000)*history[td_l])/lypmh_scale;
 	//(pT/(y(5)+pT2) added
 	//rT1->pT1
 	//rT2->pT2
@@ -167,7 +171,7 @@ void external_immune_model( double dt )
 	THN=(x[0][10]+dt*(f[0][10]/6+f[1][10]/3+f[2][10]/3+f[3][10]/6));
 	BN=(x[0][11]+dt*(f[0][11]/6+f[1][11]/3+f[2][11]/3+f[3][11]/6));
 	DL=(x[0][12]+dt*(f[0][12]/6+f[1][12]/3+f[2][12]/3+f[3][12]/6))*lypmh_scale;
-	
+
 	double x_min = microenvironment.mesh.bounding_box[0] + 1e-6; 
 	double x_max = microenvironment.mesh.bounding_box[3] - 1e-6; 
 	double y_min = microenvironment.mesh.bounding_box[1] + 1e-6; 
