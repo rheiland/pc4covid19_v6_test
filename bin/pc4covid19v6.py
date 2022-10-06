@@ -457,9 +457,10 @@ if nanoHUB_flag or hublib_flag:
     read_config.style = {'description_width': '%sch' % str(len(read_config.description) + 1)}
     read_config.observe(read_config_cb, names='value') 
 
+    # Michael: call immune2.xml "immune" and immune.xml "immune-no local"
     regime_config = widgets.Dropdown(
         description='Regime',
-        options = {"baseline":"baseline_v6.xml", "immune":"regime_immune.xml", "harmful":"regime_harmful.xml"},
+        options = {"baseline":"baseline_v6.xml", "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"},
         tooltip='Select regime',
     )
     regime_config.style = {'description_width': '%sch' % str(10)}
