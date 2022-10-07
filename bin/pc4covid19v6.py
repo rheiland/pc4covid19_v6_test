@@ -252,8 +252,8 @@ def get_config_files():
     # Create a dict of {timestamp:dir} pairs
     cached_file_dict = dict(zip(sorted_dirs_dates, sorted_dirs))
     cf.update(cached_file_dict)
-    with debug_view:
-        print(cf)
+    # with debug_view:
+        # print(cf)
     return cf
 
 
