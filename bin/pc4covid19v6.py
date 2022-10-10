@@ -23,6 +23,8 @@ import platform
 import subprocess
 from debug import debug_view
 
+debug_print = False
+
 hublib_flag = True
 if platform.system() != 'Windows':
     try:
@@ -85,8 +87,13 @@ def read_config_cb(_b):
         # print("read_config_cb(): is_dir=True; config_file=",config_file)
     else:
         is_dir = False
-        config_file = read_config.value
-        # print("read_config_cb(): is_dir=False; --- config_file=",config_file)
+        # config_file = read_config.value
+
+        # config_file = os.path.join('data', regime_config.value)
+        config_file = os.path.join('data', read_config.value)
+
+        if debug_print:
+            print("read_config_cb(): is_dir=False; --- config_file=",config_file)
 
     if Path(config_file).is_file():
         # with debug_view:
@@ -210,7 +217,13 @@ def write_config_file(name):
 # Fill the "Load Config" dropdown widget with valid cached results (and 
 # default & previous config options)
 def get_config_files():
-    cf = {'DEFAULT': full_xml_filename}
+    if debug_print:
+        print("get_config_files(): full_xml_filename= ",full_xml_filename)
+    # cf = {'DEFAULT': full_xml_filename}
+
+    #     options = {"baseline":"baseline_v6.xml", "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"},
+    cf = {"baseline": full_xml_filename, "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"}
+
     path_to_share = os.path.join('~', '.local','share','pc4covid19_v6')
     dirname = os.path.expanduser(path_to_share)
     try:
@@ -229,18 +242,25 @@ def get_config_files():
         try:
             cachedir = os.environ['CACHEDIR']
             full_path = os.path.join(cachedir, "pc4covid19_v6")
+            # full_path = os.path.join(cachedir, ".")  # rwh - debug locally
+            if debug_print:
+                print("pc4covid19v6.py:get_config_files() local full_path= ",full_path)
         except:
             # print("Exception in get_config_files")
             return cf
 
     # Put all those cached (full) dirs into a list
-    dirs_all = [os.path.join(full_path, f) for f in os.listdir(full_path) if f != '.cache_table']
+    dirs_all = [os.path.join(full_path, f) for f in os.listdir(full_path) if (f!='.cache_table' and os.path.isdir(f))]
+    # with debug_view:
+    if debug_print:
+        print("dirs_all= ",dirs_all)
 
     # Only want those dirs that contain output files (.svg, .mat, etc), i.e., handle the
     # situation where a user cancels a Run before it really begins, which may create a (mostly) empty cached dir.
     dirs = [f for f in dirs_all if len(os.listdir(f)) > 5]   # "5" somewhat arbitrary
     # with debug_view:
-    #     print(dirs)
+    if debug_print:
+        print("dirs= ",dirs)
 
     # Get a list of sorted dirs, according to creation timestamp (newest -> oldest)
     sorted_dirs = sorted(dirs, key=os.path.getctime, reverse=True)
@@ -458,13 +478,13 @@ if nanoHUB_flag or hublib_flag:
     read_config.observe(read_config_cb, names='value') 
 
     # Michael: call immune2.xml "immune" and immune.xml "immune-no local"
-    regime_config = widgets.Dropdown(
-        description='Regime',
-        options = {"baseline":"baseline_v6.xml", "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"},
-        tooltip='Select regime',
-    )
-    regime_config.style = {'description_width': '%sch' % str(10)}
-    regime_config.observe(regime_config_cb, names='value') 
+    # regime_config = widgets.Dropdown(
+    #     description='Regime',
+    #     options = {"baseline":"baseline_v6.xml", "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"},
+    #     tooltip='Select regime',
+    # )
+    # regime_config.style = {'description_width': '%sch' % str(10)}
+    # regime_config.observe(regime_config_cb, names='value') 
 
 tab_height = 'auto'
 #tab_layout = widgets.Layout(width='auto',height=tab_height, overflow_y='scroll',)   # border='2px solid black',
@@ -493,9 +513,13 @@ if nanoHUB_flag or hublib_flag:
     # define this, but don't use (yet)
     remote_cb = widgets.Checkbox(indent=False, value=False, description='Submit as Batch Job to Clusters/Grid')
 
-    top_row = widgets.HBox(children=[read_config, regime_config, tool_title])
+    # top_row = widgets.HBox(children=[read_config, regime_config, tool_title])
+    top_row = widgets.HBox(children=[read_config, tool_title])
     gui = widgets.VBox(children=[top_row, tabs, run_button.w])
-    fill_gui_params(read_config.options['DEFAULT'])
+    # fill_gui_params(read_config.options['DEFAULT'])
+
+    #     options = {"baseline":"baseline_v6.xml", "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"},
+    fill_gui_params(read_config.options['baseline'])
 else:
     top_row = widgets.HBox(children=[tool_title])
     gui = widgets.VBox(children=[top_row, tabs, run_button])
