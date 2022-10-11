@@ -270,10 +270,18 @@ def get_config_files():
             return cf
 
     # Put all those cached (full) dirs into a list
-    dirs_all = [os.path.join(full_path, f) for f in os.listdir(full_path) if (f!='.cache_table' and os.path.isdir(f))]
+    dirs_all = [os.path.join(full_path, f) for f in os.listdir(full_path) if f!='.cache_table']
+    with debug_view:
+        print("dirs_all(1)= ",dirs_all)
+
+    dirs_all = [os.path.join(full_path, f) for f in os.listdir(full_path) if ((f!='.cache_table') and os.path.isdir(f))]
+    with debug_view:
+        print("\ndirs_all(2a)= ",dirs_all)
+
+    # dirs_all = [os.path.join(full_path, f) for f in os.listdir(full_path) if ((f!='.cache_table') and (os.path.isfile(f)==False))]
     # with debug_view:
-    if debug_print:
-        print("dirs_all= ",dirs_all)
+    #     print("\ndirs_all(2b)= ",dirs_all)
+    # if debug_print:
 
     # Only want those dirs that contain output files (.svg, .mat, etc), i.e., handle the
     # situation where a user cancels a Run before it really begins, which may create a (mostly) empty cached dir.
@@ -296,8 +304,8 @@ def get_config_files():
     if debug_print:
         print("cached_file_dict= ",cached_file_dict)
     cf.update(cached_file_dict)
-    with debug_view:
-        print("get_config_files(): final cf=",cf)
+    # with debug_view:
+    #     print("get_config_files(): final cf=",cf)
     return cf
 
 
@@ -318,6 +326,8 @@ def fill_gui_params(config_file):
 def run_done_func(s, rdir):
     # with debug_view:
     #     print('run_done_func: results in', rdir)
+
+    # read_config.disabled = False
     
     if nanoHUB_flag:
         # Email the user that their job has completed
@@ -356,6 +366,7 @@ def run_sim_func(s):
 
     animate_tab.gen_button.disabled = True
     sub.reset_analysis_data_plotting(True)   
+    # read_config.disabled = True
 
     # If cells or substrates toggled off in Config tab, toggle off in Plots tab
     if config_tab.toggle_svg.value == False:
@@ -461,6 +472,7 @@ def run_button_cb(s):
     subprocess.Popen(["../bin/myproj", "config.xml"])
 
 def cancel_func(v):
+    # read_config.disabled = False
     pass
     # if v['name'] == "description" and v['new'] == "Stopping":
     #     sub.disable_2D_plotting(False)
