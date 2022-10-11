@@ -271,12 +271,12 @@ def get_config_files():
 
     # Put all those cached (full) dirs into a list
     dirs_all = [os.path.join(full_path, f) for f in os.listdir(full_path) if f!='.cache_table']
-    with debug_view:
-        print("dirs_all(1)= ",dirs_all)
+    # with debug_view:
+    #     print("dirs_all(1)= ",dirs_all)
 
-    dirs_all = [os.path.join(full_path, f) for f in os.listdir(full_path) if ((f!='.cache_table') and os.path.isdir(f))]
-    with debug_view:
-        print("\ndirs_all(2a)= ",dirs_all)
+    # dirs_all = [os.path.join(full_path, f) for f in os.listdir(full_path) if ((f!='.cache_table') and os.path.isdir(f))]
+    # with debug_view:
+    #     print("\ndirs_all(2a)= ",dirs_all)
 
     # dirs_all = [os.path.join(full_path, f) for f in os.listdir(full_path) if ((f!='.cache_table') and (os.path.isfile(f)==False))]
     # with debug_view:
@@ -285,13 +285,19 @@ def get_config_files():
 
     # Only want those dirs that contain output files (.svg, .mat, etc), i.e., handle the
     # situation where a user cancels a Run before it really begins, which may create a (mostly) empty cached dir.
-    dirs = [f for f in dirs_all if len(os.listdir(f)) > 5]   # "5" somewhat arbitrary
+    # rwh/OMG, this was a painful solution
+    try:
+        # dirs = [f for f in dirs_all if len(os.listdir(f)) > 5]   # "5" somewhat arbitrary
+        dirs_all = [f for f in dirs_all if len(os.listdir(f)) > 5]   # "5" somewhat arbitrary
+    except:
+        pass
     # with debug_view:
     if debug_print:
         print("dirs= ",dirs)
 
     # Get a list of sorted dirs, according to creation timestamp (newest -> oldest)
-    sorted_dirs = sorted(dirs, key=os.path.getctime, reverse=True)
+    # sorted_dirs = sorted(dirs, key=os.path.getctime, reverse=True)
+    sorted_dirs = sorted(dirs_all, key=os.path.getctime, reverse=True)
     if debug_print:
         print("sorted_dirs= ",sorted_dirs)
     # with debug_view:
