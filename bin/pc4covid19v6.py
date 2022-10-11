@@ -23,8 +23,8 @@ import platform
 import subprocess
 from debug import debug_view
 
-debug_print = False
 debug_print = True
+debug_print = False
 
 hublib_flag = True
 if platform.system() != 'Windows':
@@ -45,10 +45,21 @@ else:
 about_tab = AboutTab()
 config_tab = ConfigTab()
 
-xml_file = os.path.join('data', 'PhysiCell_settings.xml')
-full_xml_filename = os.path.abspath(xml_file)
+# cf = {"baseline": "baseline_v6.xml", "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"}
+# xml_file = os.path.join('data', 'PhysiCell_settings.xml')
+xml_file = os.path.join('data', 'baseline_v6.xml')
+baseline_xml_full_filename = os.path.abspath(xml_file)
 
-tree = ET.parse(full_xml_filename)  # this file cannot be overwritten; part of tool distro
+xml_file = os.path.join('data', 'regime_immune.xml')
+immune_xml_full_filename = os.path.abspath(xml_file)
+
+xml_file = os.path.join('data', 'regime_immune_no_local.xml')
+immune_no_local_xml_full_filename = os.path.abspath(xml_file)
+
+# full_xml_filename = os.path.abspath(xml_file)
+
+# tree = ET.parse(full_xml_filename)  # this file cannot be overwritten; part of tool distro
+tree = ET.parse(baseline_xml_full_filename)  # this file cannot be overwritten; part of tool distro
 xml_root = tree.getroot()
 
 microenv_tab = MicroenvTab()
@@ -219,11 +230,18 @@ def write_config_file(name):
 # default & previous config options)
 def get_config_files():
     if debug_print:
-        print("get_config_files(): full_xml_filename= ",full_xml_filename)
+        # print("get_config_files(): full_xml_filename= ",full_xml_filename)
+        print("get_config_files(): full_xml_filename= ",baseline_xml_full_filename)
     # cf = {'DEFAULT': full_xml_filename}
 
     #     options = {"baseline":"baseline_v6.xml", "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"},
-    cf = {"baseline": full_xml_filename, "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"}
+    # cf = {"baseline": full_xml_filename, "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"}
+    # cf = {"baseline": "baseline_v6.xml", "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"}
+
+    # baseline_xml_full_filename = os.path.abspath(xml_file)
+    # immune_xml_full_filename = os.path.abspath(xml_file)
+    # immune_no_local_xml_full_filename = os.path.abspath(xml_file)
+    cf = {"baseline": baseline_xml_full_filename, "immune":immune_xml_full_filename, "immune-no local":immune_no_local_xml_full_filename }
 
     path_to_share = os.path.join('~', '.local','share','pc4covid19_v6')
     dirname = os.path.expanduser(path_to_share)
