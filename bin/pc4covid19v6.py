@@ -24,6 +24,7 @@ import subprocess
 from debug import debug_view
 
 debug_print = False
+debug_print = True
 
 hublib_flag = True
 if platform.system() != 'Windows':
@@ -264,6 +265,8 @@ def get_config_files():
 
     # Get a list of sorted dirs, according to creation timestamp (newest -> oldest)
     sorted_dirs = sorted(dirs, key=os.path.getctime, reverse=True)
+    if debug_print:
+        print("sorted_dirs= ",sorted_dirs)
     # with debug_view:
     #     print(sorted_dirs)
 
@@ -271,9 +274,11 @@ def get_config_files():
     sorted_dirs_dates = [str(datetime.datetime.fromtimestamp(os.path.getctime(x))) for x in sorted_dirs]
     # Create a dict of {timestamp:dir} pairs
     cached_file_dict = dict(zip(sorted_dirs_dates, sorted_dirs))
+    if debug_print:
+        print("cached_file_dict= ",cached_file_dict)
     cf.update(cached_file_dict)
-    # with debug_view:
-        # print(cf)
+    with debug_view:
+        print("get_config_files(): final cf=",cf)
     return cf
 
 
