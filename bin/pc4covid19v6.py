@@ -198,7 +198,8 @@ def regime_config_cb(_b):
 def write_config_file(name):
     # with debug_view:
     #     print("write_config_file: based on ",full_filename)
-    tree = ET.parse(full_xml_filename)  # this file cannot be overwritten; part of tool distro
+    # tree = ET.parse(full_xml_filename)  # this file cannot be overwritten; part of tool distro
+    tree = ET.parse(baseline_xml_full_filename)  # this file cannot be overwritten; part of tool distro
     xml_root = tree.getroot()
     config_tab.fill_xml(xml_root)
     microenv_tab.fill_xml(xml_root)
@@ -231,7 +232,7 @@ def write_config_file(name):
 def get_config_files():
     if debug_print:
         # print("get_config_files(): full_xml_filename= ",full_xml_filename)
-        print("get_config_files(): full_xml_filename= ",baseline_xml_full_filename)
+        print("get_config_files(): baseline_xml_full_filename= ",baseline_xml_full_filename)
     # cf = {'DEFAULT': full_xml_filename}
 
     #     options = {"baseline":"baseline_v6.xml", "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"},
@@ -261,7 +262,7 @@ def get_config_files():
         try:
             cachedir = os.environ['CACHEDIR']
             full_path = os.path.join(cachedir, "pc4covid19_v6")
-            # full_path = os.path.join(cachedir, ".")  # rwh - debug locally
+            # full_path = os.path.join(cachedir, ".")  # rwh - debug locally (due to macOS's security)
             if debug_print:
                 print("pc4covid19v6.py:get_config_files() local full_path= ",full_path)
         except:
