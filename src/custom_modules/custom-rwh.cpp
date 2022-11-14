@@ -67,8 +67,6 @@
 
 #include "./custom.h"
 
-extern bool check_valid_custom_var;
-
 void create_cell_types( void )
 {
 	// set the random seed 
@@ -90,18 +88,13 @@ void create_cell_types( void )
 	cell_defaults.functions.add_cell_basement_membrane_interactions = NULL; 
 	cell_defaults.functions.calculate_distance_to_membrane = NULL; 
 	
-	int virion_index = microenvironment.find_density_index( "virion" ); 
-	int assembled_virion_index = microenvironment.find_density_index( "assembled virion" );
+	int virion_index = microenvironment.find_density_index( "virion" );
 	
 	/*
 	   This parses the cell definitions in the XML config file. 
 	*/
 	
 	initialize_cell_definitions_from_pugixml(); 
-
-    cell_defaults.phenotype.motility.migration_bias_direction = { 1.0, 0.0, 0.0 };
-
-    check_valid_custom_var = true;
 
 	/* 
 	   Put any modifications to individual cell definitions here. 
@@ -114,9 +107,7 @@ void create_cell_types( void )
 	
 	Cell_Definition* pCD = find_cell_definition( "lung epithelium" ); 
 	pCD->phenotype.molecular.fraction_released_at_death[virion_index] = 
-		parameters.doubles("virus_fraction_released_at_death"); 
-	pCD->phenotype.molecular.fraction_released_at_death[assembled_virion_index] = 
-		parameters.doubles("virus_fraction_released_at_death"); 
+		parameters.doubles("virus_fraction_released_at_death");
 
 	immune_submodels_setup();
 	// receptor_dynamics_model_setup(); 
@@ -210,7 +201,7 @@ void setup_tissue( void )
 	
 	double triangle_stagger = sqrt(3.0) * spacing * 0.5; 
 	
-	// find hte cell nearest to the center 
+	// find the cell nearest to the center 
 	double nearest_distance_squared = 9e99; 
 	Cell* pNearestCell = NULL; 
 	
@@ -244,11 +235,16 @@ void setup_tissue( void )
 		}
 	}
 	
+	extern double EPICOUNT;
+	EPICOUNT = (*all_cells).size();
 	int number_of_virions = (int) ( parameters.doubles("multiplicity_of_infection") * 
 		(*all_cells).size() ); 
 	double single_virion_density_change = 1.0 / microenvironment.mesh.dV; 
 	
-	// infect the cell closest to the center  
+	// infect the cell closest to the center 
+
+	std::default_random_engine generator;
+	std::normal_distribution<double> distribution(0,100);
 
 	if( parameters.bools( "use_single_infected_cell" ) == true )
 	{
@@ -257,20 +253,136 @@ void setup_tissue( void )
 	}
 	else
 	{
-		std::cout << "Placing " << number_of_virions << " virions ... " << std::endl; 
-		for( int n=0 ; n < number_of_virions ; n++ )
+		std::cout << "Placing " << number_of_virions << " virions ... " << std::endl;
+		if( parameters.bools( "use_uniform_dist" ) == true )
 		{
+			for( int n=0 ; n < number_of_virions ; n++ )
+			{
 			// pick a random voxel 
 			std::vector<double> position = {0,0,0}; 
 			position[0] = x_min + (x_max-x_min)*UniformRandom(); 
 			position[1] = y_min + (y_max-y_min)*UniformRandom(); 
 			
 			int m = microenvironment.nearest_voxel_index( position ); 
-			
-			// int n = (int) ( ( microenvironment.number_of_voxels()-1.0 ) * UniformRandom() ); 
-			// microenvironment(i,j)[nV] += single_virion_density_change; 
-			microenvironment(m)[nV] += single_virion_density_change; 
+			microenvironment(m)[nV] += single_virion_density_change;
+			}			
 		}
+		else
+        {
+            // The spiraling square where we compute the center of a voxel in the spiral.
+            // rf. https://upload.wikimedia.org/wikipedia/commons/1/1d/Ulam_spiral_howto_all_numbers.svg
+			std::vector<double> position = {0,0,0}; 
+			for( int n=1 ; n <= number_of_virions ; n++ )  // NOTE! the algorithm assumes you start with 1, not 0!!!
+            {
+                int k = (int)ceil((sqrt((float)n)-1.0)/2.0);
+                int t = 2*k+1;
+                int m = t*t;
+                t = t-1;
+                std::cout << "n,m,t= " << n <<"," << m << "," <<t<< std::endl;
+                if (n>=m-t) 
+                {
+                    std::cout << n<<") k= " << k<<", "<<m<<";  m= " << m << ", virion= " << microenvironment(m)[nV] << std::endl;
+                //     print(k-(m-n),-k)
+                    position[0] = k-(m-n);
+                    position[1] =  -k;
+                    position[0] *= 20;
+                    position[1] *=  20;
+                    position[0] += 10;
+                    position[1] +=  10;
+                    // print(k-(m-n), -k)
+                    int m = microenvironment.nearest_voxel_index( position ); 
+                    microenvironment(m)[nV] += single_virion_density_change; 
+                    std::cout << n<<") position[0],[1]= " << position[0]<<", "<<position[1]<<";  m= " << m << ", virion= " << microenvironment(m)[nV] << std::endl;
+                    continue;
+                }
+                else 
+                {
+                    m=m-t;
+                }
+                if (n>=m-t) 
+                {
+                    // print(-k, -k+(m-n))
+                    position[0] =  -k;
+                    position[1] = -k+(m-n);
+                    position[0] *= 20;
+                    position[1] *=  20;
+                    position[0] += 10;
+                    position[1] +=  10;
+                    int m = microenvironment.nearest_voxel_index( position ); 
+                    microenvironment(m)[nV] += single_virion_density_change; 
+                    std::cout << n<<") position[0],[1]= " << position[0]<<", "<<position[1]<<";  m= " << m << ", virion= " << microenvironment(m)[nV] << std::endl;
+                    continue;
+                }
+                else
+                {
+                    m = m-t;
+                }
+                if (n>=m-t) 
+                {
+                    // print(-k+(m-n), k) 
+                    position[0] = -k+(m-n);
+                    position[1] =  k;
+                    position[0] *= 20;
+                    position[1] *=  20;
+                    position[0] += 10;
+                    position[1] +=  10;
+                    int m = microenvironment.nearest_voxel_index( position ); 
+                    microenvironment(m)[nV] += single_virion_density_change; 
+                    std::cout <<n<<") position[0],[1]= " << position[0]<<", "<<position[1]<<";  m= " << m << ", virion= " << microenvironment(m)[nV] << std::endl;
+                }
+                else
+                {
+                    // print(k, k-(m-n-t)) 
+                    position[0] = k;
+                    position[1] =  k-(m-n-t);
+                    position[0] *= 20;
+                    position[1] *=  20;
+                    position[0] += 10;
+                    position[1] +=  10;
+                    int m = microenvironment.nearest_voxel_index( position ); 
+                    microenvironment(m)[nV] += single_virion_density_change; 
+                    std::cout <<"last else:"<< n<<") position[0],[1]= " << position[0]<<", "<<position[1]<<";  m= " << m << ", virion= " << microenvironment(m)[nV] << std::endl;
+                }
+
+            }
+        }
+		// else  // Michael's Gaussian approach
+		// {
+		// 	for( int n=0 ; n < number_of_virions ; n++ )
+		// 	{
+		// 		// pick a random voxel in a dist
+		// 		std::vector<double> position = {0,0,0};
+		// 		double number = distribution(generator);
+		// 		double number2 = distribution(generator);
+		// 		if ((number>=-400)&&(number<=400)) {
+		// 			//place at position
+		// 			position[0] = number;
+		// 		}
+		// 		else if (number<-400) {
+		// 			//place at edge
+		// 			position[0] = -400;
+		// 		}
+		// 		else {
+		// 			//place at edge
+		// 			position[0] = 400;
+		// 		}
+		// 		if ((number2>=-400)&&(number2<=400)) {
+		// 			//place at position
+		// 			position[1] = number2;
+		// 		}
+		// 		else if (number2<-400) {
+		// 			//place at edge
+		// 			position[1] = -400;
+		// 		}
+		// 		else {
+		// 			//place at edge
+		// 			position[1] = 400;
+		// 		}
+				
+		// 		int m = microenvironment.nearest_voxel_index( position ); 
+		// 		microenvironment(m)[nV] += single_virion_density_change; 
+		// 	}
+		// }
 	}
 	
 	// now place immune cells 
@@ -283,13 +395,9 @@ void setup_tissue( void )
 std::vector<std::string> epithelium_coloring_function( Cell* pCell )
 {
 	std::vector<std::string> output( 4, "black" ); 
-
-	// static int color_index = cell_defaults.custom_data.find_variable_index( "assembled virion" ); 
 	static int color_index = 
 		cell_defaults.custom_data.find_variable_index( parameters.strings["color_variable"].value ); 
 	static int nV = cell_defaults.custom_data.find_variable_index( "virion" ); 
-	
-	// color by assembled virion 
 	
 	if( pCell->phenotype.death.dead == false )
 	{
@@ -323,21 +431,6 @@ std::vector<std::string> epithelium_coloring_function( Cell* pCell )
 	return output; 
 }
 
-void move_exported_to_viral_field( void )
-{
-	static int nV = microenvironment.find_density_index( "virion" ); 
-	static int nA = microenvironment.find_density_index( "assembled virion" ); 
-	
-	#pragma omp parallel for 
-	for( int n = 0 ; n < microenvironment.number_of_voxels() ; n++ )
-	{
-		microenvironment(n)[nV] += microenvironment(n)[nA]; 
-		microenvironment(n)[nA] = 0; 
-	}
-	
-	return;
-}
-
 std::string blue_yellow_interpolation( double min, double val, double max )
 {
 // 	std::string out;
@@ -366,6 +459,7 @@ std::vector<std::string> tissue_coloring_function( Cell* pCell )
 	static int DC_type = get_cell_definition( "DC" ).type; 
 	static int CD4_Tcell_type = get_cell_definition( "CD4 Tcell" ).type; 
 	static int fibroblast_type = get_cell_definition( "fibroblast" ).type; 
+	static int res_type = get_cell_definition( "residual" ).type; 
 	
 	// start with white 
 	
@@ -454,6 +548,14 @@ std::vector<std::string> tissue_coloring_function( Cell* pCell )
 	if( pCell->phenotype.death.dead == false && pCell->type == fibroblast_type )
 	{
 		output[0] = parameters.strings("fibroblast_color");  
+		output[2] = output[0];
+		output[3] = output[0];
+		return output; 
+	}
+	
+	if( pCell->phenotype.death.dead == false && pCell->type == res_type )
+	{
+		output[0] = "black";  
 		output[2] = output[0];
 		output[3] = output[0];
 		return output; 

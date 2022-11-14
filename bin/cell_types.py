@@ -1117,7 +1117,7 @@ class CellTypesTab(object):
         box123 = Box(children=row, layout=box_layout)
         name_btn = Button(description='interferon_secretion_rate_via_infection', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'lightgreen'
-        self.float112 = FloatText(value='0.2', step='0.01', style=style, layout=widget_layout)
+        self.float112 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
         description_btn = Button(description='Type-1 interferon secretion rate for infected cells', disabled=True, layout=desc_button_layout)
@@ -1127,7 +1127,7 @@ class CellTypesTab(object):
         box124 = Box(children=row, layout=box_layout)
         name_btn = Button(description='max_interferon_secretion_rate_via_paracrine', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float113 = FloatText(value='0.05', step='0.01', style=style, layout=widget_layout)
+        self.float113 = FloatText(value='0.1', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='Type-1 interferon secretion rate after activation by Type-1 interferon', disabled=True, layout=desc_button_layout)
@@ -1227,7 +1227,7 @@ class CellTypesTab(object):
         box134 = Box(children=row, layout=box_layout)
         name_btn = Button(description='TCell_contact_death_threshold', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float123 = FloatText(value='25', step='1', style=style, layout=widget_layout)
+        self.float123 = FloatText(value='5', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='threshold CD8 T cell contact time to trigger apoptosis', disabled=True, layout=desc_button_layout)
@@ -1387,7 +1387,7 @@ class CellTypesTab(object):
         box150 = Box(children=row, layout=box_layout)
         name_btn = Button(description='activated_cytokine_secretion_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float139 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
+        self.float139 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='rate of secreting pro-inflamatory cytokine after activation', disabled=True, layout=desc_button_layout)
@@ -2592,7 +2592,7 @@ class CellTypesTab(object):
         box280 = Box(children=row, layout=box_layout)
         name_btn = Button(description='interferon_secretion_rate_via_infection', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'lightgreen'
-        self.float257 = FloatText(value='0.2', step='0.01', style=style, layout=widget_layout)
+        self.float257 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
         description_btn = Button(description='Type-1 interferon secretion rate for infected cells', disabled=True, layout=desc_button_layout)
@@ -2602,7 +2602,7 @@ class CellTypesTab(object):
         box281 = Box(children=row, layout=box_layout)
         name_btn = Button(description='max_interferon_secretion_rate_via_paracrine', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float258 = FloatText(value='0.05', step='0.01', style=style, layout=widget_layout)
+        self.float258 = FloatText(value='0.1', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='Type-1 interferon secretion rate after activation by Type-1 interferon', disabled=True, layout=desc_button_layout)
@@ -2702,7 +2702,7 @@ class CellTypesTab(object):
         box291 = Box(children=row, layout=box_layout)
         name_btn = Button(description='TCell_contact_death_threshold', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float268 = FloatText(value='25', step='1', style=style, layout=widget_layout)
+        self.float268 = FloatText(value='5', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='threshold CD8 T cell contact time to trigger apoptosis', disabled=True, layout=desc_button_layout)
@@ -2862,7 +2862,7 @@ class CellTypesTab(object):
         box307 = Box(children=row, layout=box_layout)
         name_btn = Button(description='activated_cytokine_secretion_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float284 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
+        self.float284 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='rate of secreting pro-inflamatory cytokine after activation', disabled=True, layout=desc_button_layout)
@@ -4067,7 +4067,7 @@ class CellTypesTab(object):
         box437 = Box(children=row, layout=box_layout)
         name_btn = Button(description='interferon_secretion_rate_via_infection', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'lightgreen'
-        self.float402 = FloatText(value='0.2', step='0.01', style=style, layout=widget_layout)
+        self.float402 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
         description_btn = Button(description='Type-1 interferon secretion rate for infected cells', disabled=True, layout=desc_button_layout)
@@ -4077,7 +4077,7 @@ class CellTypesTab(object):
         box438 = Box(children=row, layout=box_layout)
         name_btn = Button(description='max_interferon_secretion_rate_via_paracrine', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float403 = FloatText(value='0.05', step='0.01', style=style, layout=widget_layout)
+        self.float403 = FloatText(value='0.1', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='Type-1 interferon secretion rate after activation by Type-1 interferon', disabled=True, layout=desc_button_layout)
@@ -4177,7 +4177,7 @@ class CellTypesTab(object):
         box448 = Box(children=row, layout=box_layout)
         name_btn = Button(description='TCell_contact_death_threshold', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float413 = FloatText(value='25', step='1', style=style, layout=widget_layout)
+        self.float413 = FloatText(value='5', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='threshold CD8 T cell contact time to trigger apoptosis', disabled=True, layout=desc_button_layout)
@@ -4337,7 +4337,7 @@ class CellTypesTab(object):
         box464 = Box(children=row, layout=box_layout)
         name_btn = Button(description='activated_cytokine_secretion_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float429 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
+        self.float429 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='rate of secreting pro-inflamatory cytokine after activation', disabled=True, layout=desc_button_layout)
@@ -4819,7 +4819,7 @@ class CellTypesTab(object):
         box509 = Box(children=row, layout=box_layout)
         name_btn = Button(description='uptake_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float471 = FloatText(value='0.004', step='0.001', style=style, layout=widget_layout)
+        self.float471 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         row = [name_btn, self.float471, units_btn]
@@ -5542,7 +5542,7 @@ class CellTypesTab(object):
         box594 = Box(children=row, layout=box_layout)
         name_btn = Button(description='interferon_secretion_rate_via_infection', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'lightgreen'
-        self.float547 = FloatText(value='0.2', step='0.01', style=style, layout=widget_layout)
+        self.float547 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
         description_btn = Button(description='Type-1 interferon secretion rate for infected cells', disabled=True, layout=desc_button_layout)
@@ -5552,7 +5552,7 @@ class CellTypesTab(object):
         box595 = Box(children=row, layout=box_layout)
         name_btn = Button(description='max_interferon_secretion_rate_via_paracrine', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float548 = FloatText(value='0.05', step='0.01', style=style, layout=widget_layout)
+        self.float548 = FloatText(value='0.1', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='Type-1 interferon secretion rate after activation by Type-1 interferon', disabled=True, layout=desc_button_layout)
@@ -5652,7 +5652,7 @@ class CellTypesTab(object):
         box605 = Box(children=row, layout=box_layout)
         name_btn = Button(description='TCell_contact_death_threshold', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float558 = FloatText(value='25', step='1', style=style, layout=widget_layout)
+        self.float558 = FloatText(value='5', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='threshold CD8 T cell contact time to trigger apoptosis', disabled=True, layout=desc_button_layout)
@@ -5812,7 +5812,7 @@ class CellTypesTab(object):
         box621 = Box(children=row, layout=box_layout)
         name_btn = Button(description='activated_cytokine_secretion_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float574 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
+        self.float574 = FloatText(value='10', step='1', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='rate of secreting pro-inflamatory cytokine after activation', disabled=True, layout=desc_button_layout)
@@ -6294,7 +6294,7 @@ class CellTypesTab(object):
         box666 = Box(children=row, layout=box_layout)
         name_btn = Button(description='uptake_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float616 = FloatText(value='0.004', step='0.001', style=style, layout=widget_layout)
+        self.float616 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         row = [name_btn, self.float616, units_btn]
@@ -7017,7 +7017,7 @@ class CellTypesTab(object):
         box751 = Box(children=row, layout=box_layout)
         name_btn = Button(description='interferon_secretion_rate_via_infection', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'lightgreen'
-        self.float692 = FloatText(value='0.2', step='0.01', style=style, layout=widget_layout)
+        self.float692 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
         description_btn = Button(description='Type-1 interferon secretion rate for infected cells', disabled=True, layout=desc_button_layout)
@@ -7027,7 +7027,7 @@ class CellTypesTab(object):
         box752 = Box(children=row, layout=box_layout)
         name_btn = Button(description='max_interferon_secretion_rate_via_paracrine', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float693 = FloatText(value='0.05', step='0.01', style=style, layout=widget_layout)
+        self.float693 = FloatText(value='0.1', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='Type-1 interferon secretion rate after activation by Type-1 interferon', disabled=True, layout=desc_button_layout)
@@ -7127,7 +7127,7 @@ class CellTypesTab(object):
         box762 = Box(children=row, layout=box_layout)
         name_btn = Button(description='TCell_contact_death_threshold', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float703 = FloatText(value='25', step='1', style=style, layout=widget_layout)
+        self.float703 = FloatText(value='5', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='threshold CD8 T cell contact time to trigger apoptosis', disabled=True, layout=desc_button_layout)
@@ -8492,7 +8492,7 @@ class CellTypesTab(object):
         box908 = Box(children=row, layout=box_layout)
         name_btn = Button(description='interferon_secretion_rate_via_infection', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'lightgreen'
-        self.float837 = FloatText(value='0.2', step='0.01', style=style, layout=widget_layout)
+        self.float837 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
         description_btn = Button(description='Type-1 interferon secretion rate for infected cells', disabled=True, layout=desc_button_layout)
@@ -8502,7 +8502,7 @@ class CellTypesTab(object):
         box909 = Box(children=row, layout=box_layout)
         name_btn = Button(description='max_interferon_secretion_rate_via_paracrine', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float838 = FloatText(value='0.05', step='0.01', style=style, layout=widget_layout)
+        self.float838 = FloatText(value='0.1', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='Type-1 interferon secretion rate after activation by Type-1 interferon', disabled=True, layout=desc_button_layout)
@@ -8602,7 +8602,7 @@ class CellTypesTab(object):
         box919 = Box(children=row, layout=box_layout)
         name_btn = Button(description='TCell_contact_death_threshold', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float848 = FloatText(value='25', step='1', style=style, layout=widget_layout)
+        self.float848 = FloatText(value='5', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='threshold CD8 T cell contact time to trigger apoptosis', disabled=True, layout=desc_button_layout)
@@ -8762,7 +8762,7 @@ class CellTypesTab(object):
         box935 = Box(children=row, layout=box_layout)
         name_btn = Button(description='activated_cytokine_secretion_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float864 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
+        self.float864 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='rate of secreting pro-inflamatory cytokine after activation', disabled=True, layout=desc_button_layout)
@@ -9967,7 +9967,7 @@ class CellTypesTab(object):
         box1065 = Box(children=row, layout=box_layout)
         name_btn = Button(description='interferon_secretion_rate_via_infection', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'lightgreen'
-        self.float982 = FloatText(value='0.2', step='0.01', style=style, layout=widget_layout)
+        self.float982 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
         description_btn = Button(description='Type-1 interferon secretion rate for infected cells', disabled=True, layout=desc_button_layout)
@@ -9977,7 +9977,7 @@ class CellTypesTab(object):
         box1066 = Box(children=row, layout=box_layout)
         name_btn = Button(description='max_interferon_secretion_rate_via_paracrine', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float983 = FloatText(value='0.05', step='0.01', style=style, layout=widget_layout)
+        self.float983 = FloatText(value='0.1', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='Type-1 interferon secretion rate after activation by Type-1 interferon', disabled=True, layout=desc_button_layout)
@@ -10077,7 +10077,7 @@ class CellTypesTab(object):
         box1076 = Box(children=row, layout=box_layout)
         name_btn = Button(description='TCell_contact_death_threshold', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float993 = FloatText(value='25', step='1', style=style, layout=widget_layout)
+        self.float993 = FloatText(value='5', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='threshold CD8 T cell contact time to trigger apoptosis', disabled=True, layout=desc_button_layout)
@@ -10237,7 +10237,7 @@ class CellTypesTab(object):
         box1092 = Box(children=row, layout=box_layout)
         name_btn = Button(description='activated_cytokine_secretion_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float1009 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
+        self.float1009 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='rate of secreting pro-inflamatory cytokine after activation', disabled=True, layout=desc_button_layout)
@@ -11442,7 +11442,7 @@ class CellTypesTab(object):
         box1222 = Box(children=row, layout=box_layout)
         name_btn = Button(description='interferon_secretion_rate_via_infection', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'lightgreen'
-        self.float1127 = FloatText(value='0.2', step='0.01', style=style, layout=widget_layout)
+        self.float1127 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
         description_btn = Button(description='Type-1 interferon secretion rate for infected cells', disabled=True, layout=desc_button_layout)
@@ -11452,7 +11452,7 @@ class CellTypesTab(object):
         box1223 = Box(children=row, layout=box_layout)
         name_btn = Button(description='max_interferon_secretion_rate_via_paracrine', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float1128 = FloatText(value='0.05', step='0.01', style=style, layout=widget_layout)
+        self.float1128 = FloatText(value='0.1', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='Type-1 interferon secretion rate after activation by Type-1 interferon', disabled=True, layout=desc_button_layout)
@@ -11552,7 +11552,7 @@ class CellTypesTab(object):
         box1233 = Box(children=row, layout=box_layout)
         name_btn = Button(description='TCell_contact_death_threshold', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float1138 = FloatText(value='25', step='1', style=style, layout=widget_layout)
+        self.float1138 = FloatText(value='5', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='threshold CD8 T cell contact time to trigger apoptosis', disabled=True, layout=desc_button_layout)
@@ -11712,7 +11712,7 @@ class CellTypesTab(object):
         box1249 = Box(children=row, layout=box_layout)
         name_btn = Button(description='activated_cytokine_secretion_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float1154 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
+        self.float1154 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='rate of secreting pro-inflamatory cytokine after activation', disabled=True, layout=desc_button_layout)
@@ -12917,7 +12917,7 @@ class CellTypesTab(object):
         box1379 = Box(children=row, layout=box_layout)
         name_btn = Button(description='interferon_secretion_rate_via_infection', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'lightgreen'
-        self.float1272 = FloatText(value='0.2', step='0.01', style=style, layout=widget_layout)
+        self.float1272 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
         description_btn = Button(description='Type-1 interferon secretion rate for infected cells', disabled=True, layout=desc_button_layout)
@@ -12927,7 +12927,7 @@ class CellTypesTab(object):
         box1380 = Box(children=row, layout=box_layout)
         name_btn = Button(description='max_interferon_secretion_rate_via_paracrine', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float1273 = FloatText(value='0.05', step='0.01', style=style, layout=widget_layout)
+        self.float1273 = FloatText(value='0.1', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='Type-1 interferon secretion rate after activation by Type-1 interferon', disabled=True, layout=desc_button_layout)
@@ -13027,7 +13027,7 @@ class CellTypesTab(object):
         box1390 = Box(children=row, layout=box_layout)
         name_btn = Button(description='TCell_contact_death_threshold', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float1283 = FloatText(value='25', step='1', style=style, layout=widget_layout)
+        self.float1283 = FloatText(value='5', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='threshold CD8 T cell contact time to trigger apoptosis', disabled=True, layout=desc_button_layout)
@@ -13187,7 +13187,7 @@ class CellTypesTab(object):
         box1406 = Box(children=row, layout=box_layout)
         name_btn = Button(description='activated_cytokine_secretion_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float1299 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
+        self.float1299 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='rate of secreting pro-inflamatory cytokine after activation', disabled=True, layout=desc_button_layout)

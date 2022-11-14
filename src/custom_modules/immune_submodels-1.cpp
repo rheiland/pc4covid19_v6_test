@@ -408,17 +408,11 @@ void CD8_Tcell_contact_function( Cell* pC1, Phenotype& p1, Cell* pC2, Phenotype&
 void CD8_Tcell_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 {
 	int cycle_G0G1_index = flow_cytometry_separated_cycle_model.find_phase_index( PhysiCell_constants::G0G1_phase ); 
-	int cycle_S_index = flow_cytometry_separated_cycle_model.find_phase_index( PhysiCell_constants::S_phase );
-	static int debris_index = microenvironment.find_density_index( "debris");
+	int cycle_S_index = flow_cytometry_separated_cycle_model.find_phase_index( PhysiCell_constants::S_phase ); 
+	static int virus_index = microenvironment.find_density_index("virion");
+	int nV_external = virus_index;
+	double virus_amount = pCell->nearest_density_vector()[virus_index];
 	
-	if( phenotype.death.dead == true )
-	{
-		pCell->functions.update_phenotype = NULL;
-		pCell->functions.custom_cell_rule = NULL; 
-
-		phenotype.secretion.secretion_rates[debris_index] = pCell->custom_data["debris_secretion_rate"]; 
-		return; 
-	}
 	
 	static int apoptosis_index = pCell->phenotype.death.find_death_model_index( "apoptosis" ); 
 	
@@ -437,6 +431,17 @@ void CD8_Tcell_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 		
 		pCell->phenotype.cycle.data.transition_rate(cycle_G0G1_index,cycle_S_index) = 0;
 		
+	}
+	
+	static int debris_index = microenvironment.find_density_index( "debris");
+	
+	if( phenotype.death.dead == true )
+	{
+		pCell->functions.update_phenotype = NULL;
+		pCell->functions.custom_cell_rule = NULL; 
+
+		phenotype.secretion.secretion_rates[debris_index] = pCell->custom_data["debris_secretion_rate"]; 
+		return; 
 	}
 
 	return; 
@@ -500,6 +505,7 @@ void CD8_Tcell_mechanics( Cell* pCell, Phenotype& phenotype, double dt )
 		phenotype.motility.is_motile = false; 
 		return; 
 	}
+	phenotype.motility.is_motile = true; // I suggest eliminating this. 
 	
 	return; 
 }
@@ -735,21 +741,6 @@ void macrophage_phenotype( Cell* pCell, Phenotype& phenotype, double dt )
 						double time_to_ingest = volume_ingested_cell*material_internalisation_rate;// convert volume to time taken to phagocytose
 						// (Adrianne) update internal time vector in macrophages that tracks time it will spend phagocytosing the material so they can't phagocytose again until this time has elapsed
 						pCell->custom_data.variables[time_to_next_phagocytosis_index].value = PhysiCell_globals.current_time+time_to_ingest;	
-						
-						// activate the cell if not already active 
-						if (pCell->custom_data["activated_immune_cell"] < 0.5){
-							phenotype.secretion.secretion_rates[proinflammatory_cytokine_index] = 
-							pCell->custom_data["activated_cytokine_secretion_rate"]; // 10;
-							phenotype.secretion.saturation_densities[proinflammatory_cytokine_index] = 1;
-
-							phenotype.secretion.uptake_rates[proinflammatory_cytokine_index] = 0.0; 
-
-							phenotype.motility.migration_speed = pCell->custom_data["activated_speed"]; 
-					
-						
-							pCell->custom_data["activated_immune_cell"] = 1.0; 
-						}
-						
 						return;						
 					}					
 			}
@@ -1414,6 +1405,8 @@ void immune_cell_recruitment( double dt )
 		microenvironment.find_density_index("pro-inflammatory cytokine");
 		
 	static int antiinflammatory_cytokine_index = microenvironment.find_density_index("anti-inflammatory cytokine");
+	
+	static double tolerance = 0.1 * diffusion_dt; 
 
 	// macrophage recruitment 
 	
@@ -1463,7 +1456,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_macrophage_recruitment_time )
 		{ first_macrophage_recruitment_time = PhysiCell_globals.current_time; }
 
-		std::cout << "\tRecruiting " << number_of_new_cells_int << " macrophages ... " << std::endl; 
+		// std::cout << "\tRecruiting " << number_of_new_cells_int << " macrophages ... " << std::endl; 
 		
 		for( int n = 0; n < number_of_new_cells_int ; n++ )
 		{ create_infiltrating_macrophage(); }
@@ -1516,7 +1509,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_neutrophil_recruitment_time )
 		{ first_neutrophil_recruitment_time = PhysiCell_globals.current_time; }
 
-		std::cout << "\tRecruiting " << number_of_new_cells_int << " neutrophils ... " << std::endl; 
+		// std::cout << "\tRecruiting " << number_of_new_cells_int << " neutrophils ... " << std::endl; 
 		
 		for( int n = 0; n < number_of_new_cells_int ; n++ )
 		{ create_infiltrating_neutrophil(); }
@@ -1531,8 +1524,6 @@ void immune_cell_recruitment( double dt )
 	double cd4report = tissueCD4/(EPICOUNT / 500000)/(TH1+TH2);
 	double cd8report = tissueCD8/(EPICOUNT / 500000)/(TC);
 	
-	static double timedelay = parameters.doubles( "Lymph_node_Th" ); 
-	double td_l = round(timedelay*1440/dt);
 	// CD8 Tcell recruitment (Michael) changed to take floor of ODE value
 	
 	extern double TCt; 
@@ -1546,16 +1537,16 @@ void immune_cell_recruitment( double dt )
 	
 	
 	
-	recruited_Tcells += historyTc[td_l];		
+	recruited_Tcells += historyTc.back();		
 	
-	if( historyTc[td_l] )
+	if( historyTc.back() )
 	{
 		if( PhysiCell_globals.current_time < first_CD8_T_cell_recruitment_time )
 		{ first_CD8_T_cell_recruitment_time = PhysiCell_globals.current_time; }
 		
-		std::cout << "\tRecruiting " << historyTc[td_l] << " CD8 T cells ... " << cd8report  << std::endl; 
+		// std::cout << "\tRecruiting " << historyTc.back() << " CD8 T cells ... " << cd8report  << std::endl; 
 
-		for( int n = 0; n < historyTc[td_l] ; n++ )
+		for( int n = 0; n < historyTc.back() ; n++ )
 		{ create_infiltrating_Tcell(); }
 	}
 	
@@ -1569,16 +1560,16 @@ void immune_cell_recruitment( double dt )
 	std::rotate(historyTh.rbegin(),historyTh.rbegin()+1,historyTh.rend());
 	historyTh.front() = number_of_new_cells;
 	
-	recruited_CD4Tcells += historyTh[td_l];	
+	recruited_CD4Tcells += historyTh.back();	
 	
-	if( historyTh[td_l] )
+	if( historyTh.back() )
 	{
 		if( PhysiCell_globals.current_time < first_CD4_T_cell_recruitment_time )
 		{ first_CD4_T_cell_recruitment_time = PhysiCell_globals.current_time; }
 		
-		std::cout << "\tRecruiting " << historyTh[td_l] << " CD4 T cells ... " << cd4report << std::endl; 
+		// std::cout << "\tRecruiting " << historyTh.back() << " CD4 T cells ... " << cd4report << std::endl; 
 
-		for( int n = 0; n < historyTh[td_l] ; n++ )
+		for( int n = 0; n < historyTh.back() ; n++ )
 		{ create_infiltrating_CD4Tcell(); }
 	}
 	
@@ -1641,7 +1632,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_DC_recruitment_time )
 		{ first_DC_recruitment_time = PhysiCell_globals.current_time; }
 		
-		std::cout << "\tRecruiting " << number_of_new_cells_int << " DCs ... " << std::endl; 
+		// std::cout << "\tRecruiting " << number_of_new_cells_int << " DCs ... " << std::endl; 
 
 		for( int n = 0; n < number_of_new_cells_int ; n++ )
 		{ create_infiltrating_DC(); }
@@ -1693,7 +1684,7 @@ void immune_cell_recruitment( double dt )
 		if( PhysiCell_globals.current_time < first_fibroblast_cell_recruitment_time )
 		{ first_fibroblast_cell_recruitment_time = PhysiCell_globals.current_time; }
 
-		std::cout << "\tRecruiting " << number_of_new_cells_int << " fibroblast cells ... " << std::endl;
+		// std::cout << "\tRecruiting " << number_of_new_cells_int << " fibroblast cells ... " << std::endl;
 
 		for( int n = 0; n < number_of_new_cells_int ; n++ )
 		{ create_infiltrating_fibroblast(); }

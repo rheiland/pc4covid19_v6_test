@@ -88,11 +88,7 @@ void external_immune_model( double dt )
 	
 	extern std::vector<int>history;
 	
-	static double timedelay = parameters.doubles( "Lymph_node_td" ); 
-	double td_l = round(timedelay*1440/dt);
-	//std::cout<<history[td_l]<<std::endl;
-	
-	x[0][0] = (DM+history[td_l])/lypmh_scale; 
+	x[0][0] = (DM+history.back())/lypmh_scale; 
 	x[0][1] = TC; //initial values
 	x[0][2] = TH1; //initial values
 	x[0][3] = TH2; //initial values
@@ -104,7 +100,7 @@ void external_immune_model( double dt )
 	x[0][9] = TCN;
 	x[0][10] = THN;
 	x[0][11] = BN;
-	x[0][12] = (DL+(THN+TH1+TH2)/(THN+TH1+TH2+5000)*history[td_l])/lypmh_scale;
+	x[0][12] = (DL+(THN+TH1+TH2)/(THN+TH1+TH2+5000)*history.back())/lypmh_scale;
 	//(pT/(y(5)+pT2) added
 	//rT1->pT1
 	//rT2->pT2
@@ -114,7 +110,7 @@ void external_immune_model( double dt )
 	
     for(j = 0; j < 4; j++){
 		f[j][0] = {-dDm*x[j][0]}; //DM
-        	f[j][1] = {pT/(x[j][12]+pT2)*x[j][9]*x[j][12]+rT1*x[j][1]*(1E6-x[j][1])/1E6*x[j][12]/(x[j][12]+rT2) - dT1*x[j][1]*x[j][12]/(x[j][12]+dT2)}; //Tc
+        f[j][1] = {pT/(x[j][12]+pT2)*x[j][9]*x[j][12]+rT1*x[j][1]*x[j][12]/(x[j][12]+rT2) - dT1*x[j][1]*x[j][12]/(x[j][12]+dT2)}; //Tc
 		f[j][2] = {sTh1*x[j][0]*x[j][10]*(0.1/kh*(1+kh*x[j][3])+x[j][2])/((1+kh*x[j][3])*(1+kh*x[j][3]))+(pTh1*kh*x[j][0]*x[j][2]*x[j][2])/((1+kh*x[j][3])*(1+kh*x[j][3]))-(dTh1*(kh*kh)*x[j][0]*x[j][2]*x[j][2]*x[j][2])/(1+kh*x[j][3])-mTh*x[j][2]}; //Th1
 		f[j][3] = {sTh2*x[j][0]*x[j][10]*(0.1/kh+x[j][3])/(1+kh*x[j][3])+(pTh2*(kh*kh)*(ro+x[j][2]/(1+kh*x[j][3]))*x[j][0]*x[j][3]*x[j][3])/((1+kh*x[j][2]+kh*x[j][3]))-mTh*x[j][3]}; //Th2
 		f[j][4] = {CD8_Tcell_recruitment_rate*(1-(tissueCD8/lypmh_scale)/(r*x[j][1]+(tissueCD8/lypmh_scale)+1E-4))*x[j][1]}; //CD8 export

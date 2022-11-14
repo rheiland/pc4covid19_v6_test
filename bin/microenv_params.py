@@ -196,8 +196,8 @@ class MicroenvTab(object):
 
         param_name34 = Button(description='decay_rate', disabled=True, layout=name_button_layout)
 
-        self.Ig_decay_rate = FloatText(value=0.00139,
-          step=0.0001,style=style, layout=widget_layout)
+        self.Ig_decay_rate = FloatText(value=0.0001,
+          step=1e-05,style=style, layout=widget_layout)
         param_name35 = Button(description='initial_condition', disabled=True, layout=name_button_layout)
 
         self.Ig_initial_condition = FloatText(value=0,style=style, layout=widget_layout)

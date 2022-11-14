@@ -14,7 +14,7 @@
 	</domain>
 	
 	<overall>
-		<max_time units="min">17280</max_time>
+		<max_time units="min">21600</max_time>
 		<time_units>min</time_units>
 		<space_units>micron</space_units>
 	
@@ -433,10 +433,10 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.1</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
@@ -460,7 +460,7 @@
 					description="the mean duration of a cell-cell attachment">0</cell_attachment_lifetime>
 				
 				<TCell_contact_death_threshold units="min" type="double"
-					description="threshold CD8 T cell contact time to trigger apoptosis">25</TCell_contact_death_threshold> <!-- 50 -->
+					description="threshold CD8 T cell contact time to trigger apoptosis">5</TCell_contact_death_threshold> <!-- 50 -->
 				<max_attachment_distance units="micron" type="double"
 					desription="max distance at which to form a cell-cell attachment">15</max_attachment_distance>
 				<elastic_attachment_coefficient units="1/min" type="double"
@@ -513,7 +513,7 @@
 				<activated_speed units="micron/min" type="double" 
 					description="speed after activation">0.4</activated_speed>
 				<activated_cytokine_secretion_rate units="1/min" type="double" 
-					description="rate of secreting pro-inflamatory cytokine after activation">0.01</activated_cytokine_secretion_rate>
+					description="rate of secreting pro-inflamatory cytokine after activation">1</activated_cytokine_secretion_rate>
 
 				<activated_immune_cell units="dimensionless" type="double" 
 					description="used internally to track activation state">0.0</activated_immune_cell>
@@ -807,10 +807,10 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.1</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
@@ -834,7 +834,7 @@
 					description="the mean duration of a cell-cell attachment">0</cell_attachment_lifetime>
 				
 				<TCell_contact_death_threshold units="min" type="double"
-					description="threshold CD8 T cell contact time to trigger apoptosis">25</TCell_contact_death_threshold> <!-- 50 -->
+					description="threshold CD8 T cell contact time to trigger apoptosis">5</TCell_contact_death_threshold> <!-- 50 -->
 				<max_attachment_distance units="micron" type="double"
 					desription="max distance at which to form a cell-cell attachment">15</max_attachment_distance>
 				<elastic_attachment_coefficient units="1/min" type="double"
@@ -879,7 +879,7 @@
 				<activated_speed units="micron/min" type="double" 
 					description="speed after activation">0.4</activated_speed>
 				<activated_cytokine_secretion_rate units="1/min" type="double" 
-					description="rate of secreting pro-inflamatory cytokine after activation">0.01</activated_cytokine_secretion_rate>
+					description="rate of secreting pro-inflamatory cytokine after activation">1</activated_cytokine_secretion_rate>
 
 				<activated_immune_cell units="dimensionless" type="double" 
 					description="used internally to track activation state">0.0</activated_immune_cell>
@@ -1169,10 +1169,10 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.1</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
@@ -1196,7 +1196,7 @@
 					description="the mean duration of a cell-cell attachment">8.5</cell_attachment_lifetime>
 				
 				<TCell_contact_death_threshold units="min" type="double"
-					description="threshold CD8 T cell contact time to trigger apoptosis">25</TCell_contact_death_threshold> <!-- 50 -->
+					description="threshold CD8 T cell contact time to trigger apoptosis">5</TCell_contact_death_threshold> <!-- 50 -->
 				<max_attachment_distance units="micron" type="double"
 					desription="max distance at which to form a cell-cell attachment">15</max_attachment_distance>
 				<elastic_attachment_coefficient units="1/min" type="double"
@@ -1246,7 +1246,7 @@
 				<activated_speed units="micron/min" type="double" 
 					description="speed after activation">0.4</activated_speed>
 				<activated_cytokine_secretion_rate units="1/min" type="double" 
-					description="rate of secreting pro-inflamatory cytokine after activation">0.01</activated_cytokine_secretion_rate>
+					description="rate of secreting pro-inflamatory cytokine after activation">1</activated_cytokine_secretion_rate>
 
 				<activated_immune_cell units="dimensionless" type="double" 
 					description="used internally to track activation state">0.0</activated_immune_cell>
@@ -1359,7 +1359,7 @@
                 <secretion>
 					<substrate name="virion">
                         <secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.004</uptake_rate>
+						<uptake_rate units="1/min">0.01</uptake_rate>
 						<secretion_rate units="1/min">0</secretion_rate>
 					</substrate> 	
 					<substrate name="interferon 1">
@@ -1536,10 +1536,10 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.1</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
@@ -1563,7 +1563,7 @@
 					description="the mean duration of a cell-cell attachment">0</cell_attachment_lifetime>
 				
 				<TCell_contact_death_threshold units="min" type="double"
-					description="threshold CD8 T cell contact time to trigger apoptosis">25</TCell_contact_death_threshold> <!-- 50 -->
+					description="threshold CD8 T cell contact time to trigger apoptosis">5</TCell_contact_death_threshold> <!-- 50 -->
 				<max_attachment_distance units="micron" type="double"
 					desription="max distance at which to form a cell-cell attachment">15</max_attachment_distance>
 				<elastic_attachment_coefficient units="1/min" type="double"
@@ -1613,7 +1613,7 @@
 				<activated_speed units="micron/min" type="double" 
 					description="speed after activation">0.4</activated_speed>
 				<activated_cytokine_secretion_rate units="1/min" type="double" 
-					description="rate of secreting pro-inflamatory cytokine after activation">1</activated_cytokine_secretion_rate>
+					description="rate of secreting pro-inflamatory cytokine after activation">10</activated_cytokine_secretion_rate>
 
 				<activated_immune_cell units="dimensionless" type="double" 
 					description="used internally to track activation state">0.0</activated_immune_cell>
@@ -1726,7 +1726,7 @@
                 <secretion>
 					<substrate name="virion">
                         <secretion_target units="dimensionless substrate concentration">1</secretion_target>
-						<uptake_rate units="1/min">0.004</uptake_rate>
+						<uptake_rate units="1/min">0.01</uptake_rate>
 						<secretion_rate units="1/min">0</secretion_rate>
 					</substrate> 	
 					<substrate name="interferon 1">
@@ -1903,10 +1903,10 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.1</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
@@ -1930,7 +1930,7 @@
 					description="the mean duration of a cell-cell attachment">0</cell_attachment_lifetime>
 				
 				<TCell_contact_death_threshold units="min" type="double"
-					description="threshold CD8 T cell contact time to trigger apoptosis">25</TCell_contact_death_threshold> <!-- 50 -->
+					description="threshold CD8 T cell contact time to trigger apoptosis">5</TCell_contact_death_threshold> <!-- 50 -->
 				<max_attachment_distance units="micron" type="double"
 					desription="max distance at which to form a cell-cell attachment">15</max_attachment_distance>
 				<elastic_attachment_coefficient units="1/min" type="double"
@@ -2271,10 +2271,10 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.1</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
@@ -2298,7 +2298,7 @@
 					description="the mean duration of a cell-cell attachment">0</cell_attachment_lifetime>
 				
 				<TCell_contact_death_threshold units="min" type="double"
-					description="threshold CD8 T cell contact time to trigger apoptosis">25</TCell_contact_death_threshold> <!-- 50 -->
+					description="threshold CD8 T cell contact time to trigger apoptosis">5</TCell_contact_death_threshold> <!-- 50 -->
 				<max_attachment_distance units="micron" type="double"
 					desription="max distance at which to form a cell-cell attachment">15</max_attachment_distance>
 				<elastic_attachment_coefficient units="1/min" type="double"
@@ -2351,7 +2351,7 @@
 				<activated_speed units="micron/min" type="double" 
 					description="speed after activation">0.4</activated_speed>
 				<activated_cytokine_secretion_rate units="1/min" type="double" 
-					description="rate of secreting pro-inflamatory cytokine after activation">0.01</activated_cytokine_secretion_rate>
+					description="rate of secreting pro-inflamatory cytokine after activation">1</activated_cytokine_secretion_rate>
 
 				<activated_immune_cell units="dimensionless" type="double" 
 					description="used internally to track activation state">0.0</activated_immune_cell>
@@ -2642,10 +2642,10 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.1</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
@@ -2669,7 +2669,7 @@
 					description="the mean duration of a cell-cell attachment">0</cell_attachment_lifetime>
 				
 				<TCell_contact_death_threshold units="min" type="double"
-					description="threshold CD8 T cell contact time to trigger apoptosis">25</TCell_contact_death_threshold> <!-- 50 -->
+					description="threshold CD8 T cell contact time to trigger apoptosis">5</TCell_contact_death_threshold> <!-- 50 -->
 				<max_attachment_distance units="micron" type="double"
 					desription="max distance at which to form a cell-cell attachment">15</max_attachment_distance>
 				<elastic_attachment_coefficient units="1/min" type="double"
@@ -2722,7 +2722,7 @@
 				<activated_speed units="micron/min" type="double" 
 					description="speed after activation">0.4</activated_speed>
 				<activated_cytokine_secretion_rate units="1/min" type="double" 
-					description="rate of secreting pro-inflamatory cytokine after activation">0.01</activated_cytokine_secretion_rate>
+					description="rate of secreting pro-inflamatory cytokine after activation">1</activated_cytokine_secretion_rate>
 
 				<activated_immune_cell units="dimensionless" type="double" 
 					description="used internally to track activation state">0.0</activated_immune_cell>
@@ -3013,10 +3013,10 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.1</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
@@ -3040,7 +3040,7 @@
 					description="the mean duration of a cell-cell attachment">0</cell_attachment_lifetime>
 				
 				<TCell_contact_death_threshold units="min" type="double"
-					description="threshold CD8 T cell contact time to trigger apoptosis">25</TCell_contact_death_threshold> <!-- 50 -->
+					description="threshold CD8 T cell contact time to trigger apoptosis">5</TCell_contact_death_threshold> <!-- 50 -->
 				<max_attachment_distance units="micron" type="double"
 					desription="max distance at which to form a cell-cell attachment">15</max_attachment_distance>
 				<elastic_attachment_coefficient units="1/min" type="double"
@@ -3093,7 +3093,7 @@
 				<activated_speed units="micron/min" type="double" 
 					description="speed after activation">0.4</activated_speed>
 				<activated_cytokine_secretion_rate units="1/min" type="double" 
-					description="rate of secreting pro-inflamatory cytokine after activation">0.01</activated_cytokine_secretion_rate>
+					description="rate of secreting pro-inflamatory cytokine after activation">1</activated_cytokine_secretion_rate>
 
 				<activated_immune_cell units="dimensionless" type="double" 
 					description="used internally to track activation state">0.0</activated_immune_cell>
@@ -3379,10 +3379,10 @@
 					
 				
 				<interferon_secretion_rate_via_infection type="double" units="1/min" 
-					description="Type-1 interferon secretion rate for infected cells">0.2</interferon_secretion_rate_via_infection>
+					description="Type-1 interferon secretion rate for infected cells">0.01</interferon_secretion_rate_via_infection>
 <!-- 0.01 to slow pread, 0.1 to halt --> 					
 				<max_interferon_secretion_rate_via_paracrine type="double" units="1/min" 
-					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.05</max_interferon_secretion_rate_via_paracrine>
+					description="Type-1 interferon secretion rate after activation by Type-1 interferon">0.1</max_interferon_secretion_rate_via_paracrine>
 <!-- 0.1 to slow spread, 1 to halt --> 					
 				<interferon_max_response_threshold type="double" units="dimensionless" 
 					description="Interferon response scales linearly until Int-1 exceeds this threshold">1</interferon_max_response_threshold>
@@ -3406,7 +3406,7 @@
 					description="the mean duration of a cell-cell attachment">0</cell_attachment_lifetime>
 				
 				<TCell_contact_death_threshold units="min" type="double"
-					description="threshold CD8 T cell contact time to trigger apoptosis">25</TCell_contact_death_threshold> <!-- 50 -->
+					description="threshold CD8 T cell contact time to trigger apoptosis">5</TCell_contact_death_threshold> <!-- 50 -->
 				<max_attachment_distance units="micron" type="double"
 					desription="max distance at which to form a cell-cell attachment">15</max_attachment_distance>
 				<elastic_attachment_coefficient units="1/min" type="double"
@@ -3459,7 +3459,7 @@
 				<activated_speed units="micron/min" type="double" 
 					description="speed after activation">0.4</activated_speed>
 				<activated_cytokine_secretion_rate units="1/min" type="double" 
-					description="rate of secreting pro-inflamatory cytokine after activation">0.01</activated_cytokine_secretion_rate>
+					description="rate of secreting pro-inflamatory cytokine after activation">1</activated_cytokine_secretion_rate>
 
 				<activated_immune_cell units="dimensionless" type="double" 
 					description="used internally to track activation state">0.0</activated_immune_cell>
@@ -3500,9 +3500,9 @@
 				description="saturating concentration to attract macrophages">0.5</macrophage_recruitment_saturation_signal> <!-- 0.3 debug -->
 
 			<neutrophil_max_recruitment_rate type="double" units="cells/min/micron^3"
-				description="max neutrophil recruitment rate (for saturated signal)">1.5e-8</neutrophil_max_recruitment_rate> <!-- 4e-9 debug -->
+				description="max neutrophil recruitment rate (for saturated signal)">1e-8</neutrophil_max_recruitment_rate> <!-- 4e-9 debug -->
 			<neutrophil_recruitment_min_signal type="double" units="substrate/micron^3"
-				description="min concentration to attract neutrophils">0.1</neutrophil_recruitment_min_signal> <!--0.1 debug -->
+				description="min concentration to attract neutrophils">0.05</neutrophil_recruitment_min_signal> <!--0.1 debug -->
 			<neutrophil_recruitment_saturation_signal type="double" units="substrate/micron^3"
 				description="saturating concentration to attract neutrophils">0.5</neutrophil_recruitment_saturation_signal> <!-- 0.3 debug -->
 				
@@ -3533,9 +3533,9 @@
 			<TC_population_threshold type="double" units="cells"
 				description="TC population threshold">1000</TC_population_threshold>
 			<T_Cell_Recruitment type="double" units="cells/min"
-				description="T cell recruitment factor to tissue">0.001</T_Cell_Recruitment>
+				description="T cell recruitment factor to tissue">0.005</T_Cell_Recruitment>
 			<transport_ratio type="double" units="cells/min"
-				description="ratio to achieve a 95% reduction in transport">0.2</transport_ratio>
+				description="ratio to achieve a 95% reduction in transport">0.05</transport_ratio>
 			<DM_decay type="double" units="cells/min"
 				description="DM decay rate">0.00035</DM_decay>
 			<Th1_max_activation type="double" units="cells/min"
@@ -3557,17 +3557,17 @@
 			<BCell_activation_half type="double" units="cells/min"
 				description="BCell activation rate">1e4</BCell_activation_half>
 			<BCell_DC_proliferation type="double" units="cells/min"
-				description="BCell DC influenced proliferation">0.0012</BCell_DC_proliferation>
+				description="BCell DC influenced proliferation">0.002</BCell_DC_proliferation>
 			<BCell_Th2_wieght_function type="double" units="cells/min"
-				description="BCell proliferation Th2 wieght function">6.6</BCell_Th2_wieght_function>
+				description="BCell proliferation Th2 wieght function">1.25</BCell_Th2_wieght_function>
 			<BCell_damping type="double" units="cells/min"
-				description="BCell damping value">8800</BCell_damping>
+				description="BCell damping value">20000</BCell_damping>
 			<PCell_recuitment type="double" units="cells/min"
 				description="PCell recuitment rate">0.0002</PCell_recuitment>
 			<PCell_degradation type="double" units="cells/min"
 				description="PCell degradation rate">0.00014</PCell_degradation>
 			<Ig_recuitment type="double" units="cells/min"
-				description="Ig recuitment rate">0.05</Ig_recuitment>
+				description="Ig recuitment rate">1</Ig_recuitment>
 			<Ig_degradation type="double" units="cells/min"
 				description="Ig degradation rate">0.00139</Ig_degradation>
 			<DC_leave_prob type="double" units="cells/min"
@@ -3601,6 +3601,8 @@
 				description="Infect center cell with one virion (overrides MOI)">false</use_single_infected_cell>
 			<use_uniform_dist type="bool" units="none" 
 				description="use a uniform distribution">false</use_uniform_dist>
+            <infection_std_dev type="double" units="micron"
+				description="std dev for normal distribution">100</infection_std_dev>
 			
 			<number_of_CD8_Tcells type="int" units="none" 
 				description="initial number of CD8 T cells in tissue">0</number_of_CD8_Tcells>
