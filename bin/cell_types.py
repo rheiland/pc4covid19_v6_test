@@ -827,7 +827,7 @@ class CellTypesTab(object):
         box94 = Box(children=row, layout=box_layout)
         name_btn = Button(description='ACE2_binding_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float83 = FloatText(value='0.0001', step='1e-05', style=style, layout=widget_layout)
+        self.float83 = FloatText(value='0.002', step='0.0001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='ACE2 receptor-virus binding rate', disabled=True, layout=desc_button_layout)
@@ -2302,7 +2302,7 @@ class CellTypesTab(object):
         box251 = Box(children=row, layout=box_layout)
         name_btn = Button(description='ACE2_binding_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float228 = FloatText(value='0.0001', step='1e-05', style=style, layout=widget_layout)
+        self.float228 = FloatText(value='0.002', step='0.0001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='ACE2 receptor-virus binding rate', disabled=True, layout=desc_button_layout)
@@ -3777,7 +3777,7 @@ class CellTypesTab(object):
         box408 = Box(children=row, layout=box_layout)
         name_btn = Button(description='ACE2_binding_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float373 = FloatText(value='0.0001', step='1e-05', style=style, layout=widget_layout)
+        self.float373 = FloatText(value='0.002', step='0.0001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='ACE2 receptor-virus binding rate', disabled=True, layout=desc_button_layout)
@@ -5252,7 +5252,7 @@ class CellTypesTab(object):
         box565 = Box(children=row, layout=box_layout)
         name_btn = Button(description='ACE2_binding_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float518 = FloatText(value='0.0001', step='1e-05', style=style, layout=widget_layout)
+        self.float518 = FloatText(value='0.002', step='0.0001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='ACE2 receptor-virus binding rate', disabled=True, layout=desc_button_layout)
@@ -6727,7 +6727,7 @@ class CellTypesTab(object):
         box722 = Box(children=row, layout=box_layout)
         name_btn = Button(description='ACE2_binding_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float663 = FloatText(value='0.0001', step='1e-05', style=style, layout=widget_layout)
+        self.float663 = FloatText(value='0.002', step='0.0001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='ACE2 receptor-virus binding rate', disabled=True, layout=desc_button_layout)
@@ -8202,7 +8202,7 @@ class CellTypesTab(object):
         box879 = Box(children=row, layout=box_layout)
         name_btn = Button(description='ACE2_binding_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float808 = FloatText(value='0.0001', step='1e-05', style=style, layout=widget_layout)
+        self.float808 = FloatText(value='0.002', step='0.0001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='ACE2 receptor-virus binding rate', disabled=True, layout=desc_button_layout)
@@ -9677,7 +9677,7 @@ class CellTypesTab(object):
         box1036 = Box(children=row, layout=box_layout)
         name_btn = Button(description='ACE2_binding_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float953 = FloatText(value='0.0001', step='1e-05', style=style, layout=widget_layout)
+        self.float953 = FloatText(value='0.002', step='0.0001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='ACE2 receptor-virus binding rate', disabled=True, layout=desc_button_layout)
@@ -11152,7 +11152,7 @@ class CellTypesTab(object):
         box1193 = Box(children=row, layout=box_layout)
         name_btn = Button(description='ACE2_binding_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float1098 = FloatText(value='0.0001', step='1e-05', style=style, layout=widget_layout)
+        self.float1098 = FloatText(value='0.002', step='0.0001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='ACE2 receptor-virus binding rate', disabled=True, layout=desc_button_layout)
@@ -12627,7 +12627,7 @@ class CellTypesTab(object):
         box1350 = Box(children=row, layout=box_layout)
         name_btn = Button(description='ACE2_binding_rate', disabled=True, layout=name_button_layout)
         name_btn.style.button_color = 'tan'
-        self.float1243 = FloatText(value='0.0001', step='1e-05', style=style, layout=widget_layout)
+        self.float1243 = FloatText(value='0.002', step='0.0001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
         description_btn = Button(description='ACE2 receptor-virus binding rate', disabled=True, layout=desc_button_layout)
