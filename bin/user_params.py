@@ -56,7 +56,7 @@ class UserTab(object):
         param_name4.style.button_color = 'tan'
 
         self.macrophage_max_recruitment_rate = FloatText(
-          value=1.5e-8,
+          value=1e-8,
           step=1e-09,
           style=style, layout=widget_layout)
 
@@ -64,7 +64,7 @@ class UserTab(object):
         param_name5.style.button_color = 'lightgreen'
 
         self.macrophage_recruitment_min_signal = FloatText(
-          value=0.1,
+          value=0.05,
           step=0.01,
           style=style, layout=widget_layout)
 
