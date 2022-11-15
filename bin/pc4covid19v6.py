@@ -50,11 +50,17 @@ config_tab = ConfigTab()
 xml_file = os.path.join('data', 'baseline_v6.xml')
 baseline_xml_full_filename = os.path.abspath(xml_file)
 
-xml_file = os.path.join('data', 'regime_immune.xml')
-immune_xml_full_filename = os.path.abspath(xml_file)
+xml_file = os.path.join('data', 'regime_low_moi.xml')
+low_moi_xml_full_filename = os.path.abspath(xml_file)
 
-xml_file = os.path.join('data', 'regime_immune_no_local.xml')
-immune_no_local_xml_full_filename = os.path.abspath(xml_file)
+xml_file = os.path.join('data', 'regime_high_moi.xml')
+high_moi_xml_full_filename = os.path.abspath(xml_file)
+
+# xml_file = os.path.join('data', 'regime_immune.xml')
+# immune_xml_full_filename = os.path.abspath(xml_file)
+
+# xml_file = os.path.join('data', 'regime_immune_no_local.xml')
+# immune_no_local_xml_full_filename = os.path.abspath(xml_file)
 
 # full_xml_filename = os.path.abspath(xml_file)
 
@@ -242,7 +248,8 @@ def get_config_files():
     # baseline_xml_full_filename = os.path.abspath(xml_file)
     # immune_xml_full_filename = os.path.abspath(xml_file)
     # immune_no_local_xml_full_filename = os.path.abspath(xml_file)
-    cf = {"baseline": baseline_xml_full_filename, "immune":immune_xml_full_filename, "immune-no local":immune_no_local_xml_full_filename }
+    # cf = {"baseline": baseline_xml_full_filename, "immune":immune_xml_full_filename, "immune-no local":immune_no_local_xml_full_filename }
+    cf = {"baseline": baseline_xml_full_filename, "low MOI":low_moi_xml_full_filename, "high MOI":high_moi_xml_full_filename }
 
     path_to_share = os.path.join('~', '.local','share','pc4covid19_v6')
     dirname = os.path.expanduser(path_to_share)
