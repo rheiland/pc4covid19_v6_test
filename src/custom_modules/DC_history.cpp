@@ -3,7 +3,7 @@
 
 using namespace PhysiCell; 
 
-std::string DC_history_version = "0.5.0"; 
+std::string DC_history_version = "0.6.0"; 
 
 Submodel_Information DC_history_info; 
 
