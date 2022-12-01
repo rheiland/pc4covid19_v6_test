@@ -146,7 +146,7 @@ class MicroenvTab(object):
         self.pro_pyroptosis_cytokine_Dirichlet_boundary_condition = FloatText(value=0,style=style, layout=widget_layout)
         self.pro_pyroptosis_cytokine_Dirichlet_boundary_condition_toggle = Checkbox(description='on/off', disabled=False,style=style, layout=widget_layout)
 
-        menv_var7 = Button(description='anti_inflammatory_cytokine (mol/micron^3)', disabled=True, layout=name_button_layout)
+        menv_var7 = Button(description='anti_inflammatory_cytokine (ng/micron^3)', disabled=True, layout=name_button_layout)
         menv_var7.style.button_color = 'tan'
 
         param_name25 = Button(description='diffusion_coefficient', disabled=True, layout=name_button_layout)
@@ -166,7 +166,7 @@ class MicroenvTab(object):
         self.anti_inflammatory_cytokine_Dirichlet_boundary_condition = FloatText(value=0,style=style, layout=widget_layout)
         self.anti_inflammatory_cytokine_Dirichlet_boundary_condition_toggle = Checkbox(description='on/off', disabled=False,style=style, layout=widget_layout)
 
-        menv_var8 = Button(description='collagen (mol/micron^3)', disabled=True, layout=name_button_layout)
+        menv_var8 = Button(description='collagen (ug/micron^3)', disabled=True, layout=name_button_layout)
         menv_var8.style.button_color = 'lightgreen'
 
         param_name29 = Button(description='diffusion_coefficient', disabled=True, layout=name_button_layout)
