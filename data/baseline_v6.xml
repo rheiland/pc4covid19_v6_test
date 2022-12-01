@@ -14,7 +14,7 @@
 	</domain>
 	
 	<overall>
-		<max_time units="min">21600</max_time> <!-- 8640, 5 days * 24 h * 60 min -->
+		<max_time units="min">21600</max_time> 
 		<time_units>min</time_units>
 		<space_units>micron</space_units>
 	
@@ -33,15 +33,15 @@
 	</options>	
 	
 	<save>
-		<folder>out_rwh_1core_flat_immune</folder> <!-- use . for root --> 
+		<folder>.</folder> <!-- use . for root --> 
 
 		<full_data>
-			<interval units="min">360</interval>
+			<interval units="min">180</interval>
 			<enable>true</enable>
 		</full_data>
 		
 		<SVG>
-			<interval units="min">360</interval>
+			<interval units="min">180</interval>
 			<enable>true</enable>
 		</SVG>
 		
@@ -3921,7 +3921,6 @@
 						description="transport time of DC to lymph node">0.5</Lymph_node_td> <!-- 0.3 debug -->
 			<Lymph_node_Th type="double" units="days"
 						description="transport time of T helper cells to lymph node">0.25</Lymph_node_Th>
-		<!-- 0.3 debug -->
 
 
 		<!-- (Michael) added parameters for external_immune-->
@@ -3993,17 +3992,17 @@
 			<!-- added parameters for fibroblast-->
 			
 			<fibroblast_max_recruitment_rate type="double" units="cells/min/micron^3"
-				description="max fibroblast cell recruitment rate (for saturated signal)">4e-9</fibroblast_max_recruitment_rate> <!-- 4e-9 debug -->
+				description="max fibroblast cell recruitment rate (for saturated signal)">4e-9</fibroblast_max_recruitment_rate> 
 			<fibroblast_recruitment_min_signal type="double" units="substrate/micron^3"
-				description="min concentration to attract fibroblast cells">7.1092</fibroblast_recruitment_min_signal> <!-- 0.3 debug -->
+				description="min concentration to attract fibroblast cells">7.1092</fibroblast_recruitment_min_signal> 
 			<fibroblast_recruitment_saturation_signal type="double" units="substrate/micron^3"
-				description="saturating concentration to attract fibroblast cells">22.928</fibroblast_recruitment_saturation_signal> <!-- 0.7 debug -->
+				description="saturating concentration to attract fibroblast cells">22.928</fibroblast_recruitment_saturation_signal> 
 		
 		<div_initialization type="divider" description="---Initialization Options--"/>
 			<mech_voxel_size type="double" units="micron"
-				description="size of mechanics voxel">30</mech_voxel_size> <!-- 0.01 debug -->
+				description="WARNING: advanced use only">30</mech_voxel_size> 
 			<multiplicity_of_infection type="double" units="none" 
-				description="multiplicity of infection: virions/cells at t=0">0.1</multiplicity_of_infection> <!-- 0.01 debug -->
+				description="multiplicity of infection: virions/cells at t=0">0.1</multiplicity_of_infection> 
 			<use_single_infected_cell type="bool" units="none" 
 				description="Infect center cell with one virion (overrides MOI)">false</use_single_infected_cell>
 			<use_uniform_dist type="bool" units="none" 
