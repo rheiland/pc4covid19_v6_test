@@ -44,7 +44,7 @@ class CellTypesTab(object):
 
         self.cell_type_dict = {}
         self.cell_type_dict['lung epithelium'] = 'lung epithelium'
-        self.cell_type_dict['immune'] = 'immune'
+        # self.cell_type_dict['immune'] = 'immune'     # rwh: we don't want to expose this "parent", but need to keep it in the .xml for reproducibility!!
         self.cell_type_dict['CD8 Tcell'] = 'CD8 Tcell'
         self.cell_type_dict['macrophage'] = 'macrophage'
         self.cell_type_dict['neutrophil'] = 'neutrophil'
