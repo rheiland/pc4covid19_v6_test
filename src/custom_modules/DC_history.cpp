@@ -47,7 +47,7 @@ void DC_history_model( Cell* pCell, Phenotype& phenotype, double dt )
 	if( pCell->custom_data["activated_immune_cell"] >  0.5 && UniformRandom() < DCprob)
 	{
 		// (Adrianne) DC leaves the tissue and so we lyse that DC
-		std::cout<<"DC leaves tissue"<<std::endl;
+		// std::cout<<"DC leaves tissue"<<std::endl;
 		pCell->lyse_cell(); 
 		#pragma omp critical 
 		{ DCAMOUNT++; } // add one	
