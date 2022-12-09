@@ -23,7 +23,6 @@ import platform
 import subprocess
 from debug import debug_view
 
-debug_print = True
 debug_print = False
 
 hublib_flag = True
@@ -44,6 +43,8 @@ else:
 # create the tabs, but don't display yet
 about_tab = AboutTab()
 config_tab = ConfigTab()
+
+# last_dropdown_config_index = 0  # never figured out how to do this!
 
 # cf = {"baseline": "baseline_v6.xml", "immune":"regime_immune.xml", "immune-no local":"regime_immune_no_local.xml"}
 # xml_file = os.path.join('data', 'PhysiCell_settings.xml')
@@ -89,7 +90,9 @@ if( 'HOME' in os.environ.keys() ):
 # In that case, we don't want to recompute substrate.py self.numx, self.numy because we're still displaying plots from previous sim.
 def read_config_cb(_b):
     # with debug_view:
-    #     print("read_config_cb", read_config.value)
+    #     print("read_config_cb():  read_config.value=", read_config.value)
+    #     print("read_config_cb():  read_config.index=", read_config.index)
+
 
     sub.first_time = True
 
@@ -102,6 +105,7 @@ def read_config_cb(_b):
     if os.path.isdir(read_config.value):
         is_dir = True
         config_file = os.path.join(read_config.value, 'config.xml')
+
         # print("read_config_cb(): is_dir=True; config_file=",config_file)
     else:
         is_dir = False
@@ -348,6 +352,7 @@ def run_done_func(s, rdir):
     # with debug_view:
     #     print('run_done_func: ---- before updating read_config.options')
     read_config.options = get_config_files()
+
     # with debug_view:
     #     print('run_done_func: ---- after updating read_config.options')
 
