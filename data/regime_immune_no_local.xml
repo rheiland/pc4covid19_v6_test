@@ -36,12 +36,12 @@
 		<folder>.</folder> <!-- use . for root --> 
 
 		<full_data>
-			<interval units="min">360</interval>
+			<interval units="min">180</interval>
 			<enable>true</enable>
 		</full_data>
 		
 		<SVG>
-			<interval units="min">360</interval>
+			<interval units="min">180</interval>
 			<enable>true</enable>
 		</SVG>
 		
