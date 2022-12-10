@@ -1035,7 +1035,12 @@ class SubstrateTab(object):
         #     if (self.analysis_data_set3 == False):
                 # compute viral load in epi cells
                 # self.yval10 = np.array( [np.where(mcds[idx].data['discrete_cells']['cell_type'] == 1) & np.floor(mcds[idx].data['discrete_cells']['assembled_virion']).sum()  for idx in range(ds_count)] )
-        self.yval10 = np.array( [np.floor(mcds[idx].data['discrete_cells']['assembled_virion']).sum()  for idx in range(ds_count)] ).astype(int)
+        # self.yval10 = np.array( [np.floor(mcds[idx].data['discrete_cells']['assembled_virion']).sum()  for idx in range(ds_count)] ).astype(int)
+        virI = np.array( [np.sum(mcds[idx].data['discrete_cells']['assembled_virion']) for idx in range(ds_count)] ).astype(int)
+        voxel_volume = mcds[0].data['mesh']['voxels']['volumes'][0]
+        virs = np.array( [np.sum(mcds[idx].data['continuum_variables']['virion']['data'])*voxel_volume  for idx in range(ds_count)] ).astype(float)
+        # self.y_load = np.add(virI, virs)
+        self.yval10 = np.array( [np.add(virI[idx],virs[idx]) for idx in range(ds_count)] ).astype(float)
 
         # self.analysis_data_set3 = True 
 
