@@ -2208,7 +2208,7 @@
 				<bound_internal_ACE2 type="double" units="receptors"
 					description="initial number of internalized bound ACE2 receptors">0</bound_internal_ACE2>
 	
-				<ACE2_binding_rate type="double" units="1/min" 
+				<ACE2_binding_rate type="double" units="micron^3/(# min)" 
 					description="ACE2 receptor-virus binding rate">0.002</ACE2_binding_rate> 
 				<ACE2_endocytosis_rate type="double" units="1/min" 
 					description="ACE2 receptor-virus endocytosis rate">0.01</ACE2_endocytosis_rate> 
