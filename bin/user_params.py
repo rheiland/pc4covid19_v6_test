@@ -1205,41 +1205,41 @@ class UserTab(object):
         desc_button62.style.button_color = 'tan'
         desc_button63 = Button(description='Departure rate of activated DCs' , tooltip='Departure rate of activated DCs', disabled=True, layout=desc_button_layout) 
         desc_button63.style.button_color = 'lightgreen'
-        desc_button64 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button64 = Button(description='Number of virions needed to activate DC' , tooltip='Number of virions needed to activate DC', disabled=True, layout=desc_button_layout) 
         desc_button64.style.button_color = 'tan'
-        desc_button65 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button65 = Button(description='Multiple of interaction distance for immune cells' , tooltip='Multiple of interaction distance for immune cells', disabled=True, layout=desc_button_layout) 
         desc_button65.style.button_color = 'lightgreen'
         desc_button66 = Button(description='percentage of tissue sitting above blood vessels' , tooltip='percentage of tissue sitting above blood vessels', disabled=True, layout=desc_button_layout) 
         desc_button66.style.button_color = 'tan'
-        desc_button67 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button67 = Button(description='Initial value of DC in the lymph' , tooltip='Initial value of DC in the lymph', disabled=True, layout=desc_button_layout) 
         desc_button67.style.button_color = 'lightgreen'
-        desc_button68 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button68 = Button(description='Initial value of Licensed DC in the lymph' , tooltip='Initial value of Licensed DC in the lymph', disabled=True, layout=desc_button_layout) 
         desc_button68.style.button_color = 'tan'
-        desc_button69 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button69 = Button(description='Initial value of TC in the lymph' , tooltip='Initial value of TC in the lymph', disabled=True, layout=desc_button_layout) 
         desc_button69.style.button_color = 'lightgreen'
-        desc_button70 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button70 = Button(description='Initial value of TH1 in the lymph' , tooltip='Initial value of TH1 in the lymph', disabled=True, layout=desc_button_layout) 
         desc_button70.style.button_color = 'tan'
-        desc_button71 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button71 = Button(description='Initial value of TH2 in the lymph' , tooltip='Initial value of TH2 in the lymph', disabled=True, layout=desc_button_layout) 
         desc_button71.style.button_color = 'lightgreen'
-        desc_button72 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button72 = Button(description='Initial value of TCt in the lymph (should be 0)' , tooltip='Initial value of TCt in the lymph (should be 0)', disabled=True, layout=desc_button_layout) 
         desc_button72.style.button_color = 'tan'
-        desc_button73 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button73 = Button(description='Initial value of Tht in the lymph (should be 0)' , tooltip='Initial value of Tht in the lymph (should be 0)', disabled=True, layout=desc_button_layout) 
         desc_button73.style.button_color = 'lightgreen'
-        desc_button74 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button74 = Button(description='Initial value of B Cells in the lymph' , tooltip='Initial value of B Cells in the lymph', disabled=True, layout=desc_button_layout) 
         desc_button74.style.button_color = 'tan'
-        desc_button75 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button75 = Button(description='Initial value of Plasma Cells in the lymph' , tooltip='Initial value of Plasma Cells in the lymph', disabled=True, layout=desc_button_layout) 
         desc_button75.style.button_color = 'lightgreen'
-        desc_button76 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button76 = Button(description='Initial value of Antibody in the lymph to transport (should be 0)' , tooltip='Initial value of Antibody in the lymph to transport (should be 0)', disabled=True, layout=desc_button_layout) 
         desc_button76.style.button_color = 'tan'
-        desc_button77 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button77 = Button(description='Initial value of Naive Cytotoxic T Cells in the lymph' , tooltip='Initial value of Naive Cytotoxic T Cells in the lymph', disabled=True, layout=desc_button_layout) 
         desc_button77.style.button_color = 'lightgreen'
-        desc_button78 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button78 = Button(description='Initial value of Naive Helper T Cells in the lymph' , tooltip='Initial value of Naive Helper T Cells in the lymph', disabled=True, layout=desc_button_layout) 
         desc_button78.style.button_color = 'tan'
-        desc_button79 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button79 = Button(description='Initial value of Naive B Cells in the lymph' , tooltip='Initial value of Naive B Cells in the lymph', disabled=True, layout=desc_button_layout) 
         desc_button79.style.button_color = 'lightgreen'
-        desc_button80 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button80 = Button(description='time of Ig injection' , tooltip='time of Ig injection', disabled=True, layout=desc_button_layout) 
         desc_button80.style.button_color = 'tan'
-        desc_button81 = Button(description='' , tooltip='', disabled=True, layout=desc_button_layout) 
+        desc_button81 = Button(description='amount of Ig injection' , tooltip='amount of Ig injection', disabled=True, layout=desc_button_layout) 
         desc_button81.style.button_color = 'lightgreen'
         desc_button82 = Button(description='color cells based on this variable' , tooltip='color cells based on this variable', disabled=True, layout=desc_button_layout) 
         desc_button82.style.button_color = 'tan'
