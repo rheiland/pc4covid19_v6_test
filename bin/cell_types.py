@@ -44,7 +44,7 @@ class CellTypesTab(object):
 
         self.cell_type_dict = {}
         self.cell_type_dict['lung epithelium'] = 'lung epithelium'
-        # self.cell_type_dict['immune'] = 'immune'  # don't expose, but keep in config!
+        # self.cell_type_dict['immune'] = 'immune'  #rwh: don't expose, but leave in config!
         self.cell_type_dict['CD8 Tcell'] = 'CD8 Tcell'
         self.cell_type_dict['macrophage'] = 'macrophage'
         self.cell_type_dict['neutrophil'] = 'neutrophil'
@@ -1241,7 +1241,7 @@ class CellTypesTab(object):
         self.float124 = FloatText(value='15', step='1', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='max distance at which to form a cell-cell attachment', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float124, units_btn, description_btn] 
 
@@ -1271,7 +1271,7 @@ class CellTypesTab(object):
         self.float127 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='micron/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate material is ingested by phagocyte', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float127, units_btn, description_btn] 
 
@@ -1281,7 +1281,7 @@ class CellTypesTab(object):
         self.float128 = FloatText(value='6500', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for macrophage exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float128, units_btn, description_btn] 
 
@@ -1291,7 +1291,7 @@ class CellTypesTab(object):
         self.float129 = FloatText(value='1581', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float129, units_btn, description_btn] 
 
@@ -1301,7 +1301,7 @@ class CellTypesTab(object):
         self.float130 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float130, units_btn, description_btn] 
 
@@ -1341,7 +1341,7 @@ class CellTypesTab(object):
         self.float134 = FloatText(value='0.167', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate of phagocytosing a nearby target', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float134, units_btn, description_btn] 
 
@@ -1351,7 +1351,7 @@ class CellTypesTab(object):
         self.float135 = FloatText(value='1.1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='do not phagocytose anything over this size (relative to cell volume)', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float135, units_btn, description_btn] 
 
@@ -2716,7 +2716,7 @@ class CellTypesTab(object):
         self.float269 = FloatText(value='15', step='1', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='max distance at which to form a cell-cell attachment', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float269, units_btn, description_btn] 
 
@@ -2746,7 +2746,7 @@ class CellTypesTab(object):
         self.float272 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='micron/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate material is ingested by phagocyte', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float272, units_btn, description_btn] 
 
@@ -2756,7 +2756,7 @@ class CellTypesTab(object):
         self.float273 = FloatText(value='6500', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for macrophage exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float273, units_btn, description_btn] 
 
@@ -2766,7 +2766,7 @@ class CellTypesTab(object):
         self.float274 = FloatText(value='1581', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float274, units_btn, description_btn] 
 
@@ -2776,7 +2776,7 @@ class CellTypesTab(object):
         self.float275 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float275, units_btn, description_btn] 
 
@@ -2816,7 +2816,7 @@ class CellTypesTab(object):
         self.float279 = FloatText(value='0.167', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate of phagocytosing a nearby target', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float279, units_btn, description_btn] 
 
@@ -2826,7 +2826,7 @@ class CellTypesTab(object):
         self.float280 = FloatText(value='1.1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='do not phagocytose anything over this size (relative to cell volume)', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float280, units_btn, description_btn] 
 
@@ -4191,7 +4191,7 @@ class CellTypesTab(object):
         self.float414 = FloatText(value='15', step='1', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='max distance at which to form a cell-cell attachment', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float414, units_btn, description_btn] 
 
@@ -4221,7 +4221,7 @@ class CellTypesTab(object):
         self.float417 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='micron/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate material is ingested by phagocyte', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float417, units_btn, description_btn] 
 
@@ -4231,7 +4231,7 @@ class CellTypesTab(object):
         self.float418 = FloatText(value='6500', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for macrophage exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float418, units_btn, description_btn] 
 
@@ -4241,7 +4241,7 @@ class CellTypesTab(object):
         self.float419 = FloatText(value='1581', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float419, units_btn, description_btn] 
 
@@ -4251,7 +4251,7 @@ class CellTypesTab(object):
         self.float420 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float420, units_btn, description_btn] 
 
@@ -4291,7 +4291,7 @@ class CellTypesTab(object):
         self.float424 = FloatText(value='0.167', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate of phagocytosing a nearby target', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float424, units_btn, description_btn] 
 
@@ -4301,7 +4301,7 @@ class CellTypesTab(object):
         self.float425 = FloatText(value='1.1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='do not phagocytose anything over this size (relative to cell volume)', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float425, units_btn, description_btn] 
 
@@ -5666,7 +5666,7 @@ class CellTypesTab(object):
         self.float559 = FloatText(value='15', step='1', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='max distance at which to form a cell-cell attachment', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float559, units_btn, description_btn] 
 
@@ -5696,7 +5696,7 @@ class CellTypesTab(object):
         self.float562 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='micron/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate material is ingested by phagocyte', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float562, units_btn, description_btn] 
 
@@ -5706,7 +5706,7 @@ class CellTypesTab(object):
         self.float563 = FloatText(value='6500', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for macrophage exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float563, units_btn, description_btn] 
 
@@ -5716,7 +5716,7 @@ class CellTypesTab(object):
         self.float564 = FloatText(value='1581', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float564, units_btn, description_btn] 
 
@@ -5726,7 +5726,7 @@ class CellTypesTab(object):
         self.float565 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float565, units_btn, description_btn] 
 
@@ -5766,7 +5766,7 @@ class CellTypesTab(object):
         self.float569 = FloatText(value='0.167', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate of phagocytosing a nearby target', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float569, units_btn, description_btn] 
 
@@ -5776,7 +5776,7 @@ class CellTypesTab(object):
         self.float570 = FloatText(value='1.1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='do not phagocytose anything over this size (relative to cell volume)', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float570, units_btn, description_btn] 
 
@@ -7141,7 +7141,7 @@ class CellTypesTab(object):
         self.float704 = FloatText(value='15', step='1', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='max distance at which to form a cell-cell attachment', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float704, units_btn, description_btn] 
 
@@ -7171,7 +7171,7 @@ class CellTypesTab(object):
         self.float707 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='micron/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate material is ingested by phagocyte', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float707, units_btn, description_btn] 
 
@@ -7181,7 +7181,7 @@ class CellTypesTab(object):
         self.float708 = FloatText(value='6500', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for macrophage exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float708, units_btn, description_btn] 
 
@@ -7191,7 +7191,7 @@ class CellTypesTab(object):
         self.float709 = FloatText(value='1581', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float709, units_btn, description_btn] 
 
@@ -7201,7 +7201,7 @@ class CellTypesTab(object):
         self.float710 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float710, units_btn, description_btn] 
 
@@ -7241,7 +7241,7 @@ class CellTypesTab(object):
         self.float714 = FloatText(value='0.167', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate of phagocytosing a nearby target', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float714, units_btn, description_btn] 
 
@@ -7251,7 +7251,7 @@ class CellTypesTab(object):
         self.float715 = FloatText(value='1.1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='do not phagocytose anything over this size (relative to cell volume)', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float715, units_btn, description_btn] 
 
@@ -8616,7 +8616,7 @@ class CellTypesTab(object):
         self.float849 = FloatText(value='15', step='1', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='max distance at which to form a cell-cell attachment', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float849, units_btn, description_btn] 
 
@@ -8646,7 +8646,7 @@ class CellTypesTab(object):
         self.float852 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='micron/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate material is ingested by phagocyte', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float852, units_btn, description_btn] 
 
@@ -8656,7 +8656,7 @@ class CellTypesTab(object):
         self.float853 = FloatText(value='6500', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for macrophage exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float853, units_btn, description_btn] 
 
@@ -8666,7 +8666,7 @@ class CellTypesTab(object):
         self.float854 = FloatText(value='1581', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float854, units_btn, description_btn] 
 
@@ -8676,7 +8676,7 @@ class CellTypesTab(object):
         self.float855 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float855, units_btn, description_btn] 
 
@@ -8716,7 +8716,7 @@ class CellTypesTab(object):
         self.float859 = FloatText(value='0.117', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate of phagocytosing a nearby target', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float859, units_btn, description_btn] 
 
@@ -8726,7 +8726,7 @@ class CellTypesTab(object):
         self.float860 = FloatText(value='1.1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='do not phagocytose anything over this size (relative to cell volume)', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float860, units_btn, description_btn] 
 
@@ -10091,7 +10091,7 @@ class CellTypesTab(object):
         self.float994 = FloatText(value='15', step='1', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='max distance at which to form a cell-cell attachment', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float994, units_btn, description_btn] 
 
@@ -10121,7 +10121,7 @@ class CellTypesTab(object):
         self.float997 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='micron/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate material is ingested by phagocyte', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float997, units_btn, description_btn] 
 
@@ -10131,7 +10131,7 @@ class CellTypesTab(object):
         self.float998 = FloatText(value='6500', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for macrophage exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float998, units_btn, description_btn] 
 
@@ -10141,7 +10141,7 @@ class CellTypesTab(object):
         self.float999 = FloatText(value='1581', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float999, units_btn, description_btn] 
 
@@ -10151,7 +10151,7 @@ class CellTypesTab(object):
         self.float1000 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1000, units_btn, description_btn] 
 
@@ -10191,7 +10191,7 @@ class CellTypesTab(object):
         self.float1004 = FloatText(value='0.167', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate of phagocytosing a nearby target', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1004, units_btn, description_btn] 
 
@@ -10201,7 +10201,7 @@ class CellTypesTab(object):
         self.float1005 = FloatText(value='1.1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='do not phagocytose anything over this size (relative to cell volume)', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float1005, units_btn, description_btn] 
 
@@ -11566,7 +11566,7 @@ class CellTypesTab(object):
         self.float1139 = FloatText(value='15', step='1', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='max distance at which to form a cell-cell attachment', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1139, units_btn, description_btn] 
 
@@ -11596,7 +11596,7 @@ class CellTypesTab(object):
         self.float1142 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='micron/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate material is ingested by phagocyte', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float1142, units_btn, description_btn] 
 
@@ -11606,7 +11606,7 @@ class CellTypesTab(object):
         self.float1143 = FloatText(value='6500', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for macrophage exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1143, units_btn, description_btn] 
 
@@ -11616,7 +11616,7 @@ class CellTypesTab(object):
         self.float1144 = FloatText(value='1581', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float1144, units_btn, description_btn] 
 
@@ -11626,7 +11626,7 @@ class CellTypesTab(object):
         self.float1145 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1145, units_btn, description_btn] 
 
@@ -11666,7 +11666,7 @@ class CellTypesTab(object):
         self.float1149 = FloatText(value='0.167', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate of phagocytosing a nearby target', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1149, units_btn, description_btn] 
 
@@ -11676,7 +11676,7 @@ class CellTypesTab(object):
         self.float1150 = FloatText(value='1.1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='do not phagocytose anything over this size (relative to cell volume)', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float1150, units_btn, description_btn] 
 
@@ -13041,7 +13041,7 @@ class CellTypesTab(object):
         self.float1284 = FloatText(value='15', step='1', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='max distance at which to form a cell-cell attachment', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1284, units_btn, description_btn] 
 
@@ -13071,7 +13071,7 @@ class CellTypesTab(object):
         self.float1287 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='micron/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate material is ingested by phagocyte', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float1287, units_btn, description_btn] 
 
@@ -13081,7 +13081,7 @@ class CellTypesTab(object):
         self.float1288 = FloatText(value='6500', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for macrophage exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1288, units_btn, description_btn] 
 
@@ -13091,7 +13091,7 @@ class CellTypesTab(object):
         self.float1289 = FloatText(value='1581', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float1289, units_btn, description_btn] 
 
@@ -13101,7 +13101,7 @@ class CellTypesTab(object):
         self.float1290 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1290, units_btn, description_btn] 
 
@@ -13141,7 +13141,7 @@ class CellTypesTab(object):
         self.float1294 = FloatText(value='0.167', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate of phagocytosing a nearby target', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1294, units_btn, description_btn] 
 
@@ -13151,7 +13151,7 @@ class CellTypesTab(object):
         self.float1295 = FloatText(value='1.1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='do not phagocytose anything over this size (relative to cell volume)', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float1295, units_btn, description_btn] 
 
@@ -14516,7 +14516,7 @@ class CellTypesTab(object):
         self.float1429 = FloatText(value='15', step='1', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='max distance at which to form a cell-cell attachment', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1429, units_btn, description_btn] 
 
@@ -14546,7 +14546,7 @@ class CellTypesTab(object):
         self.float1432 = FloatText(value='1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='micron/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate material is ingested by phagocyte', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float1432, units_btn, description_btn] 
 
@@ -14556,7 +14556,7 @@ class CellTypesTab(object):
         self.float1433 = FloatText(value='6500', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for macrophage exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1433, units_btn, description_btn] 
 
@@ -14566,7 +14566,7 @@ class CellTypesTab(object):
         self.float1434 = FloatText(value='1581', step='100', style=style, layout=widget_layout)
         units_btn = Button(description='micron', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float1434, units_btn, description_btn] 
 
@@ -14576,7 +14576,7 @@ class CellTypesTab(object):
         self.float1435 = FloatText(value='0.01', step='0.001', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='Threshold volume for neutrophil exhaustion', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1435, units_btn, description_btn] 
 
@@ -14616,7 +14616,7 @@ class CellTypesTab(object):
         self.float1439 = FloatText(value='0.167', step='0.01', style=style, layout=widget_layout)
         units_btn = Button(description='1/min', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'lightgreen'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='rate of phagocytosing a nearby target', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'lightgreen'
         row = [name_btn, self.float1439, units_btn, description_btn] 
 
@@ -14626,7 +14626,7 @@ class CellTypesTab(object):
         self.float1440 = FloatText(value='1.1', step='0.1', style=style, layout=widget_layout)
         units_btn = Button(description='', disabled=True, layout=name_button_layout)
         units_btn.style.button_color = 'tan'
-        description_btn = Button(description='', disabled=True, layout=desc_button_layout)
+        description_btn = Button(description='do not phagocytose anything over this size (relative to cell volume)', disabled=True, layout=desc_button_layout)
         description_btn.style.button_color = 'tan'
         row = [name_btn, self.float1440, units_btn, description_btn] 
 
